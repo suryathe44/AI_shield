@@ -76,14 +76,14 @@ function normalizeStringList(value, fallback = []) {
 
 export function loadConfig(overrides = {}) {
   const defaults = {
-    port: parseNumber(process.env.PORT, 3000),
-    host: process.env.HOST ?? "127.0.0.1",
+    port: parseNumber(process.env.PORT, 10000),
+   host: process.env.HOST ?? "0.0.0.0",
     allowedOrigins: normalizeAllowedOrigins(process.env.AI_SHIELD_ALLOWED_ORIGINS),
     masterKey: process.env.AI_SHIELD_MASTER_KEY ?? "",
     adminUsername: normalizeString(process.env.AI_SHIELD_ADMIN_USERNAME, "admin"),
     adminPasswordHash: normalizeString(process.env.AI_SHIELD_ADMIN_PASSWORD_HASH),
     adminOtpSecret: normalizeString(process.env.AI_SHIELD_ADMIN_OTP_SECRET),
-    adminIpWhitelist: normalizeStringList(process.env.AI_SHIELD_ADMIN_IP_WHITELIST, ["127.0.0.1", "::1"]),
+    adminIpWhitelist: normalizeStringList(process.env.AI_SHIELD_ADMIN_IP_WHITELIST, []),
     adminFailedLoginLimit: parseNumber(process.env.AI_SHIELD_ADMIN_FAILED_LOGIN_LIMIT, 3),
     adminSessionTtlMs: parseMinutes(process.env.AI_SHIELD_ADMIN_SESSION_TTL_MIN, 30),
     adminIdleTimeoutMs: parseMinutes(process.env.AI_SHIELD_ADMIN_IDLE_TIMEOUT_MIN, 15),
