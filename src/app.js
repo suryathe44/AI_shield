@@ -1,9 +1,11 @@
 import http from "node:http";
 import { loadConfig } from "./config/env.js";
+import { AdminAuthService } from "./services/adminAuthService.js";
 import { createRateLimiter } from "./middleware/rateLimiter.js";
 import { handleAdminRoutes } from "./routes/adminRoutes.js";
 import { handleAnalyzeRoutes } from "./routes/analyzeRoutes.js";
 import { SecureLogger } from "./services/secureLogger.js";
+import { WindowsOcrService } from "./services/windowsOcr.js";
 import {
   getClientIp,
   sendJson,
@@ -18,15 +20,20 @@ export function createAiShieldApp(overrides = {}) {
     logFilePath: config.logFilePath,
     masterKey: config.masterKey,
   });
+  const adminAuthService = overrides.adminAuthService ?? new AdminAuthService(config);
+  const ocrService = overrides.ocrService ?? new WindowsOcrService();
   const rateLimiter = overrides.rateLimiter ?? createRateLimiter({
     windowMs: config.rateLimitWindowMs,
     analyzeLimit: config.analyzePerMinute,
     adminLimit: config.adminPerMinute,
+    adminAuthLimit: config.adminAuthPerMinute,
   });
 
   const context = {
     config,
     logger,
+    adminAuthService,
+    ocrService,
     rateLimiter,
   };
 
@@ -57,6 +64,8 @@ export function createAiShieldApp(overrides = {}) {
           localAnalysisAvailable: true,
           secureLogging: true,
           screenTextAnalysis: true,
+          screenCaptureOcrFallback: true,
+          adminPortal: true,
           storage: logger.getStorageMetadata(),
         });
         return;
@@ -66,11 +75,14 @@ export function createAiShieldApp(overrides = {}) {
       const routeContext = { ...context, ip };
 
       if (url.pathname.startsWith("/api/admin/")) {
-        const rateState = rateLimiter.consume({ ip, bucket: "admin" });
+        const bucket = url.pathname === "/api/admin/auth/login" ? "admin-auth" : "admin";
+        const rateState = rateLimiter.consume({ ip, bucket });
         setRateLimitHeaders(res, rateState);
         if (!rateState.allowed) {
           sendJson(res, 429, {
-            error: "Admin rate limit exceeded. Please retry later.",
+            error: bucket === "admin-auth"
+              ? "Too many admin login attempts. Please retry later."
+              : "Admin rate limit exceeded. Please retry later.",
           });
           return;
         }
@@ -119,5 +131,7 @@ export function createAiShieldApp(overrides = {}) {
     server,
     config,
     logger,
+    adminAuthService,
+    ocrService,
   };
 }

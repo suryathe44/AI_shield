@@ -94,7 +94,7 @@ function renderAnalysis(target, analysis, originLabel) {
   target.dial.style.setProperty("--angle", angle);
   target.classification.textContent = analysis.classification;
   target.summary.textContent = analysis.summary;
-  target.meta.textContent = `${originLabel} • ML ${analysis.factors.machineLearning.riskScore}/100 • ${analysis.stats.wordCount} words`;
+  target.meta.textContent = `${originLabel} | ML ${analysis.factors.machineLearning.riskScore}/100 | ${analysis.stats.wordCount} words`;
   applyTone(target.card, analysis.classification);
 
   renderList(target.reasons, analysis.explanation, (entry) => entry, "No explanation available.");
@@ -158,7 +158,7 @@ function analyzeScreenLocally() {
       results.screenLocal,
       "Awaiting Consent",
       "Screen analysis stays disabled until you allow screen-text inspection.",
-      "Manual paste or browser OCR",
+      "Manual paste or on-device OCR",
     );
     screenStatus.textContent = "Screen analysis stays disabled until you grant screen-scan consent.";
     return;
@@ -169,8 +169,8 @@ function analyzeScreenLocally() {
     renderEmpty(
       results.screenLocal,
       "Ready",
-      "Paste visible screen text or capture it locally to inspect it.",
-      "Manual paste or browser OCR",
+      "Paste visible screen text or capture the full screen to inspect it.",
+      "Manual paste or on-device OCR",
     );
     screenStatus.textContent = "Visible screen text remains local unless you explicitly send it.";
     return;
@@ -187,7 +187,7 @@ function analyzeScreenLocally() {
 
 async function sendForVerification(endpoint, body, statusElement, targetResult, button, successLabel) {
   button.disabled = true;
-  statusElement.textContent = "Protected verification is running…";
+  statusElement.textContent = "Protected verification is running...";
 
   try {
     const response = await fetch(endpoint, {
@@ -215,6 +215,68 @@ async function sendForVerification(endpoint, body, statusElement, targetResult, 
   } finally {
     button.disabled = false;
   }
+}
+
+async function captureScreenFrame() {
+  const stream = await navigator.mediaDevices.getDisplayMedia({
+    video: {
+      cursor: "always",
+    },
+    audio: false,
+  });
+
+  try {
+    const video = document.createElement("video");
+    video.srcObject = stream;
+    video.muted = true;
+    await video.play();
+
+    await new Promise((resolve) => {
+      window.setTimeout(resolve, 250);
+    });
+
+    const sourceWidth = video.videoWidth || 1280;
+    const sourceHeight = video.videoHeight || 720;
+    const scale = Math.min(1, 1800 / Math.max(sourceWidth, sourceHeight));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(sourceWidth * scale));
+    canvas.height = Math.max(1, Math.round(sourceHeight * scale));
+
+    const context = canvas.getContext("2d");
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    return { canvas };
+  } finally {
+    stream.getTracks().forEach((track) => track.stop());
+  }
+}
+
+async function runOnDeviceScreenOcr(canvas) {
+  const response = await fetch("/api/analyze/screen/capture", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      imageDataUrl: canvas.toDataURL("image/jpeg", 0.92),
+      consent: {
+        process: true,
+        screenScan: true,
+        storeLog: storeLogConsent.checked,
+        persistContentSnippet: snippetConsent.checked,
+      },
+      metadata: {
+        sessionId: crypto.randomUUID(),
+      },
+    }),
+  });
+
+  const payload = await response.json();
+  if (!response.ok) {
+    throw new Error(payload.error || "On-device screen OCR failed.");
+  }
+
+  return payload;
 }
 
 async function verifyMessageWithApi() {
@@ -295,53 +357,37 @@ async function captureScreenTextLocally() {
     return;
   }
 
-  if (typeof window.TextDetector !== "function") {
-    screenStatus.textContent = "Browser OCR is not available here. Paste visible screen text manually for local analysis.";
-    return;
-  }
-
   captureScreenButton.disabled = true;
-  screenStatus.textContent = "Waiting for screen permission…";
+  screenStatus.textContent = "Waiting for screen permission...";
 
-  let stream;
   try {
-    stream = await navigator.mediaDevices.getDisplayMedia({
-      video: true,
-      audio: false,
-    });
+    const { canvas } = await captureScreenFrame();
 
-    const video = document.createElement("video");
-    video.srcObject = stream;
-    video.muted = true;
-    await video.play();
+    if (typeof window.TextDetector === "function") {
+      const bitmap = await createImageBitmap(canvas);
+      const detector = new window.TextDetector();
+      const blocks = await detector.detect(bitmap);
+      const extracted = blocks.map((block) => block.rawValue).filter(Boolean).join("\n");
 
-    await new Promise((resolve) => {
-      window.setTimeout(resolve, 250);
-    });
+      if (!extracted.trim()) {
+        screenStatus.textContent = "No readable text was detected. Paste visible text manually if needed.";
+        return;
+      }
 
-    const canvas = document.createElement("canvas");
-    canvas.width = video.videoWidth || 1280;
-    canvas.height = video.videoHeight || 720;
-    const context = canvas.getContext("2d");
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-    const bitmap = await createImageBitmap(canvas);
-    const detector = new window.TextDetector();
-    const blocks = await detector.detect(bitmap);
-    const extracted = blocks.map((block) => block.rawValue).filter(Boolean).join("\n");
-
-    if (!extracted.trim()) {
-      screenStatus.textContent = "No readable text was detected. Paste visible text manually if needed.";
+      screenInput.value = extracted;
+      analyzeScreenLocally();
+      screenStatus.textContent = `Captured ${blocks.length} text blocks locally. Review before sending anything to the API.`;
       return;
     }
 
-    screenInput.value = extracted;
-    analyzeScreenLocally();
-    screenStatus.textContent = `Captured ${blocks.length} text blocks locally. Review before sending anything to the API.`;
+    screenStatus.textContent = "Browser OCR is unavailable here. Running on-device Windows OCR for the full screen capture.";
+    const payload = await runOnDeviceScreenOcr(canvas);
+    screenInput.value = payload.extractedText ?? "";
+    renderAnalysis(results.screenLocal, payload.analysis, "On-device Windows OCR");
+    screenStatus.textContent = `Captured the full screen and analyzed ${payload.ocr.lineCount} text lines on-device.`;
   } catch (error) {
     screenStatus.textContent = `Screen capture failed: ${error.message}`;
   } finally {
-    stream?.getTracks().forEach((track) => track.stop());
     captureScreenButton.disabled = false;
   }
 }
@@ -377,7 +423,7 @@ renderEmpty(
   results.screenLocal,
   "Awaiting Consent",
   "Visible text stays on-device unless you explicitly send it to the API.",
-  "Manual paste or browser OCR",
+  "Manual paste or on-device OCR",
 );
 renderEmpty(
   results.screenServer,

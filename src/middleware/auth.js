@@ -1,36 +1,30 @@
-import { timingSafeEqual } from "node:crypto";
 import { sendJson } from "../utils/http.js";
 
-export function authorizeAdmin(req, res, config) {
-  const expected = config.adminApiKey;
-  const provided = req.headers["x-admin-api-key"];
-
-  if (!expected) {
-    sendJson(res, 503, {
-      error: "Admin API access is disabled until AI_SHIELD_ADMIN_API_KEY is configured.",
-    });
-    return false;
+export function extractBearerToken(req) {
+  const authorization = req.headers.authorization;
+  if (typeof authorization !== "string") {
+    return "";
   }
 
-  if (typeof provided !== "string") {
-    sendJson(res, 401, {
-      error: "Missing X-Admin-API-Key header.",
+  const match = /^Bearer\s+(.+)$/i.exec(authorization.trim());
+  return match ? match[1].trim() : "";
+}
+
+export function requireAdminSession(req, res, context) {
+  try {
+    const session = context.adminAuthService.authenticate({
+      token: extractBearerToken(req),
+      ipAddress: context.ip,
+      fingerprint: req.headers["x-device-fingerprint"],
     });
-    return false;
-  }
 
-  const providedBuffer = Buffer.from(provided);
-  const expectedBuffer = Buffer.from(expected);
-  const isValid =
-    providedBuffer.length === expectedBuffer.length &&
-    timingSafeEqual(providedBuffer, expectedBuffer);
-
-  if (!isValid) {
-    sendJson(res, 403, {
-      error: "Invalid admin API key.",
+    req.adminSession = session;
+    return session;
+  } catch (error) {
+    sendJson(res, error.statusCode ?? 401, {
+      error: error.message,
+      code: error.code ?? "admin_auth_failed",
     });
-    return false;
+    return null;
   }
-
-  return true;
 }

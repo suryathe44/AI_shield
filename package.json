@@ -7,9 +7,14 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "admin:hash": "node scripts/generate-admin-password-hash.js",
+    "admin:otp-secret": "node scripts/generate-admin-otp-secret.js"
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   }
 }

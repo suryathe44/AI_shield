@@ -35,7 +35,7 @@ export function setSecurityHeaders(req, res, config) {
     "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
   );
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE,OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, X-Admin-API-Key");
+  res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, X-Device-Fingerprint");
 
   if (origin && config.allowedOrigins.has(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);

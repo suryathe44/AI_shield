@@ -1,4 +1,4 @@
-export function createRateLimiter({ windowMs, analyzeLimit, adminLimit }) {
+export function createRateLimiter({ windowMs, analyzeLimit, adminLimit, adminAuthLimit }) {
   const buckets = new Map();
 
   function prune(now) {
@@ -10,7 +10,15 @@ export function createRateLimiter({ windowMs, analyzeLimit, adminLimit }) {
   }
 
   function resolveLimit(bucket) {
-    return bucket === "admin" ? adminLimit : analyzeLimit;
+    if (bucket === "admin") {
+      return adminLimit;
+    }
+
+    if (bucket === "admin-auth") {
+      return adminAuthLimit;
+    }
+
+    return analyzeLimit;
   }
 
   function consume({ ip, bucket = "analyze" }) {

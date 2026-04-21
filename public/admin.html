@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Shield Admin</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-glow page-glow-left"></div>
+    <div class="page-glow page-glow-right"></div>
+    <div class="grid-overlay"></div>
+
+    <main class="admin-shell">
+      <section class="hero admin-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AI Shield Admin</p>
+          <h1>Secure operator access with session binding, 2FA, and blocked-IP control.</h1>
+          <p class="lede">
+            Admin access is protected by a hashed password, time-based one-time password,
+            device fingerprint validation, IP whitelist enforcement, rate limiting, and
+            automatic logout.
+          </p>
+          <div class="hero-pills">
+            <span>Username + password</span>
+            <span>TOTP 2FA</span>
+            <span>IP whitelist</span>
+            <span>Device binding</span>
+            <span>Auto logout</span>
+          </div>
+        </div>
+        <aside class="hero-metric">
+          <p class="metric-label">Security Status</p>
+          <div class="metric-ring">
+            <span id="adminMetric">5</span>
+          </div>
+          <p class="metric-caption">Five control layers protect the admin surface before privileged actions are allowed.</p>
+        </aside>
+      </section>
+
+      <section class="panel admin-panel" id="adminLoginPanel">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Admin Login</p>
+            <h2>Sign in to the protected console</h2>
+          </div>
+          <p class="panel-note">
+            This session is bound to your device fingerprint and current IP. Three failed
+            attempts will block this IP until an authenticated admin unlocks it.
+          </p>
+        </div>
+
+        <form id="adminLoginForm" class="admin-form">
+          <label class="field">
+            <span>Username</span>
+            <input id="adminUsername" class="text-input" autocomplete="username" type="text" />
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input id="adminPassword" class="text-input" autocomplete="current-password" type="password" />
+          </label>
+
+          <label class="field">
+            <span>One-time code</span>
+            <input id="adminOtp" class="text-input" autocomplete="one-time-code" inputmode="numeric" maxlength="6" type="text" />
+          </label>
+
+          <div class="admin-callout">
+            <p class="admin-callout-title">Device Fingerprint</p>
+            <p id="fingerprintText" class="admin-meta"></p>
+          </div>
+
+          <div class="action-row action-row-wrap">
+            <button class="button-primary" id="adminLoginButton" type="submit">Login</button>
+            <p id="adminLoginStatus" class="status-text">Enter your admin credentials and 2FA code.</p>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel admin-panel hidden" id="adminDashboardPanel">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Admin Console</p>
+            <h2>Authenticated session</h2>
+          </div>
+          <div class="action-row action-row-wrap admin-actions-top">
+            <button class="button-secondary" id="refreshSessionButton" type="button">Refresh Session</button>
+            <button class="button-secondary" id="logoutButton" type="button">Logout</button>
+          </div>
+        </div>
+
+        <div class="admin-grid">
+          <article class="result-card">
+            <p class="result-label">Session</p>
+            <div class="admin-meta-grid">
+              <p><strong>User</strong><span id="sessionUser">-</span></p>
+              <p><strong>Expires</strong><span id="sessionExpires">-</span></p>
+              <p><strong>Last Seen</strong><span id="sessionLastSeen">-</span></p>
+              <p><strong>Idle Timeout</strong><span id="sessionIdleTimeout">-</span></p>
+            </div>
+            <p id="adminSessionStatus" class="status-text">Session ready.</p>
+          </article>
+
+          <article class="result-card">
+            <div class="panel-head admin-subhead">
+              <div>
+                <p class="result-label">Blocked IPs</p>
+                <p class="result-meta">IPs blocked after 3 failed login attempts.</p>
+              </div>
+              <button class="button-secondary" id="refreshBlockedButton" type="button">Refresh</button>
+            </div>
+            <div id="blockedIpList" class="admin-list"></div>
+          </article>
+        </div>
+
+        <div class="panel-head admin-subhead">
+          <div>
+            <p class="result-label">Secure Logs</p>
+            <p class="result-meta">Protected log access for admin users only.</p>
+          </div>
+          <div class="action-row action-row-wrap admin-actions-top">
+            <button class="button-secondary" id="refreshLogsButton" type="button">Refresh Logs</button>
+            <button class="button-secondary" id="deleteAllLogsButton" type="button">Delete All Logs</button>
+          </div>
+        </div>
+        <div id="adminLogsList" class="admin-log-grid"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/admin.js"></script>
+  </body>
+</html>
