@@ -1,0 +1,44 @@
+import path from "node:path";
+
+function parseNumber(value, fallback) {
+  const parsed = Number.parseInt(value, 10);
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function normalizeAllowedOrigins(value) {
+  if (value instanceof Set) {
+    return value;
+  }
+
+  if (Array.isArray(value)) {
+    return new Set(value.filter(Boolean));
+  }
+
+  return new Set(
+    String(value ?? "http://127.0.0.1:3000,http://localhost:3000")
+      .split(",")
+      .map((entry) => entry.trim())
+      .filter(Boolean),
+  );
+}
+
+export function loadConfig(overrides = {}) {
+  const defaults = {
+    port: parseNumber(process.env.PORT, 3000),
+    host: process.env.HOST ?? "127.0.0.1",
+    allowedOrigins: normalizeAllowedOrigins(process.env.AI_SHIELD_ALLOWED_ORIGINS),
+    adminApiKey: process.env.AI_SHIELD_ADMIN_API_KEY ?? "",
+    masterKey: process.env.AI_SHIELD_MASTER_KEY ?? "",
+    logFilePath: path.resolve(process.cwd(), process.env.AI_SHIELD_LOG_FILE ?? "./data/secure-logs.enc"),
+    maxBodyBytes: 32_000,
+    rateLimitWindowMs: 60_000,
+    analyzePerMinute: parseNumber(process.env.AI_SHIELD_RATE_LIMIT_ANALYZE_PER_MIN, 60),
+    adminPerMinute: parseNumber(process.env.AI_SHIELD_RATE_LIMIT_ADMIN_PER_MIN, 20),
+  };
+
+  const merged = { ...defaults, ...overrides };
+  merged.allowedOrigins = normalizeAllowedOrigins(merged.allowedOrigins);
+  merged.logFilePath = path.resolve(process.cwd(), merged.logFilePath);
+
+  return merged;
+}

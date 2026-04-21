@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Shield</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-glow page-glow-left"></div>
+    <div class="page-glow page-glow-right"></div>
+    <div class="grid-overlay"></div>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Shield</p>
+        <h1>Real-time scam defense that keeps sensitive data under user control.</h1>
+        <p class="lede">
+          Analyze suspicious messages, phishing prompts, and visible screen text with a
+          layered detection engine that combines local machine learning, rules, and
+          behavioral signals.
+        </p>
+        <div class="hero-pills">
+          <span>Local-first analysis</span>
+          <span>Consent-based processing</span>
+          <span>Encrypted minimal logging</span>
+          <span>Explainable risk scoring</span>
+        </div>
+      </div>
+      <aside class="hero-metric">
+        <p class="metric-label">Detection Stack</p>
+        <div class="metric-ring" id="heroRing">
+          <span>3</span>
+        </div>
+        <p class="metric-caption">ML, rules, and behavior modeling work together to produce a 0-100 risk score.</p>
+      </aside>
+    </header>
+
+    <main class="dashboard">
+      <section class="panel panel-form">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Message Protection</p>
+            <h2>Inspect a message before you trust it</h2>
+          </div>
+          <p class="panel-note">
+            Local analysis begins only after explicit consent. Protected API verification is
+            optional.
+          </p>
+        </div>
+
+        <label class="field">
+          <span>Message or content</span>
+          <textarea
+            id="messageInput"
+            rows="9"
+            placeholder="Paste an email, SMS, chat message, or suspicious prompt here."
+          ></textarea>
+        </label>
+
+        <div class="inline-grid">
+          <label class="field">
+            <span>Source</span>
+            <select id="sourceSelect">
+              <option value="message">Message</option>
+              <option value="email">Email</option>
+              <option value="chat">Chat</option>
+              <option value="sms">SMS</option>
+            </select>
+          </label>
+
+          <div class="consent-box">
+            <p class="consent-title">Privacy Controls</p>
+            <label class="checkbox">
+              <input id="processConsent" type="checkbox" />
+              <span>I consent to message analysis.</span>
+            </label>
+            <label class="checkbox">
+              <input id="storeLogConsent" type="checkbox" />
+              <span>Store minimal encrypted log metadata.</span>
+            </label>
+            <label class="checkbox">
+              <input id="snippetConsent" type="checkbox" disabled />
+              <span>Include an encrypted short content snippet in the log.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button id="serverAnalyzeButton" class="button-primary" type="button">
+            Verify With Protected API
+          </button>
+          <p id="messageStatus" class="status-text">
+            Turn on consent to start local real-time analysis.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel panel-results">
+        <div class="result-grid">
+          <article class="result-card" id="messageLocalCard">
+            <div class="result-head">
+              <p class="result-label">Local Real-Time Verdict</p>
+              <div class="score-wheel" id="messageLocalDial">
+                <span id="messageLocalScore">0</span>
+              </div>
+            </div>
+            <p class="result-badge" id="messageLocalClassification">Awaiting Consent</p>
+            <p class="result-summary" id="messageLocalSummary">
+              AI Shield will analyze in-browser once message-analysis consent is enabled.
+            </p>
+            <p class="result-meta" id="messageLocalMeta">On-device only</p>
+            <ul class="signal-list" id="messageLocalReasons"></ul>
+            <ul class="chip-list" id="messageLocalHighlights"></ul>
+            <ul class="signal-list signal-list-tight" id="messageLocalRecommendations"></ul>
+          </article>
+
+          <article class="result-card result-card-accent" id="messageServerCard">
+            <div class="result-head">
+              <p class="result-label">Protected API Verification</p>
+              <div class="score-wheel" id="messageServerDial">
+                <span id="messageServerScore">0</span>
+              </div>
+            </div>
+            <p class="result-badge" id="messageServerClassification">Not Verified</p>
+            <p class="result-summary" id="messageServerSummary">
+              Server verification will stay idle until you explicitly submit this content.
+            </p>
+            <p class="result-meta" id="messageServerMeta">No data transmitted yet</p>
+            <ul class="signal-list" id="messageServerReasons"></ul>
+            <ul class="chip-list" id="messageServerHighlights"></ul>
+            <ul class="signal-list signal-list-tight" id="messageServerRecommendations"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel panel-form">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Screen Analysis</p>
+            <h2>Analyze visible screen text with permission-based controls</h2>
+          </div>
+          <p class="panel-note">
+            Screen scanning is local-first. If browser OCR is unavailable, you can paste
+            visible text manually.
+          </p>
+        </div>
+
+        <div class="consent-box consent-box-wide">
+          <label class="checkbox">
+            <input id="screenConsent" type="checkbox" />
+            <span>I consent to optional screen-text analysis.</span>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Visible screen text</span>
+          <textarea
+            id="screenInput"
+            rows="7"
+            placeholder="Paste visible text from a suspicious screen, or capture the screen locally if your browser supports OCR."
+          ></textarea>
+        </label>
+
+        <div class="action-row action-row-wrap">
+          <button id="captureScreenButton" class="button-secondary" type="button">
+            Capture Screen Text Locally
+          </button>
+          <button id="screenServerAnalyzeButton" class="button-primary" type="button">
+            Verify Screen Text With API
+          </button>
+          <p id="screenStatus" class="status-text">
+            Screen analysis stays disabled until you grant screen-scan consent.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel panel-results">
+        <div class="result-grid">
+          <article class="result-card" id="screenLocalCard">
+            <div class="result-head">
+              <p class="result-label">Local Screen Verdict</p>
+              <div class="score-wheel" id="screenLocalDial">
+                <span id="screenLocalScore">0</span>
+              </div>
+            </div>
+            <p class="result-badge" id="screenLocalClassification">Awaiting Consent</p>
+            <p class="result-summary" id="screenLocalSummary">
+              Visible text stays on-device unless you explicitly send it to the API.
+            </p>
+            <p class="result-meta" id="screenLocalMeta">Manual paste or browser OCR</p>
+            <ul class="signal-list" id="screenLocalReasons"></ul>
+            <ul class="chip-list" id="screenLocalHighlights"></ul>
+            <ul class="signal-list signal-list-tight" id="screenLocalRecommendations"></ul>
+          </article>
+
+          <article class="result-card result-card-accent" id="screenServerCard">
+            <div class="result-head">
+              <p class="result-label">Protected Screen Verification</p>
+              <div class="score-wheel" id="screenServerDial">
+                <span id="screenServerScore">0</span>
+              </div>
+            </div>
+            <p class="result-badge" id="screenServerClassification">Not Verified</p>
+            <p class="result-summary" id="screenServerSummary">
+              Server-side screen verification is available only when screen consent is active.
+            </p>
+            <p class="result-meta" id="screenServerMeta">Consent-gated</p>
+            <ul class="signal-list" id="screenServerReasons"></ul>
+            <ul class="chip-list" id="screenServerHighlights"></ul>
+            <ul class="signal-list signal-list-tight" id="screenServerRecommendations"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel panel-architecture">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Architecture</p>
+            <h2>Privacy-first by design</h2>
+          </div>
+        </div>
+
+        <div class="architecture-grid">
+          <article>
+            <h3>1. Multi-layer detection</h3>
+            <p>
+              AI Shield combines a local Naive Bayes classifier, a rule engine, and behavior
+              modeling to detect phishing, scams, impersonation, and coercion patterns.
+            </p>
+          </article>
+          <article>
+            <h3>2. Minimal encrypted logging</h3>
+            <p>
+              No storage happens without consent. Logged records are encrypted, anonymized,
+              and limited to the smallest data footprint needed for auditability.
+            </p>
+          </article>
+          <article>
+            <h3>3. Explainable decisions</h3>
+            <p>
+              Every verdict includes reasons, highlighted patterns, and recommended next
+              steps so users understand why a message was flagged.
+            </p>
+          </article>
+          <article>
+            <h3>4. Ready for extension</h3>
+            <p>
+              The API is modular and prepared for future voice-scam detection, browser
+              extensions, additional models, and mobile integration.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
