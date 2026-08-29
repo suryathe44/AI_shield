@@ -83,9 +83,10 @@ function renderEmpty(target, title, summary, meta) {
   target.summary.textContent = summary;
   target.meta.textContent = meta;
   applyTone(target.card, "");
-  renderList(target.reasons, [], (entry) => entry, "No signals yet.");
-  renderList(target.highlights, [], (entry) => entry, "No highlights yet.");
-  renderList(target.recommendations, [], (entry) => entry, "No recommendations yet.");
+  target.card.classList.add("is-empty");
+  renderList(target.reasons, [], (entry) => entry, "No detected reasons yet.");
+  renderList(target.highlights, [], (entry) => entry, "No suspicious patterns yet.");
+  renderList(target.recommendations, [], (entry) => entry, "Recommendations will appear with a verdict.");
 }
 
 function renderAnalysis(target, analysis, originLabel) {
@@ -95,6 +96,7 @@ function renderAnalysis(target, analysis, originLabel) {
   target.classification.textContent = analysis.classification;
   target.summary.textContent = analysis.summary;
   target.meta.textContent = `${originLabel} | ML ${analysis.factors.machineLearning.riskScore}/100 | ${analysis.stats.wordCount} words`;
+  target.card.classList.remove("is-empty");
   applyTone(target.card, analysis.classification);
 
   renderList(target.reasons, analysis.explanation, (entry) => entry, "No explanation available.");
@@ -123,11 +125,11 @@ function analyzeMessageLocally() {
   if (!processConsent.checked) {
     renderEmpty(
       results.messageLocal,
-      "Awaiting Consent",
-      "AI Shield will not inspect content until you explicitly consent to analysis.",
-      "On-device only",
+      "Ready when you are",
+      "Allow analysis and paste a message to see a local risk assessment.",
+      "Runs in this browser",
     );
-    messageStatus.textContent = "Turn on consent to start local real-time analysis.";
+    messageStatus.textContent = "Allow analysis, then paste a message for a local check.";
     return;
   }
 
@@ -137,7 +139,7 @@ function analyzeMessageLocally() {
       results.messageLocal,
       "Ready",
       "Paste a message to start local scam analysis.",
-      "On-device only",
+      "Runs in this browser",
     );
     messageStatus.textContent = "Paste suspicious content to inspect it locally.";
     return;
@@ -149,18 +151,18 @@ function analyzeMessageLocally() {
   });
 
   renderAnalysis(results.messageLocal, analysis, "Browser local analysis");
-  messageStatus.textContent = "Local protection is active. Nothing has been sent to the server.";
+  messageStatus.textContent = "Local verdict updated. Use API verification only if you want a server-confirmed result.";
 }
 
 function analyzeScreenLocally() {
   if (!screenConsent.checked) {
     renderEmpty(
       results.screenLocal,
-      "Awaiting Consent",
-      "Screen analysis stays disabled until you allow screen-text inspection.",
-      "Manual paste or on-device OCR",
+      "Ready when you are",
+      "Allow analysis and add visible text to see a browser-local verdict.",
+      "Pasted text runs in this browser",
     );
-    screenStatus.textContent = "Screen analysis stays disabled until you grant screen-scan consent.";
+    screenStatus.textContent = "Allow screen analysis, then paste text or choose a screen to capture.";
     return;
   }
 
@@ -170,9 +172,9 @@ function analyzeScreenLocally() {
       results.screenLocal,
       "Ready",
       "Paste visible screen text or capture the full screen to inspect it.",
-      "Manual paste or on-device OCR",
+      "Pasted text runs in this browser",
     );
-    screenStatus.textContent = "Visible screen text remains local unless you explicitly send it.";
+    screenStatus.textContent = "Add visible text to generate a local verdict.";
     return;
   }
 
@@ -182,7 +184,7 @@ function analyzeScreenLocally() {
   });
 
   renderAnalysis(results.screenLocal, analysis, "Browser local screen analysis");
-  screenStatus.textContent = "Local screen protection is active. No visible text has been transmitted.";
+  screenStatus.textContent = "Local verdict updated. API verification remains optional.";
 }
 
 async function sendForVerification(endpoint, body, statusElement, targetResult, button, successLabel) {
@@ -251,7 +253,7 @@ async function captureScreenFrame() {
   }
 }
 
-async function runOnDeviceScreenOcr(canvas) {
+async function runLocalServiceScreenOcr(canvas) {
   const response = await fetch("/api/analyze/screen/capture", {
     method: "POST",
     headers: {
@@ -273,7 +275,7 @@ async function runOnDeviceScreenOcr(canvas) {
 
   const payload = await response.json();
   if (!response.ok) {
-    throw new Error(payload.error || "On-device screen OCR failed.");
+    throw new Error(payload.error || "Local service screen OCR failed.");
   }
 
   return payload;
@@ -380,11 +382,11 @@ async function captureScreenTextLocally() {
       return;
     }
 
-    screenStatus.textContent = "Browser OCR is unavailable here. Running on-device Windows OCR for the full screen capture.";
-    const payload = await runOnDeviceScreenOcr(canvas);
+    screenStatus.textContent = "Browser OCR is unavailable. Sending this capture to the locally hosted AI Shield service for Windows OCR.";
+    const payload = await runLocalServiceScreenOcr(canvas);
     screenInput.value = payload.extractedText ?? "";
-    renderAnalysis(results.screenLocal, payload.analysis, "On-device Windows OCR");
-    screenStatus.textContent = `Captured the full screen and analyzed ${payload.ocr.lineCount} text lines on-device.`;
+    renderAnalysis(results.screenLocal, payload.analysis, "Locally hosted Windows OCR");
+    screenStatus.textContent = `Captured the selected screen and analyzed ${payload.ocr.lineCount} text lines with the local AI Shield service.`;
   } catch (error) {
     screenStatus.textContent = `Screen capture failed: ${error.message}`;
   } finally {
@@ -409,25 +411,25 @@ screenServerAnalyzeButton.addEventListener("click", verifyScreenWithApi);
 syncConsentControls();
 renderEmpty(
   results.messageLocal,
-  "Awaiting Consent",
-  "AI Shield will analyze in-browser once message-analysis consent is enabled.",
-  "On-device only",
+  "Ready when you are",
+  "Allow analysis and paste a message to see a local risk assessment.",
+  "Runs in this browser",
 );
 renderEmpty(
   results.messageServer,
   "Not Verified",
-  "Server verification will stay idle until you explicitly submit this content.",
-  "No data transmitted yet",
+  "Use API verification when you want a server-confirmed result.",
+  "Starts only from the verification button",
 );
 renderEmpty(
   results.screenLocal,
-  "Awaiting Consent",
-  "Visible text stays on-device unless you explicitly send it to the API.",
-  "Manual paste or on-device OCR",
+  "Ready when you are",
+  "Allow analysis and add visible text to see a browser-local verdict.",
+  "Pasted text runs in this browser",
 );
 renderEmpty(
   results.screenServer,
   "Not Verified",
-  "Server-side screen verification is available only when screen consent is active.",
-  "Consent-gated",
+  "Send the extracted or pasted text when you want an API-confirmed result.",
+  "Starts only from the verification button",
 );
