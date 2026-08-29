@@ -143,41 +143,41 @@ The dashboard contains two distinct workflows:
 
 ```mermaid
 flowchart LR
-    A[User-provided content] --> B{Processing allowed?}
-    B -- No --> C[Remain idle]
-    B -- Yes --> D[Local ML classifier]
-    B -- Yes --> E[Rule-based indicators]
-    B -- Yes --> F[Behavioral signals]
-    D --> G[Weighted risk score]
+    A["User-provided content"] --> B{"Processing allowed?"}
+    B -->|No| C["Remain idle"]
+    B -->|Yes| D["Local ML classifier"]
+    B -->|Yes| E["Rule-based indicators"]
+    B -->|Yes| F["Behavioral signals"]
+    D --> G["Weighted risk score"]
     E --> G
     F --> G
-    G --> H[SAFE / SUSPICIOUS / SCAM]
-    H --> I[Reasons, highlights, recommendations]
-    I --> J{Verify with API?}
-    J -- No --> K[Keep browser-local result]
-    J -- Yes --> L[AI Shield API verification]
-    L --> M{Store audit log?}
-    M -- No --> N[Return result without storage]
-    M -- Yes --> O[Write encrypted minimal log]
+    G --> H["SAFE / SUSPICIOUS / SCAM"]
+    H --> I["Reasons, highlights, recommendations"]
+    I --> J{"Verify with API?"}
+    J -->|No| K["Keep browser-local result"]
+    J -->|Yes| L["AI Shield API verification"]
+    L --> M{"Store audit log?"}
+    M -->|No| N["Return result without storage"]
+    M -->|Yes| O["Write encrypted minimal log"]
 ```
 
 ## Architecture
 
 ```mermaid
 flowchart TB
-    UI[Responsive Web Dashboard] --> LOCAL[Shared Detection Engine]
-    UI --> API[Node.js HTTP API]
+    UI["Responsive Web Dashboard"] --> LOCAL["Shared Detection Engine"]
+    UI --> API["Node.js HTTP API"]
     API --> LOCAL
-    API --> OCR[Windows OCR Service]
-    API --> LOG[Encrypted Log Store]
-    API --> ADMIN[Admin Authentication Service]
+    API --> OCR["Windows OCR Service"]
+    API --> LOG["Encrypted Log Store"]
+    API --> ADMIN["Admin Authentication Service"]
 
-    LOCAL --> ML[Naive Bayes Classification]
-    LOCAL --> RULES[Threat Rules]
-    LOCAL --> BEHAVIOR[Behavioral Analysis]
+    LOCAL --> ML["Naive Bayes Classification"]
+    LOCAL --> RULES["Threat Rules"]
+    LOCAL --> BEHAVIOR["Behavioral Analysis"]
 
-    ADMIN --> AUTH[Password + TOTP + IP + Device Controls]
-    LOG --> CRYPTO[AES-256-GCM Encryption]
+    ADMIN --> AUTH["Password + TOTP + IP + Device Controls"]
+    LOG --> CRYPTO["AES-256-GCM Encryption"]
 ```
 
 ### Main components
