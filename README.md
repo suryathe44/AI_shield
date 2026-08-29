@@ -4,12 +4,13 @@
 
 ### Detect scams before they cost you.
 
-Privacy-first scam and phishing detection for suspicious messages and visible screen text.
+Privacy-first, explainable scam and phishing detection using local ML, security rules, and behavioral analysis.
 
 [![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=111)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![Tests](https://img.shields.io/badge/tests-node%3Atest-2F80ED)](#testing)
 [![Privacy](https://img.shields.io/badge/privacy-consent--first-26C6DA)](#privacy-model)
+[![Live Demo](https://img.shields.io/badge/live-Render-46E3B7?logo=render&logoColor=111)](https://ai-shield-0h0y.onrender.com/)
 [![License](https://img.shields.io/badge/license-not%20specified-AAB7C4)](#license)
 
 ### [Open the Live Demo](https://ai-shield-0h0y.onrender.com/)
@@ -30,6 +31,24 @@ It combines three detection layers to produce an explainable **0–100 risk scor
 
 The browser can analyze pasted text locally after the user opts in. API verification, encrypted logging, content-preview storage, and screen capture are separate user-controlled actions.
 
+## Why AI Shield?
+
+Scam messages often combine urgency, impersonation, credential theft, suspicious links, and payment pressure to push users into acting before they verify a request.
+
+AI Shield evaluates these signals through three independent detection layers, explains why a score was produced, and keeps processing, API verification, and encrypted logging behind explicit user choices.
+
+## Recruiter / Reviewer Quick View
+
+| Area | Implementation |
+| --- | --- |
+| Stack | Node.js, JavaScript, semantic HTML, and responsive CSS |
+| Detection | Local ML classification, security rules, and behavioral analysis |
+| Output | Explainable 0–100 risk score with SAFE, SUSPICIOUS, or SCAM verdict |
+| Privacy | Scoped consent for processing, screen analysis, logging, and content previews |
+| Security | AES-256-GCM logs, scrypt key derivation, TOTP, IP controls, and rate limits |
+| Workflows | Browser-local inspection with optional API verification |
+| Quality | Automated detection, API, logging, and admin-authentication test suites |
+
 ## Live Deployment
 
 AI Shield is deployed on Render:
@@ -39,6 +58,53 @@ AI Shield is deployed on Render:
 The hosted deployment provides the main dashboard and API-backed verification workflow. Screen-capture OCR availability depends on the host operating system, so the Windows Media OCR fallback is intended for a compatible local Windows deployment.
 
 > Render instances may need a short warm-up period after inactivity.
+
+## Quick Demo
+
+> **Fictional input:** “Urgent: Your bank account will be suspended. Verify your password and OTP at secure-bank-login.example”
+
+Expected output:
+
+- A **SCAM** verdict with a high-risk assessment
+- Credential-request indicators
+- Urgency and threat-pressure signals
+- A suspicious-link pattern
+- Guidance not to click the link or share passwords and one-time codes
+
+The exact score can vary as the embedded corpus, rules, and weighting logic evolve.
+
+## Screenshots
+
+### Dashboard and detection engine
+
+![AI Shield dashboard hero and three-layer detection engine](docs/screenshots/dashboard-hero.png)
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/message-protection.png" alt="Message Protection input and consent workflow" />
+      <br />
+      <strong>Message Protection</strong>
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/screen-analysis.png" alt="Screen Analysis and OCR controls" />
+      <br />
+      <strong>Screen Analysis</strong>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/screen-verdicts.png" alt="Explainable local and API screen verdict panels" />
+      <br />
+      <strong>Explainable verdict panels</strong>
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/architecture.png" alt="AI Shield architecture cards" />
+      <br />
+      <strong>Architecture overview</strong>
+    </td>
+  </tr>
+</table>
 
 ## Highlights
 
@@ -312,14 +378,31 @@ Before production deployment:
 - Review OCR availability for the target operating system.
 - Add monitoring and a managed persistence strategy appropriate to the deployment.
 
+## Known Limitations
+
+- The local classifier uses an embedded training corpus rather than a continuously updated production dataset.
+- Rule-based and behavioral signals may not cover every new or highly targeted scam pattern.
+- The server-side OCR fallback currently depends on Windows Media OCR and PowerShell.
+- Rate limiting is stored in memory and is not shared across multiple application instances.
+- Render instances may require a cold-start warm-up after inactivity.
+- Production precision and recall have not yet been measured against a labeled external evaluation dataset.
+
 ## Roadmap
 
-- Browser extension workflows
-- Hardened cross-platform OCR
+### Near-term
+
+- Browser extension workflow
+- Cross-platform OCR hardening
+- Hindi and English corpus expansion
+- Improved explainability and audit tooling
+
+### Longer-term
+
 - Voice-scam transcript analysis
-- Mobile integration
-- Curated offline model updates
-- Additional explainability and audit tooling
+- Curated evaluation datasets
+- Precision and recall evaluation
+- Production monitoring
+- Secure model-update workflows
 
 ## Responsible Use
 
