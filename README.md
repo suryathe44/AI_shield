@@ -12,6 +12,8 @@ Privacy-first scam and phishing detection for suspicious messages and visible sc
 [![Privacy](https://img.shields.io/badge/privacy-consent--first-26C6DA)](#privacy-model)
 [![License](https://img.shields.io/badge/license-not%20specified-AAB7C4)](#license)
 
+### [Open the Live Demo](https://ai-shield-0h0y.onrender.com/)
+
 </div>
 
 ---
@@ -27,6 +29,16 @@ It combines three detection layers to produce an explainable **0–100 risk scor
 3. **Behavioral risk analysis** — patterns such as urgency, fear, fake authority, secrecy pressure, coercion, and reward bait.
 
 The browser can analyze pasted text locally after the user opts in. API verification, encrypted logging, content-preview storage, and screen capture are separate user-controlled actions.
+
+## Live Deployment
+
+AI Shield is deployed on Render:
+
+**[https://ai-shield-0h0y.onrender.com/](https://ai-shield-0h0y.onrender.com/)**
+
+The hosted deployment provides the main dashboard and API-backed verification workflow. Screen-capture OCR availability depends on the host operating system, so the Windows Media OCR fallback is intended for a compatible local Windows deployment.
+
+> Render instances may need a short warm-up period after inactivity.
 
 ## Highlights
 
