@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { randomBytes, randomUUID } from "node:crypto";
 import {
   createFingerprintHash,
   createIpHash,
@@ -25,6 +25,7 @@ export class AdminAuthService {
     this.failedAttemptsByIp = new Map();
     this.sessions = new Map();
     this.tokenSecret = Buffer.from(`${config.masterKey ?? ""}:admin-session`, "utf8");
+    this.trustedDeviceSecret = Buffer.from(`${config.masterKey ?? ""}:admin-trusted-device`, "utf8");
   }
 
   debug(event, details = {}) {
@@ -53,7 +54,7 @@ export class AdminAuthService {
     if (!this.config.adminPasswordHash) {
       missing.push("AI_SHIELD_ADMIN_PASSWORD_HASH");
     }
-    if (!this.config.adminOtpSecret) {
+    if (this.config.adminRequireTotp && !this.config.adminOtpSecret) {
       missing.push("AI_SHIELD_ADMIN_OTP_SECRET");
     }
 
@@ -193,7 +194,39 @@ export class AdminAuthService {
     };
   }
 
-  login({ username, password, otp, ipAddress, fingerprint }) {
+  createTrustedDeviceToken(fingerprint) {
+    const now = this.now();
+    const expiresAt = now + this.config.adminTrustedDeviceTtlMs;
+    return createSignedToken({
+      iss: "ai-shield-admin",
+      purpose: "trusted-device",
+      nonce: randomBytes(24).toString("base64url"),
+      fingerprintHash: createFingerprintHash(fingerprint, this.trustedDeviceSecret),
+      iat: Math.floor(now / 1000),
+      exp: Math.floor(expiresAt / 1000),
+    }, this.trustedDeviceSecret);
+  }
+
+  isTrustedDeviceTokenValid(token, fingerprint) {
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const { payload } = verifySignedToken(token, this.trustedDeviceSecret);
+      const expectedFingerprintHash = createFingerprintHash(fingerprint, this.trustedDeviceSecret);
+      return payload.iss === "ai-shield-admin"
+        && payload.purpose === "trusted-device"
+        && typeof payload.nonce === "string"
+        && payload.nonce.length >= 32
+        && payload.exp * 1000 > this.now()
+        && safeTextEqual(payload.fingerprintHash, expectedFingerprintHash);
+    } catch {
+      return false;
+    }
+  }
+
+  login({ username, password, otp, ipAddress, fingerprint, trustDevice = false, trustedDeviceToken = "" }) {
     this.ensureConfigured();
     const normalizedIp = this.assertIpAllowed(ipAddress);
     this.assertNotBlocked(normalizedIp);
@@ -202,15 +235,20 @@ export class AdminAuthService {
     const normalizedUsername = String(username ?? "").trim();
     const isValidUser = normalizedUsername && safeTextEqual(normalizedUsername, this.config.adminUsername);
     const isValidPassword = password && verifyPasswordHash(password, this.config.adminPasswordHash);
-    const isValidOtp = otp && verifyTotpCode(this.config.adminOtpSecret, otp);
+    const isValidOtp = Boolean(this.config.adminRequireTotp && otp
+      && verifyTotpCode(this.config.adminOtpSecret, otp));
+    const isTrustedDevice = Boolean(this.config.adminRequireTotp
+      && this.isTrustedDeviceTokenValid(trustedDeviceToken, normalizedFingerprint));
+    const isValidSecondFactor = !this.config.adminRequireTotp || isValidOtp || isTrustedDevice;
 
-    if (!(isValidUser && isValidPassword && isValidOtp)) {
+    if (!(isValidUser && isValidPassword && isValidSecondFactor)) {
       this.debug("login-rejected", {
         ip: normalizedIp,
         hasUsername: Boolean(normalizedUsername),
         userMatch: Boolean(isValidUser),
         passwordMatch: Boolean(isValidPassword),
         otpMatch: Boolean(isValidOtp),
+        trustedDeviceMatch: isTrustedDevice,
       });
       const failure = this.recordFailedAttempt(normalizedIp);
       if (failure.blocked) {
@@ -222,7 +260,9 @@ export class AdminAuthService {
       }
 
       throw makeError(
-        "Invalid username, password, or one-time code.",
+        this.config.adminRequireTotp
+          ? "Invalid username, password, or verification code."
+          : "Invalid username or password.",
         401,
         "admin_invalid_credentials",
       );
@@ -242,6 +282,10 @@ export class AdminAuthService {
     return {
       token,
       session,
+      trustedDeviceToken: this.config.adminRequireTotp && isValidOtp && trustDevice
+        ? this.createTrustedDeviceToken(normalizedFingerprint)
+        : "",
+      usedTrustedDevice: isTrustedDevice,
     };
   }
 

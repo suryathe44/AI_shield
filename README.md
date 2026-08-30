@@ -233,8 +233,9 @@ No claim of guaranteed prevention or perfect anonymity is made. AI Shield is a d
 - AES-256-GCM encrypted log envelope
 - Scrypt-derived persistent encryption key when `AI_SHIELD_MASTER_KEY` is configured
 - Individual and bulk audit-log deletion
-- Admin password hashing and TOTP verification
-- Admin IP allowlisting and failed-login lockout
+- Admin password hashing with configurable TOTP verification
+- Optional admin IP allowlisting and failed-login lockout
+- Expiring, HttpOnly trusted-device tokens after successful TOTP
 - Device-bound, expiring admin sessions
 
 > Without `AI_SHIELD_MASTER_KEY`, the application generates an ephemeral encryption key. Existing encrypted logs will not remain readable after a restart.
@@ -268,6 +269,8 @@ Copy the generated values into `.env`, then start the application:
 ```bash
 npm start
 ```
+
+TOTP remains required by default. Set `AI_SHIELD_ADMIN_REQUIRE_TOTP=false` for password-only owner access. Leave `AI_SHIELD_ADMIN_IP_WHITELIST` empty to allow login from any IP, or provide a comma-separated allowlist to enforce it. Trusted-device cookies are available only after a successful TOTP login and expire within 30 days. Session length and inactivity expiry remain configurable through `AI_SHIELD_ADMIN_SESSION_TTL_MIN` and `AI_SHIELD_ADMIN_IDLE_TIMEOUT_MIN`.
 
 With the supplied `.env.example`, open:
 

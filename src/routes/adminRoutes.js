@@ -1,6 +1,37 @@
 import { extractBearerToken, requireAdminSession } from "../middleware/auth.js";
 import { readJsonBody, sendJson } from "../utils/http.js";
 
+const TRUSTED_DEVICE_COOKIE = "ai_shield_trusted_device";
+
+function readCookie(req, name) {
+  const cookies = String(req.headers.cookie ?? "").split(";");
+  for (const cookie of cookies) {
+    const separator = cookie.indexOf("=");
+    if (separator === -1) continue;
+    if (cookie.slice(0, separator).trim() === name) {
+      try {
+        return decodeURIComponent(cookie.slice(separator + 1).trim());
+      } catch {
+        return "";
+      }
+    }
+  }
+  return "";
+}
+
+function setTrustedDeviceCookie(req, res, token, ttlMs) {
+  const forwardedProtocol = String(req.headers["x-forwarded-proto"] ?? "").split(",")[0].trim();
+  const secure = forwardedProtocol === "https" || Boolean(req.socket.encrypted);
+  res.setHeader("Set-Cookie", [
+    `${TRUSTED_DEVICE_COOKIE}=${encodeURIComponent(token)}`,
+    "HttpOnly",
+    "SameSite=Strict",
+    "Path=/api/admin/auth",
+    `Max-Age=${Math.floor(ttlMs / 1000)}`,
+    secure ? "Secure" : "",
+  ].filter(Boolean).join("; "));
+}
+
 async function handleLogin(req, res, context) {
   const body = await readJsonBody(req, context.config.maxBodyBytes);
 
@@ -9,9 +40,15 @@ async function handleLogin(req, res, context) {
       username: body.username,
       password: body.password,
       otp: body.otp,
+      trustDevice: body.trustDevice === true,
+      trustedDeviceToken: readCookie(req, TRUSTED_DEVICE_COOKIE),
       ipAddress: context.ip,
       fingerprint: req.headers["x-device-fingerprint"],
     });
+
+    if (result.trustedDeviceToken) {
+      setTrustedDeviceCookie(req, res, result.trustedDeviceToken, context.config.adminTrustedDeviceTtlMs);
+    }
 
     sendJson(res, 200, {
       message: "Admin login successful.",
@@ -20,7 +57,8 @@ async function handleLogin(req, res, context) {
       security: {
         ip: context.ip,
         whitelistEnforced: context.config.adminIpWhitelist.length > 0,
-        twoFactorRequired: true,
+        twoFactorRequired: context.config.adminRequireTotp,
+        trustedDeviceUsed: result.usedTrustedDevice,
         deviceBound: true,
       },
     });
@@ -31,6 +69,15 @@ async function handleLogin(req, res, context) {
     });
   }
 
+  return true;
+}
+
+function handleAuthConfig(res, context) {
+  sendJson(res, 200, {
+    requireTotp: context.config.adminRequireTotp,
+    trustedDeviceDays: Math.round(context.config.adminTrustedDeviceTtlMs / 86_400_000),
+    ipWhitelistEnabled: context.config.adminIpWhitelist.length > 0,
+  });
   return true;
 }
 
@@ -164,6 +211,10 @@ async function handleProtectedAdminRoutes(req, res, url, context) {
 export async function handleAdminRoutes(req, res, url, context) {
   if (!url.pathname.startsWith("/api/admin/")) {
     return false;
+  }
+
+  if (req.method === "GET" && url.pathname === "/api/admin/auth/config") {
+    return handleAuthConfig(res, context);
   }
 
   if (req.method === "POST" && url.pathname === "/api/admin/auth/login") {

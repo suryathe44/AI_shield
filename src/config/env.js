@@ -83,10 +83,12 @@ export function loadConfig(overrides = {}) {
     adminUsername: normalizeString(process.env.AI_SHIELD_ADMIN_USERNAME, "admin"),
     adminPasswordHash: normalizeString(process.env.AI_SHIELD_ADMIN_PASSWORD_HASH),
     adminOtpSecret: normalizeString(process.env.AI_SHIELD_ADMIN_OTP_SECRET),
+    adminRequireTotp: parseBoolean(process.env.AI_SHIELD_ADMIN_REQUIRE_TOTP, true),
     adminIpWhitelist: normalizeStringList(process.env.AI_SHIELD_ADMIN_IP_WHITELIST, []),
     adminFailedLoginLimit: parseNumber(process.env.AI_SHIELD_ADMIN_FAILED_LOGIN_LIMIT, 3),
     adminSessionTtlMs: parseMinutes(process.env.AI_SHIELD_ADMIN_SESSION_TTL_MIN, 30),
     adminIdleTimeoutMs: parseMinutes(process.env.AI_SHIELD_ADMIN_IDLE_TIMEOUT_MIN, 15),
+    adminTrustedDeviceTtlMs: parseMinutes(process.env.AI_SHIELD_ADMIN_TRUSTED_DEVICE_TTL_MIN, 43_200),
     authDebug: parseBoolean(process.env.AI_SHIELD_AUTH_DEBUG, false),
     logFilePath: path.resolve(process.cwd(), process.env.AI_SHIELD_LOG_FILE ?? "./data/secure-logs.enc"),
     feedbackFilePath: path.resolve(process.cwd(), process.env.AI_SHIELD_FEEDBACK_FILE ?? "./data/feedback.json"),
@@ -105,6 +107,11 @@ export function loadConfig(overrides = {}) {
   merged.adminUsername = normalizeString(merged.adminUsername, "admin");
   merged.adminPasswordHash = normalizeString(merged.adminPasswordHash);
   merged.adminOtpSecret = normalizeString(merged.adminOtpSecret);
+  merged.adminRequireTotp = parseBoolean(merged.adminRequireTotp, true);
+  merged.adminTrustedDeviceTtlMs = Math.min(
+    Math.max(Number(merged.adminTrustedDeviceTtlMs) || 60_000, 60_000),
+    30 * 24 * 60 * 60_000,
+  );
   merged.authDebug = parseBoolean(merged.authDebug, false);
   merged.logFilePath = path.resolve(process.cwd(), merged.logFilePath);
   merged.feedbackFilePath = path.resolve(process.cwd(), merged.feedbackFilePath);

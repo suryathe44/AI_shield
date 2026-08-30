@@ -9,6 +9,10 @@ const loginForm = document.getElementById("adminLoginForm");
 const loginButton = document.getElementById("adminLoginButton");
 const loginStatus = document.getElementById("adminLoginStatus");
 const fingerprintText = document.getElementById("fingerprintText");
+const otpField = document.getElementById("adminOtpField");
+const otpInput = document.getElementById("adminOtp");
+const trustDeviceField = document.getElementById("trustDeviceField");
+const trustDeviceInput = document.getElementById("trustDevice");
 const blockedIpList = document.getElementById("blockedIpList");
 const logsList = document.getElementById("adminLogsList");
 const refreshBlockedButton = document.getElementById("refreshBlockedButton");
@@ -39,6 +43,7 @@ let inactivityTimer = null;
 let absoluteExpiryTimer = null;
 let currentSession = null;
 let feedbackRecords = [];
+let requireTotp = true;
 
 function formatDate(value) {
   if (!value) {
@@ -64,6 +69,26 @@ function showLoginPanel() {
 function showDashboard() {
   loginPanel.classList.add("hidden");
   dashboardPanel.classList.remove("hidden");
+}
+
+async function loadAuthConfig() {
+  const response = await fetch("/api/admin/auth/config");
+  const config = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error("Admin login settings could not be loaded.");
+  }
+
+  requireTotp = config.requireTotp !== false;
+  otpField.classList.toggle("hidden", !requireTotp);
+  trustDeviceField.classList.toggle("hidden", !requireTotp);
+  otpInput.required = requireTotp;
+  if (!requireTotp) {
+    otpInput.value = "";
+    trustDeviceInput.checked = false;
+    setStatus(loginStatus, "Enter your admin username and password.");
+  } else {
+    setStatus(loginStatus, "Enter your credentials and 2FA code, or use a trusted device.");
+  }
 }
 
 function clearTimers() {
@@ -368,7 +393,8 @@ async function handleLogin(event) {
       body: JSON.stringify({
         username: document.getElementById("adminUsername").value.trim(),
         password: document.getElementById("adminPassword").value,
-        otp: document.getElementById("adminOtp").value.trim(),
+        otp: otpInput.value.trim(),
+        trustDevice: requireTotp && trustDeviceInput.checked,
       }),
     });
 
@@ -390,6 +416,12 @@ async function bootstrap() {
   deviceFingerprint = await buildDeviceFingerprint();
   fingerprintText.textContent = `${deviceFingerprint.slice(0, 20)}...`;
   bindActivityEvents();
+
+  try {
+    await loadAuthConfig();
+  } catch (error) {
+    setStatus(loginStatus, error.message);
+  }
 
   if (!adminToken) {
     showLoginPanel();

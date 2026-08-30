@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Shield Admin</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="page-glow page-glow-left"></div>
@@ -15,16 +15,15 @@
       <section class="hero admin-hero">
         <div class="hero-copy">
           <p class="eyebrow">AI Shield Admin</p>
-          <h1>Secure operator access with session binding, 2FA, and blocked-IP control.</h1>
+          <h1>Secure operator access with practical, configurable protection.</h1>
           <p class="lede">
-            Admin access is protected by a hashed password, time-based one-time password,
-            device fingerprint validation, IP whitelist enforcement, rate limiting, and
-            automatic logout.
+            Admin access always requires a hashed password, with configurable two-factor
+            authentication, optional IP allowlisting, rate limiting, and automatic logout.
           </p>
           <div class="hero-pills">
             <span>Username + password</span>
-            <span>TOTP 2FA</span>
-            <span>IP whitelist</span>
+            <span>Configurable TOTP 2FA</span>
+            <span>Optional IP whitelist</span>
             <span>Device binding</span>
             <span>Auto logout</span>
           </div>
@@ -51,9 +50,14 @@
         </div>
 
         <form id="adminLoginForm" class="admin-form">
-          <label class="field">
+          <label class="field" id="adminOtpField">
             <span>Username</span>
             <input id="adminUsername" class="text-input" autocomplete="username" type="text" />
+          </label>
+
+          <label class="consent-row hidden" id="trustDeviceField">
+            <input id="trustDevice" type="checkbox" />
+            <span>Trust this device for up to 30 days after successful 2FA.</span>
           </label>
 
           <label class="field">
@@ -181,6 +185,6 @@
       </section>
     </main>
 
-    <script type="module" src="/admin.js"></script>
+    <script type="module" src="./admin.js"></script>
   </body>
 </html>

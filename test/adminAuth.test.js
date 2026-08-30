@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { mkdtemp } from "node:fs/promises";
 import { createAiShieldApp } from "../src/app.js";
+import { AdminAuthService } from "../src/services/adminAuthService.js";
 import {
   createPasswordHash,
   generateBase32Secret,
@@ -19,10 +20,12 @@ function buildAdminConfig(tempDir, overrides = {}) {
     adminUsername: "admin",
     adminPasswordHash: createPasswordHash("StrongPass!234"),
     adminOtpSecret: otpSecret,
+    adminRequireTotp: true,
     adminIpWhitelist: ["*"],
     adminFailedLoginLimit: 3,
     adminSessionTtlMs: 30 * 60_000,
     adminIdleTimeoutMs: 15 * 60_000,
+    adminTrustedDeviceTtlMs: 30 * 24 * 60 * 60_000,
     adminAuthPerMinute: 20,
     adminPerMinute: 30,
     logFilePath: path.join(tempDir, "logs.enc"),
@@ -58,7 +61,8 @@ async function loginAdmin(baseUrl, otpSecret, options = {}) {
     body: JSON.stringify({
       username: options.username ?? "admin",
       password: options.password ?? "StrongPass!234",
-      otp: options.otp ?? generateTotpCode(otpSecret),
+      otp: Object.hasOwn(options, "otp") ? options.otp : generateTotpCode(otpSecret),
+      trustDevice: options.trustDevice ?? false,
     }),
   });
 
@@ -93,6 +97,96 @@ test("admin login returns a token and protects admin log access", async (t) => {
   assert.equal(logsResponse.status, 200);
   const logsBody = await logsResponse.json();
   assert.equal(logsBody.count, 0);
+});
+
+test("password-only login works when TOTP is disabled", async (t) => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "ai-shield-admin-"));
+  const config = buildAdminConfig(tempDir, { adminRequireTotp: false, adminOtpSecret: "" });
+  const { server, baseUrl } = await startApp(config);
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+
+  const login = await loginAdmin(baseUrl, "", { otp: "" });
+  assert.equal(login.response.status, 200);
+  assert.equal(login.body.security.twoFactorRequired, false);
+});
+
+test("TOTP remains required when enabled", async (t) => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "ai-shield-admin-"));
+  const config = buildAdminConfig(tempDir);
+  const { server, baseUrl } = await startApp(config);
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+
+  const login = await loginAdmin(baseUrl, config.adminOtpSecret, { otp: "" });
+  assert.equal(login.response.status, 401);
+  assert.equal(login.body.code, "admin_invalid_credentials");
+});
+
+test("an empty IP whitelist allows admin login", async (t) => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "ai-shield-admin-"));
+  const config = buildAdminConfig(tempDir, { adminIpWhitelist: [] });
+  const { server, baseUrl } = await startApp(config);
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+
+  const login = await loginAdmin(baseUrl, config.adminOtpSecret, { ip: "203.0.113.25" });
+  assert.equal(login.response.status, 200);
+  assert.equal(login.body.security.whitelistEnforced, false);
+});
+
+test("a configured IP whitelist blocks an unapproved IP", async (t) => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "ai-shield-admin-"));
+  const config = buildAdminConfig(tempDir, { adminIpWhitelist: ["203.0.113.10"] });
+  const { server, baseUrl } = await startApp(config);
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+
+  const login = await loginAdmin(baseUrl, config.adminOtpSecret, { ip: "203.0.113.25" });
+  assert.equal(login.response.status, 403);
+  assert.equal(login.body.code, "admin_ip_not_whitelisted");
+});
+
+test("trusted-device tokens expire after their configured lifetime", () => {
+  let now = Date.now();
+  const config = buildAdminConfig(os.tmpdir(), { adminTrustedDeviceTtlMs: 30 * 24 * 60 * 60_000 });
+  const auth = new AdminAuthService(config, { now: () => now });
+  const fingerprint = "trusted-device-fingerprint";
+  const firstLogin = auth.login({ username: "admin", password: "StrongPass!234", otp: generateTotpCode(config.adminOtpSecret), ipAddress: "203.0.113.1", fingerprint, trustDevice: true });
+  assert.equal(auth.isTrustedDeviceTokenValid(firstLogin.trustedDeviceToken, fingerprint), true);
+
+  now += config.adminTrustedDeviceTtlMs + 1;
+  assert.equal(auth.isTrustedDeviceTokenValid(firstLogin.trustedDeviceToken, fingerprint), false);
+});
+
+test("invalid trusted-device tokens cannot replace TOTP", () => {
+  const config = buildAdminConfig(os.tmpdir());
+  const auth = new AdminAuthService(config);
+  assert.throws(() => auth.login({ username: "admin", password: "StrongPass!234", otp: "", ipAddress: "203.0.113.1", fingerprint: "device", trustedDeviceToken: "invalid.token.value" }), (error) => error.code === "admin_invalid_credentials");
+});
+
+test("successful TOTP can issue an HttpOnly trusted-device cookie for later login", async (t) => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "ai-shield-admin-"));
+  const config = buildAdminConfig(tempDir);
+  const { server, baseUrl } = await startApp(config);
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+
+  const first = await loginAdmin(baseUrl, config.adminOtpSecret, { trustDevice: true });
+  assert.equal(first.response.status, 200);
+  const setCookie = first.response.headers.get("set-cookie");
+  assert.match(setCookie, /^ai_shield_trusted_device=/);
+  assert.match(setCookie, /HttpOnly/i);
+  assert.match(setCookie, /SameSite=Strict/i);
+
+  const secondResponse = await fetch(`${baseUrl}/api/admin/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Device-Fingerprint": first.fingerprint,
+      "X-Forwarded-For": first.ip,
+      Cookie: setCookie.split(";")[0],
+    },
+    body: JSON.stringify({ username: "admin", password: "StrongPass!234", otp: "" }),
+  });
+  const secondBody = await secondResponse.json();
+  assert.equal(secondResponse.status, 200);
+  assert.equal(secondBody.security.trustedDeviceUsed, true);
 });
 
 test("admin auth blocks an IP after 3 failed attempts and allows admin unlock", async (t) => {
