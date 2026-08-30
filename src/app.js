@@ -6,6 +6,7 @@ import { handleAdminRoutes } from "./routes/adminRoutes.js";
 import { handleAnalyzeRoutes } from "./routes/analyzeRoutes.js";
 import { handleFeedbackRoutes } from "./routes/feedbackRoutes.js";
 import { FeedbackStore } from "./services/feedbackStore.js";
+import { PostgresFeedbackStore } from "./services/postgresFeedbackStore.js";
 import { SecureLogger } from "./services/secureLogger.js";
 import { WindowsOcrService } from "./services/windowsOcr.js";
 import {
@@ -24,9 +25,9 @@ export function createAiShieldApp(overrides = {}) {
   });
   const adminAuthService = overrides.adminAuthService ?? new AdminAuthService(config);
   const ocrService = overrides.ocrService ?? new WindowsOcrService();
-  const feedbackStore = overrides.feedbackStore ?? new FeedbackStore({
-    filePath: config.feedbackFilePath,
-  });
+  const feedbackStore = overrides.feedbackStore ?? (config.databaseUrl
+    ? new PostgresFeedbackStore({ connectionString: config.databaseUrl, ssl: config.databaseSsl })
+    : new FeedbackStore({ filePath: config.feedbackFilePath }));
   const rateLimiter = overrides.rateLimiter ?? createRateLimiter({
     windowMs: config.rateLimitWindowMs,
     analyzeLimit: config.analyzePerMinute,

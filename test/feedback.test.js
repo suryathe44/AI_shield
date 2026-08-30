@@ -5,6 +5,7 @@ import path from "node:path";
 import { mkdtemp, readFile } from "node:fs/promises";
 import { createAiShieldApp } from "../src/app.js";
 import { FeedbackStore, calculateFeedbackMetrics } from "../src/services/feedbackStore.js";
+import { PostgresFeedbackStore } from "../src/services/postgresFeedbackStore.js";
 import { createPasswordHash, generateBase32Secret, generateTotpCode } from "../src/utils/adminSecurity.js";
 
 async function fixture(t, overrides = {}) {
@@ -133,4 +134,32 @@ test("14. authenticated admin retrieval returns records, metrics, and storage li
   assert.equal(payload.feedback.length, 1);
   assert.equal(payload.metrics.totalFeedback, 1);
   assert.deepEqual(payload.storage, { durableOnRender: false, type: "local-file" });
+});
+
+test("15. PostgreSQL store persists feedback and reports durable Render storage", async () => {
+  const queries = [];
+  const createdAt = "2026-08-30T06:00:00.000Z";
+  const pool = {
+    async query(sql, parameters) {
+      queries.push({ sql, parameters });
+      if (sql.includes("INSERT INTO")) {
+        return { rows: [{ id: parameters[0], rating: parameters[1], category: parameters[2], comment: parameters[3], createdAt }] };
+      }
+      if (sql.includes("SELECT id")) {
+        return { rows: [{ id: "FB-ABCDEF123456", rating: "5", category: "Useful", comment: "Clear", createdAt }] };
+      }
+      return { rows: [] };
+    },
+    async end() {},
+  };
+  const store = new PostgresFeedbackStore({ pool });
+
+  const record = await store.append({ rating: 5, category: "Useful", comment: "Clear" });
+  const adminView = await store.getAdminView();
+
+  assert.match(record.id, /^FB-[0-9A-F]{12}$/);
+  assert.deepEqual(queries[1].parameters.slice(1), [5, "Useful", "Clear"]);
+  assert.equal(adminView.metrics.averageRating, 5);
+  assert.deepEqual(adminView.storage, { durableOnRender: true, type: "postgresql" });
+  assert.equal(queries.filter(({ sql }) => sql.includes("CREATE TABLE")).length, 1);
 });

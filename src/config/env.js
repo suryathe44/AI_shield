@@ -92,6 +92,8 @@ export function loadConfig(overrides = {}) {
     authDebug: parseBoolean(process.env.AI_SHIELD_AUTH_DEBUG, false),
     logFilePath: path.resolve(process.cwd(), process.env.AI_SHIELD_LOG_FILE ?? "./data/secure-logs.enc"),
     feedbackFilePath: path.resolve(process.cwd(), process.env.AI_SHIELD_FEEDBACK_FILE ?? "./data/feedback.json"),
+    databaseUrl: normalizeString(process.env.DATABASE_URL),
+    databaseSsl: parseBoolean(process.env.AI_SHIELD_DATABASE_SSL, false),
     maxBodyBytes: 32_000,
     maxImageBodyBytes: parseNumber(process.env.AI_SHIELD_MAX_IMAGE_BODY_BYTES, 8_000_000),
     rateLimitWindowMs: 60_000,
@@ -115,6 +117,8 @@ export function loadConfig(overrides = {}) {
   merged.authDebug = parseBoolean(merged.authDebug, false);
   merged.logFilePath = path.resolve(process.cwd(), merged.logFilePath);
   merged.feedbackFilePath = path.resolve(process.cwd(), merged.feedbackFilePath);
+  merged.databaseUrl = normalizeString(merged.databaseUrl);
+  merged.databaseSsl = parseBoolean(merged.databaseSsl, false);
 
   return merged;
 }

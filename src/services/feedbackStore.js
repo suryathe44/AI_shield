@@ -2,7 +2,7 @@ import { randomBytes } from "node:crypto";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-function createFeedbackId() {
+export function createFeedbackId() {
   return `FB-${randomBytes(6).toString("hex").toUpperCase()}`;
 }
 

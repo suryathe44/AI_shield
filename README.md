@@ -283,9 +283,9 @@ If no `PORT` environment value is loaded, the application falls back to port `10
 
 ## Privacy-First Feedback
 
-The dashboard includes an optional product-feedback form with a 1–5 rating, a fixed category, and an optional comment of up to 500 characters. It does not request a name, email address, account identifier, or the message being analyzed. Feedback is stored in `data/feedback.json`, separately from encrypted security audit logs, and the protected admin portal provides aggregate ratings, category counts, false-positive and false-negative totals, filters, and the submitted comments.
+The dashboard includes an optional product-feedback form with a 1–5 rating, a fixed category, and an optional comment of up to 500 characters. It does not request a name, email address, account identifier, or the message being analyzed. Feedback is stored separately from encrypted security audit logs, and the protected admin portal provides aggregate ratings, category counts, false-positive and false-negative totals, filters, and the submitted comments.
 
-The default feedback store is intentionally a simple local file for this project. Render's filesystem is ephemeral, so feedback can disappear after a restart or redeploy. Use a persistent disk or managed database before relying on feedback retention in production. Hosting infrastructure may still retain ordinary request metadata in platform logs according to its own policy.
+Set `DATABASE_URL` to use durable PostgreSQL feedback storage in production. On Render, create a PostgreSQL database in the same region, connect it to the web service, and expose its internal database URL as `DATABASE_URL`; the table is created automatically on the first feedback request. Internal Render connections use `AI_SHIELD_DATABASE_SSL=false`. Set it to `true` only when an external PostgreSQL provider requires TLS. If `DATABASE_URL` is empty, AI Shield falls back to `data/feedback.json`, which is convenient locally but is not durable on Render's ephemeral filesystem. Hosting infrastructure may still retain ordinary request metadata in platform logs according to its own policy.
 
 ## API
 

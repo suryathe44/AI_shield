@@ -3,7 +3,7 @@ import { createAiShieldApp } from "./app.js";
 
 loadLocalEnvFile();
 
-const { server, config, logger } = createAiShieldApp();
+const { server, config, logger, feedbackStore } = createAiShieldApp();
 
 await logger.ensureReady();
 
@@ -32,6 +32,9 @@ server.listen(PORT, HOST, () => {
 // graceful shutdown
 for (const signal of ["SIGINT", "SIGTERM"]) {
   process.on(signal, () => {
-    server.close(() => process.exit(0));
+    server.close(async () => {
+      await feedbackStore.close?.();
+      process.exit(0);
+    });
   });
 }
