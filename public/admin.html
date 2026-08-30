@@ -125,6 +125,59 @@
           </div>
         </div>
         <div id="adminLogsList" class="admin-log-grid"></div>
+
+        <div class="panel-head admin-subhead feedback-admin-head">
+          <div>
+            <p class="result-label">User Feedback</p>
+            <p class="result-meta">Private product feedback stored separately from security analysis and audit logs.</p>
+          </div>
+          <button class="button-secondary" id="refreshFeedbackButton" type="button">Refresh Feedback</button>
+        </div>
+
+        <div class="feedback-metrics-grid" aria-label="Feedback summary">
+          <article class="feedback-metric"><span>Total feedback</span><strong id="feedbackTotal">0</strong></article>
+          <article class="feedback-metric"><span>Average rating</span><strong id="feedbackAverage">0.00</strong></article>
+          <article class="feedback-metric"><span>False positives</span><strong id="feedbackFalsePositive">0</strong></article>
+          <article class="feedback-metric"><span>False negatives</span><strong id="feedbackFalseNegative">0</strong></article>
+        </div>
+
+        <div class="feedback-counts-grid">
+          <article class="result-card">
+            <p class="result-label">Ratings 1–5</p>
+            <div id="feedbackRatingCounts" class="feedback-count-list"></div>
+          </article>
+          <article class="result-card">
+            <p class="result-label">Categories</p>
+            <div id="feedbackCategoryCounts" class="feedback-count-list"></div>
+          </article>
+        </div>
+
+        <div class="feedback-filter-row">
+          <label class="field">
+            <span>Filter by rating</span>
+            <select id="feedbackRatingFilter" class="select-input">
+              <option value="">All ratings</option>
+              <option value="5">5</option><option value="4">4</option><option value="3">3</option>
+              <option value="2">2</option><option value="1">1</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Filter by category</span>
+            <select id="feedbackCategoryFilter" class="select-input">
+              <option value="">All categories</option>
+              <option>Useful</option><option>Confusing</option><option>False Positive</option>
+              <option>False Negative</option><option>Feature Request</option><option>Other</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="feedback-table-wrap">
+          <table class="feedback-table">
+            <thead><tr><th>Rating</th><th>Category</th><th>Comment</th><th>Submitted</th></tr></thead>
+            <tbody id="adminFeedbackList"></tbody>
+          </table>
+          <p id="feedbackEmpty" class="admin-empty hidden">No feedback matches these filters.</p>
+        </div>
       </section>
     </main>
 

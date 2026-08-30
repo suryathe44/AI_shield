@@ -21,12 +21,24 @@ const sessionExpires = document.getElementById("sessionExpires");
 const sessionLastSeen = document.getElementById("sessionLastSeen");
 const sessionIdleTimeout = document.getElementById("sessionIdleTimeout");
 const sessionStatus = document.getElementById("adminSessionStatus");
+const feedbackList = document.getElementById("adminFeedbackList");
+const feedbackEmpty = document.getElementById("feedbackEmpty");
+const refreshFeedbackButton = document.getElementById("refreshFeedbackButton");
+const feedbackRatingFilter = document.getElementById("feedbackRatingFilter");
+const feedbackCategoryFilter = document.getElementById("feedbackCategoryFilter");
+const feedbackTotal = document.getElementById("feedbackTotal");
+const feedbackAverage = document.getElementById("feedbackAverage");
+const feedbackFalsePositive = document.getElementById("feedbackFalsePositive");
+const feedbackFalseNegative = document.getElementById("feedbackFalseNegative");
+const feedbackRatingCounts = document.getElementById("feedbackRatingCounts");
+const feedbackCategoryCounts = document.getElementById("feedbackCategoryCounts");
 
 let adminToken = sessionStorage.getItem(STORAGE_KEYS.token) ?? "";
 let deviceFingerprint = "";
 let inactivityTimer = null;
 let absoluteExpiryTimer = null;
 let currentSession = null;
+let feedbackRecords = [];
 
 function formatDate(value) {
   if (!value) {
@@ -124,6 +136,51 @@ function renderLogs(logs) {
 
     logsList.appendChild(card);
   });
+}
+
+function renderCountList(element, entries) {
+  element.replaceChildren();
+  entries.forEach(([label, count]) => {
+    const row = document.createElement("p");
+    const name = document.createElement("span");
+    const value = document.createElement("strong");
+    name.textContent = label;
+    value.textContent = String(count);
+    row.append(name, value);
+    element.appendChild(row);
+  });
+}
+
+function renderFeedback() {
+  const rating = feedbackRatingFilter.value;
+  const category = feedbackCategoryFilter.value;
+  const filtered = feedbackRecords.filter((entry) =>
+    (!rating || String(entry.rating) === rating) && (!category || entry.category === category));
+
+  feedbackList.replaceChildren();
+  feedbackEmpty.classList.toggle("hidden", filtered.length > 0);
+  filtered.forEach((entry) => {
+    const row = document.createElement("tr");
+    [String(entry.rating), entry.category, entry.comment || "—", formatDate(entry.createdAt)].forEach((value) => {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+    feedbackList.appendChild(row);
+  });
+}
+
+function renderFeedbackMetrics(metrics = {}) {
+  feedbackTotal.textContent = String(metrics.totalFeedback ?? 0);
+  feedbackAverage.textContent = Number(metrics.averageRating ?? 0).toFixed(2);
+  feedbackFalsePositive.textContent = String(metrics.falsePositiveReports ?? 0);
+  feedbackFalseNegative.textContent = String(metrics.falseNegativeReports ?? 0);
+  renderCountList(feedbackRatingCounts, [1, 2, 3, 4, 5].map((rating) =>
+    [`${rating} star${rating === 1 ? "" : "s"}`, metrics.ratingCounts?.[rating] ?? 0]));
+  renderCountList(feedbackCategoryCounts, Object.entries(metrics.categoryCounts ?? {}).sort());
+  if (!Object.keys(metrics.categoryCounts ?? {}).length) {
+    renderCountList(feedbackCategoryCounts, [["No categories yet", 0]]);
+  }
 }
 
 async function sha256Hex(value) {
@@ -248,6 +305,13 @@ async function loadLogs() {
   renderLogs(payload.logs ?? []);
 }
 
+async function loadFeedback() {
+  const payload = await apiRequest("/api/admin/feedback", { method: "GET" });
+  feedbackRecords = payload.feedback ?? [];
+  renderFeedbackMetrics(payload.metrics);
+  renderFeedback();
+}
+
 async function unlockBlockedIp(ip) {
   await apiRequest("/api/admin/security/unlock-ip", {
     method: "POST",
@@ -311,7 +375,7 @@ async function handleLogin(event) {
     persistToken(payload.token);
     renderSession(payload.session);
     setStatus(sessionStatus, "Authenticated. Loading admin data...");
-    await Promise.all([loadBlockedIps(), loadLogs()]);
+    await Promise.all([loadBlockedIps(), loadLogs(), loadFeedback()]);
     setStatus(sessionStatus, "Admin console is ready.");
     loginForm.reset();
   } catch (error) {
@@ -334,7 +398,7 @@ async function bootstrap() {
 
   try {
     await refreshSession();
-    await Promise.all([loadBlockedIps(), loadLogs()]);
+    await Promise.all([loadBlockedIps(), loadLogs(), loadFeedback()]);
   } catch (error) {
     persistToken("");
     currentSession = null;
@@ -379,5 +443,15 @@ deleteAllLogsButton.addEventListener("click", async () => {
     setStatus(sessionStatus, error.message);
   }
 });
+refreshFeedbackButton.addEventListener("click", async () => {
+  try {
+    await loadFeedback();
+    setStatus(sessionStatus, "User feedback refreshed.");
+  } catch (error) {
+    setStatus(sessionStatus, error.message);
+  }
+});
+feedbackRatingFilter.addEventListener("change", renderFeedback);
+feedbackCategoryFilter.addEventListener("change", renderFeedback);
 
 void bootstrap();

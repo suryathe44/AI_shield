@@ -34,6 +34,12 @@ const screenConsent = document.getElementById("screenConsent");
 const captureScreenButton = document.getElementById("captureScreenButton");
 const screenServerAnalyzeButton = document.getElementById("screenServerAnalyzeButton");
 const screenStatus = document.getElementById("screenStatus");
+const feedbackForm = document.getElementById("feedbackForm");
+const feedbackCategory = document.getElementById("feedbackCategory");
+const feedbackComment = document.getElementById("feedbackComment");
+const feedbackCharacterCount = document.getElementById("feedbackCharacterCount");
+const feedbackSubmitButton = document.getElementById("feedbackSubmitButton");
+const feedbackStatus = document.getElementById("feedbackStatus");
 
 function debounce(callback, delay = 180) {
   let timeoutId = null;
@@ -394,6 +400,48 @@ async function captureScreenTextLocally() {
   }
 }
 
+async function submitFeedback(event) {
+  event.preventDefault();
+  const ratingInput = feedbackForm.querySelector('input[name="feedbackRating"]:checked');
+  if (!ratingInput) {
+    feedbackStatus.textContent = "Select a rating from 1 to 5.";
+    feedbackForm.querySelector('input[name="feedbackRating"]').focus();
+    return;
+  }
+
+  feedbackSubmitButton.disabled = true;
+  feedbackStatus.textContent = "Submitting feedback...";
+
+  try {
+    const response = await fetch("/api/feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        rating: Number(ratingInput.value),
+        category: feedbackCategory.value,
+        comment: feedbackComment.value,
+      }),
+    });
+
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(payload.error || "Feedback could not be submitted.");
+    }
+
+    feedbackForm.reset();
+    feedbackCharacterCount.textContent = "0 / 500";
+    feedbackStatus.textContent = `Thank you for helping improve AI Shield. Feedback reference: ${payload.feedbackId}`;
+    window.setTimeout(() => {
+      feedbackSubmitButton.disabled = false;
+    }, 1500);
+  } catch (error) {
+    feedbackStatus.textContent = error.message;
+    feedbackSubmitButton.disabled = false;
+  }
+}
+
 const debouncedMessageAnalysis = debounce(analyzeMessageLocally, 180);
 const debouncedScreenAnalysis = debounce(analyzeScreenLocally, 180);
 
@@ -407,6 +455,10 @@ screenInput.addEventListener("input", debouncedScreenAnalysis);
 screenConsent.addEventListener("change", analyzeScreenLocally);
 captureScreenButton.addEventListener("click", captureScreenTextLocally);
 screenServerAnalyzeButton.addEventListener("click", verifyScreenWithApi);
+feedbackComment.addEventListener("input", () => {
+  feedbackCharacterCount.textContent = `${feedbackComment.value.length} / 500`;
+});
+feedbackForm.addEventListener("submit", submitFeedback);
 
 syncConsentControls();
 renderEmpty(

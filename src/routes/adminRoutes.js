@@ -112,6 +112,12 @@ async function handleProtectedAdminRoutes(req, res, url, context) {
     return true;
   }
 
+  if (req.method === "GET" && url.pathname === "/api/admin/feedback") {
+    const view = await context.feedbackStore.getAdminView();
+    sendJson(res, 200, view);
+    return true;
+  }
+
   if (req.method === "DELETE" && url.pathname === "/api/admin/logs") {
     const deletedCount = await context.logger.deleteAll();
     sendJson(res, 200, {

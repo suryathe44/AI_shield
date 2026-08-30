@@ -326,6 +326,60 @@
           </article>
         </div>
       </section>
+
+      <section class="panel panel-feedback" aria-labelledby="feedbackTitle">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Product Feedback</p>
+            <h2 id="feedbackTitle">Help improve AI Shield</h2>
+          </div>
+          <p class="panel-note">
+            Share a rating and optional product comment. Feedback is separate from message
+            analysis and screen verification.
+          </p>
+        </div>
+
+        <form id="feedbackForm" class="feedback-form">
+          <fieldset class="feedback-rating">
+            <legend>Rating <span aria-hidden="true">*</span></legend>
+            <div class="rating-options">
+              <label><input type="radio" name="feedbackRating" value="1" required /><span>1</span></label>
+              <label><input type="radio" name="feedbackRating" value="2" /><span>2</span></label>
+              <label><input type="radio" name="feedbackRating" value="3" /><span>3</span></label>
+              <label><input type="radio" name="feedbackRating" value="4" /><span>4</span></label>
+              <label><input type="radio" name="feedbackRating" value="5" /><span>5</span></label>
+            </div>
+            <p class="feedback-scale"><span>Not useful</span><span>Very useful</span></p>
+          </fieldset>
+
+          <label class="field">
+            <span>Category</span>
+            <select id="feedbackCategory" required>
+              <option value="Useful">Useful</option>
+              <option value="Confusing">Confusing</option>
+              <option value="False Positive">False Positive</option>
+              <option value="False Negative">False Negative</option>
+              <option value="Feature Request">Feature Request</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <label class="field feedback-comment">
+            <span>Optional comment</span>
+            <textarea id="feedbackComment" maxlength="500" rows="5" placeholder="What worked well, felt confusing, or should improve?"></textarea>
+            <small id="feedbackCharacterCount">0 / 500</small>
+          </label>
+
+          <div class="feedback-privacy">
+            <p>No personal details are requested or included in the feedback record.</p>
+          </div>
+
+          <div class="action-row action-row-wrap">
+            <button id="feedbackSubmitButton" class="button-primary" type="submit">Submit Feedback</button>
+            <p id="feedbackStatus" class="status-text" aria-live="polite">Ready for your feedback.</p>
+          </div>
+        </form>
+      </section>
     </main>
 
     <script type="module" src="/app.js"></script>

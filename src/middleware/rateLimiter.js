@@ -1,4 +1,4 @@
-export function createRateLimiter({ windowMs, analyzeLimit, adminLimit, adminAuthLimit }) {
+export function createRateLimiter({ windowMs, analyzeLimit, adminLimit, adminAuthLimit, feedbackLimit }) {
   const buckets = new Map();
 
   function prune(now) {
@@ -16,6 +16,10 @@ export function createRateLimiter({ windowMs, analyzeLimit, adminLimit, adminAut
 
     if (bucket === "admin-auth") {
       return adminAuthLimit;
+    }
+
+    if (bucket === "feedback") {
+      return feedbackLimit ?? analyzeLimit;
     }
 
     return analyzeLimit;

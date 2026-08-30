@@ -278,6 +278,12 @@ If no `PORT` environment value is loaded, the application falls back to port `10
 
 > Open the app through the Node server. Direct `file://` preview can display the stylesheet, but ES modules, shared detection code, API verification, and OCR require the served URL.
 
+## Privacy-First Feedback
+
+The dashboard includes an optional product-feedback form with a 1–5 rating, a fixed category, and an optional comment of up to 500 characters. It does not request a name, email address, account identifier, or the message being analyzed. Feedback is stored in `data/feedback.json`, separately from encrypted security audit logs, and the protected admin portal provides aggregate ratings, category counts, false-positive and false-negative totals, filters, and the submitted comments.
+
+The default feedback store is intentionally a simple local file for this project. Render's filesystem is ephemeral, so feedback can disappear after a restart or redeploy. Use a persistent disk or managed database before relying on feedback retention in production. Hosting infrastructure may still retain ordinary request metadata in platform logs according to its own policy.
+
 ## API
 
 ### Public endpoints
@@ -289,6 +295,7 @@ If no `PORT` environment value is loaded, the application falls back to port `10
 | `POST` | `/api/analyze` | Analyze message content |
 | `POST` | `/api/analyze/screen` | Analyze pasted screen text |
 | `POST` | `/api/analyze/screen/capture` | Extract and analyze text from a screen capture |
+| `POST` | `/api/feedback` | Submit anonymous product feedback |
 
 ### Admin endpoints
 
@@ -302,6 +309,7 @@ If no `PORT` environment value is loaded, the application falls back to port `10
 | `DELETE` | `/api/admin/logs` | Delete all audit records |
 | `GET` | `/api/admin/security/blocked` | List blocked IP addresses |
 | `POST` | `/api/admin/security/unlock-ip` | Unlock a blocked IP address |
+| `GET` | `/api/admin/feedback` | Read feedback records and aggregate metrics |
 
 ### Example analysis request
 

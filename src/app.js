@@ -4,6 +4,8 @@ import { AdminAuthService } from "./services/adminAuthService.js";
 import { createRateLimiter } from "./middleware/rateLimiter.js";
 import { handleAdminRoutes } from "./routes/adminRoutes.js";
 import { handleAnalyzeRoutes } from "./routes/analyzeRoutes.js";
+import { handleFeedbackRoutes } from "./routes/feedbackRoutes.js";
+import { FeedbackStore } from "./services/feedbackStore.js";
 import { SecureLogger } from "./services/secureLogger.js";
 import { WindowsOcrService } from "./services/windowsOcr.js";
 import {
@@ -22,11 +24,15 @@ export function createAiShieldApp(overrides = {}) {
   });
   const adminAuthService = overrides.adminAuthService ?? new AdminAuthService(config);
   const ocrService = overrides.ocrService ?? new WindowsOcrService();
+  const feedbackStore = overrides.feedbackStore ?? new FeedbackStore({
+    filePath: config.feedbackFilePath,
+  });
   const rateLimiter = overrides.rateLimiter ?? createRateLimiter({
     windowMs: config.rateLimitWindowMs,
     analyzeLimit: config.analyzePerMinute,
     adminLimit: config.adminPerMinute,
     adminAuthLimit: config.adminAuthPerMinute,
+    feedbackLimit: config.feedbackPerMinute,
   });
 
   const context = {
@@ -35,6 +41,7 @@ export function createAiShieldApp(overrides = {}) {
     adminAuthService,
     ocrService,
     rateLimiter,
+    feedbackStore,
   };
 
   const server = http.createServer(async (req, res) => {
@@ -73,6 +80,21 @@ export function createAiShieldApp(overrides = {}) {
 
       const ip = getClientIp(req);
       const routeContext = { ...context, ip };
+
+      if (url.pathname === "/api/feedback") {
+        const rateState = rateLimiter.consume({ ip, bucket: "feedback" });
+        setRateLimitHeaders(res, rateState);
+        if (!rateState.allowed) {
+          sendJson(res, 429, {
+            error: "Feedback rate limit exceeded. Please retry later.",
+          });
+          return;
+        }
+
+        if (await handleFeedbackRoutes(req, res, url, routeContext)) {
+          return;
+        }
+      }
 
       if (url.pathname.startsWith("/api/admin/")) {
         const bucket = url.pathname === "/api/admin/auth/login" ? "admin-auth" : "admin";
@@ -133,5 +155,6 @@ export function createAiShieldApp(overrides = {}) {
     logger,
     adminAuthService,
     ocrService,
+    feedbackStore,
   };
 }

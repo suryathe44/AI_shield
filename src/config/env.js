@@ -89,12 +89,14 @@ export function loadConfig(overrides = {}) {
     adminIdleTimeoutMs: parseMinutes(process.env.AI_SHIELD_ADMIN_IDLE_TIMEOUT_MIN, 15),
     authDebug: parseBoolean(process.env.AI_SHIELD_AUTH_DEBUG, false),
     logFilePath: path.resolve(process.cwd(), process.env.AI_SHIELD_LOG_FILE ?? "./data/secure-logs.enc"),
+    feedbackFilePath: path.resolve(process.cwd(), process.env.AI_SHIELD_FEEDBACK_FILE ?? "./data/feedback.json"),
     maxBodyBytes: 32_000,
     maxImageBodyBytes: parseNumber(process.env.AI_SHIELD_MAX_IMAGE_BODY_BYTES, 8_000_000),
     rateLimitWindowMs: 60_000,
     analyzePerMinute: parseNumber(process.env.AI_SHIELD_RATE_LIMIT_ANALYZE_PER_MIN, 60),
     adminPerMinute: parseNumber(process.env.AI_SHIELD_RATE_LIMIT_ADMIN_PER_MIN, 20),
     adminAuthPerMinute: parseNumber(process.env.AI_SHIELD_RATE_LIMIT_ADMIN_AUTH_PER_MIN, 10),
+    feedbackPerMinute: parseNumber(process.env.AI_SHIELD_RATE_LIMIT_FEEDBACK_PER_MIN, 8),
   };
 
   const merged = { ...defaults, ...overrides };
@@ -105,6 +107,7 @@ export function loadConfig(overrides = {}) {
   merged.adminOtpSecret = normalizeString(merged.adminOtpSecret);
   merged.authDebug = parseBoolean(merged.authDebug, false);
   merged.logFilePath = path.resolve(process.cwd(), merged.logFilePath);
+  merged.feedbackFilePath = path.resolve(process.cwd(), merged.feedbackFilePath);
 
   return merged;
 }
