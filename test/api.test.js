@@ -91,3 +91,45 @@ test("POST /api/analyze/screen/capture uses the OCR service and returns extracte
   assert.equal(body.extractedText, "Urgent bank alert verify your password now");
   assert.ok(["SUSPICIOUS", "SCAM"].includes(body.analysis.classification));
 });
+
+test("POST /api/analyze applies optional internet URL reputation without sharing the full message", async (t) => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "ai-shield-api-"));
+  let receivedContent;
+  const { server } = createAiShieldApp({
+    host: "127.0.0.1",
+    port: 0,
+    masterKey: "test-master-key",
+    logFilePath: path.join(tempDir, "logs.enc"),
+    allowedOrigins: [],
+    urlReputationService: {
+      async checkContent(content) {
+        receivedContent = content;
+        return {
+          provider: "test-provider",
+          configured: true,
+          checked: true,
+          checkedUrlCount: 1,
+          matches: [{ url: "https://bad.example", threatTypes: ["SOCIAL_ENGINEERING"] }],
+        };
+      },
+    },
+  });
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+
+  const response = await fetch(`http://127.0.0.1:${server.address().port}/api/analyze`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      content: "Private context. Open https://bad.example",
+      consent: { process: true, storeLog: false },
+    }),
+  });
+  const body = await response.json();
+
+  assert.equal(receivedContent, "Private context. Open https://bad.example");
+  assert.equal(body.analysis.classification, "SCAM");
+  assert.ok(body.analysis.riskScore >= 95);
+  assert.equal(body.privacy.thirdPartySharing, true);
+  assert.equal(body.privacy.thirdPartySharedData, "urls-only");
+});

@@ -217,6 +217,32 @@ function detectRules(text) {
     });
   }
 
+  const identityTerms = findMatchedTerms(normalized, [
+    "aadhaar", "aadhar", "pan card", "date of birth", "bank details", "card number", "payment screenshot",
+  ]);
+  if (identityTerms.length > 0) {
+    hits.push({
+      id: "sensitive_data_request",
+      label: "Sensitive personal-data request",
+      weight: 18,
+      reason: "The message requests identity, banking, or payment evidence that can be abused for fraud.",
+      evidence: buildEvidence(text, identityTerms),
+    });
+  }
+
+  const opportunityTerms = findMatchedTerms(normalized, [
+    "guaranteed return", "guaranteed profit", "daily income", "work from home", "task job", "trading group",
+  ]);
+  if (opportunityTerms.length > 0) {
+    hits.push({
+      id: "fraudulent_opportunity",
+      label: "High-risk opportunity claim",
+      weight: 17,
+      reason: "The message uses unrealistic job or investment claims commonly seen in advance-fee scams.",
+      evidence: buildEvidence(text, opportunityTerms),
+    });
+  }
+
   return hits;
 }
 
@@ -262,18 +288,27 @@ function buildRecommendations(classification, ruleHits) {
   return dedupeBy(recommendations, (item) => item).slice(0, 4);
 }
 
-function classifyRisk(riskScore, ruleHits, mlResult) {
+function classifyRisk(riskScore, ruleHits, behaviorHits, mlResult) {
   const strongCombination =
     ruleHits.some((hit) => hit.id === "suspicious_link") &&
     ruleHits.some((hit) => hit.id === "credential_request");
   const paymentAndUrgency =
     ruleHits.some((hit) => hit.id === "payment_redirection") &&
-    ruleHits.some((hit) => hit.id === "threat_based_compliance");
+    (ruleHits.some((hit) => hit.id === "threat_based_compliance") ||
+      behaviorHits.some((hit) => ["urgency_pressure", "fear_tactics", "secrecy_pressure"].includes(hit.id)));
+  const credentialPressure =
+    ruleHits.some((hit) => hit.id === "credential_request") &&
+    behaviorHits.some((hit) => ["urgency_pressure", "fear_tactics", "fake_authority"].includes(hit.id));
+  const advanceFeeOpportunity =
+    ruleHits.some((hit) => hit.id === "fraudulent_opportunity") &&
+    ruleHits.some((hit) => hit.id === "payment_redirection");
 
   if (
     riskScore >= CLASSIFICATION_THRESHOLDS.scam ||
     strongCombination ||
     paymentAndUrgency ||
+    credentialPressure ||
+    advanceFeeOpportunity ||
     (mlResult.probabilities.scam > 0.8 && ruleHits.length > 0)
   ) {
     return "SCAM";
@@ -290,6 +325,21 @@ function classifyRisk(riskScore, ruleHits, mlResult) {
   return "SAFE";
 }
 
+function buildConfidence(riskScore, ruleHits, behaviorHits, mlResult) {
+  const evidenceCount = ruleHits.length + behaviorHits.length;
+  const thresholdDistance = Math.min(
+    Math.abs(riskScore - CLASSIFICATION_THRESHOLDS.suspicious),
+    Math.abs(riskScore - CLASSIFICATION_THRESHOLDS.scam),
+  );
+  const modelCertainty = Math.max(...Object.values(mlResult.probabilities));
+  const score = Math.round(clamp(42 + evidenceCount * 8 + thresholdDistance * 0.7 + modelCertainty * 15, 0, 99));
+  return {
+    score,
+    level: score >= 80 ? "HIGH" : score >= 60 ? "MEDIUM" : "LOW",
+    evidenceCount,
+  };
+}
+
 export function analyzeContent({ content, source = "message" }) {
   const original = String(content ?? "").trim();
 
@@ -298,6 +348,7 @@ export function analyzeContent({ content, source = "message" }) {
       source,
       classification: "SAFE",
       riskScore: 0,
+      confidence: { score: 100, level: "HIGH", evidenceCount: 0 },
       summary: "No content was provided for analysis.",
       explanation: [],
       alerts: [],
@@ -328,11 +379,25 @@ export function analyzeContent({ content, source = "message" }) {
   if (behaviorHits.some((hit) => hit.id === "fake_authority") && ruleHits.some((hit) => hit.id === "remote_access_request")) {
     combinationBonus += 10;
   }
+  if (ruleHits.some((hit) => hit.id === "credential_request") && behaviorHits.some((hit) => ["urgency_pressure", "fear_tactics", "fake_authority"].includes(hit.id))) {
+    combinationBonus += 16;
+  }
+  if (ruleHits.some((hit) => hit.id === "fraudulent_opportunity") && ruleHits.some((hit) => hit.id === "payment_redirection")) {
+    combinationBonus += 16;
+  }
+  if (ruleHits.some((hit) => hit.id === "sensitive_data_request") && (extractUrls(original).length > 0 || behaviorHits.some((hit) => hit.id === "fake_authority"))) {
+    combinationBonus += 12;
+  }
 
-  const riskScore = Math.round(
-    clamp(ruleScore * 0.45 + behaviorScore * 0.22 + mlResult.riskScore * 0.33 + combinationBonus, 0, 100),
+  const rawRiskScore = Math.round(
+    clamp(ruleScore * 0.5 + behaviorScore * 0.24 + mlResult.riskScore * 0.26 + combinationBonus, 0, 100),
   );
-  const classification = classifyRisk(riskScore, ruleHits, mlResult);
+  const classification = classifyRisk(rawRiskScore, ruleHits, behaviorHits, mlResult);
+  const riskScore = classification === "SCAM"
+    ? Math.max(CLASSIFICATION_THRESHOLDS.scam, rawRiskScore)
+    : classification === "SUSPICIOUS"
+      ? Math.max(CLASSIFICATION_THRESHOLDS.suspicious, rawRiskScore)
+      : Math.min(CLASSIFICATION_THRESHOLDS.suspicious - 1, rawRiskScore);
 
   const explanation = [];
 
@@ -380,6 +445,7 @@ export function analyzeContent({ content, source = "message" }) {
     source,
     classification,
     riskScore,
+    confidence: buildConfidence(riskScore, ruleHits, behaviorHits, mlResult),
     summary,
     explanation: dedupeBy(explanation, (item) => item).slice(0, 6),
     alerts,

@@ -281,6 +281,10 @@ If no `PORT` environment value is loaded, the application falls back to port `10
 
 > Open the app through the Node server. Direct `file://` preview can display the stylesheet, but ES modules, shared detection code, API verification, and OCR require the served URL.
 
+### Optional internet URL reputation
+
+Set `AI_SHIELD_SAFE_BROWSING_API_KEY` to enable Google Safe Browsing v5 URL reputation during explicit API verification. AI Shield sends only extracted URLs—never the complete message—to the reputation provider. A confirmed unsafe URL raises the verdict to `SCAM`; provider errors time out quickly and preserve the local verdict instead of blocking analysis. Keep the key only in environment configuration. Google Safe Browsing is licensed for non-commercial use; use Google Web Risk or another appropriately licensed provider for a commercial service.
+
 ## Privacy-First Feedback
 
 The dashboard includes an optional product-feedback form with a 1–5 rating, a fixed category, and an optional comment of up to 500 characters. It does not request a name, email address, account identifier, or the message being analyzed. Feedback is stored separately from encrypted security audit logs, and the protected admin portal provides aggregate ratings, category counts, false-positive and false-negative totals, filters, and the submitted comments.

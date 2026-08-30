@@ -7,6 +7,7 @@ import { handleAnalyzeRoutes } from "./routes/analyzeRoutes.js";
 import { handleFeedbackRoutes } from "./routes/feedbackRoutes.js";
 import { FeedbackStore } from "./services/feedbackStore.js";
 import { PostgresFeedbackStore } from "./services/postgresFeedbackStore.js";
+import { UrlReputationService } from "./services/urlReputationService.js";
 import { SecureLogger } from "./services/secureLogger.js";
 import { WindowsOcrService } from "./services/windowsOcr.js";
 import {
@@ -28,6 +29,10 @@ export function createAiShieldApp(overrides = {}) {
   const feedbackStore = overrides.feedbackStore ?? (config.databaseUrl
     ? new PostgresFeedbackStore({ connectionString: config.databaseUrl, ssl: config.databaseSsl })
     : new FeedbackStore({ filePath: config.feedbackFilePath }));
+  const urlReputationService = overrides.urlReputationService ?? new UrlReputationService({
+    apiKey: config.safeBrowsingApiKey,
+    timeoutMs: config.threatIntelTimeoutMs,
+  });
   const rateLimiter = overrides.rateLimiter ?? createRateLimiter({
     windowMs: config.rateLimitWindowMs,
     analyzeLimit: config.analyzePerMinute,
@@ -43,6 +48,7 @@ export function createAiShieldApp(overrides = {}) {
     ocrService,
     rateLimiter,
     feedbackStore,
+    urlReputationService,
   };
 
   const server = http.createServer(async (req, res) => {
@@ -157,5 +163,6 @@ export function createAiShieldApp(overrides = {}) {
     adminAuthService,
     ocrService,
     feedbackStore,
+    urlReputationService,
   };
 }

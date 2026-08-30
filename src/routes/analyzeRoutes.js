@@ -1,6 +1,7 @@
 import { analyzeContent } from "../../shared/detectionEngine.js";
 import { sanitizeContent } from "../../shared/textUtils.js";
 import { readJsonBody, sendJson } from "../utils/http.js";
+import { applyUrlReputation } from "../services/urlReputationService.js";
 
 function normalizeConsent(rawConsent = {}) {
   return {
@@ -68,10 +69,12 @@ async function runTextAnalysis(req, res, context, options) {
     return true;
   }
 
-  const analysis = analyzeContent({
+  const localAnalysis = analyzeContent({
     content,
     source: normalizeSource(body.source, options.source),
   });
+  const reputation = await context.urlReputationService.checkContent(content);
+  const analysis = applyUrlReputation(localAnalysis, reputation);
   const logReceipt = await appendAnalysisLog(context, body, consent, analysis, content, options.source);
 
   sendJson(res, 200, {
@@ -80,7 +83,8 @@ async function runTextAnalysis(req, res, context, options) {
       processed: true,
       stored: Boolean(logReceipt),
       wasTruncated,
-      thirdPartySharing: false,
+      thirdPartySharing: reputation.checked,
+      thirdPartySharedData: reputation.checked ? "urls-only" : "none",
       localAnalysisAvailable: true,
       storage: context.logger.getStorageMetadata(),
     },

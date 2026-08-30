@@ -94,6 +94,8 @@ export function loadConfig(overrides = {}) {
     feedbackFilePath: path.resolve(process.cwd(), process.env.AI_SHIELD_FEEDBACK_FILE ?? "./data/feedback.json"),
     databaseUrl: normalizeString(process.env.DATABASE_URL),
     databaseSsl: parseBoolean(process.env.AI_SHIELD_DATABASE_SSL, false),
+    safeBrowsingApiKey: normalizeString(process.env.AI_SHIELD_SAFE_BROWSING_API_KEY),
+    threatIntelTimeoutMs: parseNumber(process.env.AI_SHIELD_THREAT_INTEL_TIMEOUT_MS, 2500),
     maxBodyBytes: 32_000,
     maxImageBodyBytes: parseNumber(process.env.AI_SHIELD_MAX_IMAGE_BODY_BYTES, 8_000_000),
     rateLimitWindowMs: 60_000,
@@ -119,6 +121,7 @@ export function loadConfig(overrides = {}) {
   merged.feedbackFilePath = path.resolve(process.cwd(), merged.feedbackFilePath);
   merged.databaseUrl = normalizeString(merged.databaseUrl);
   merged.databaseSsl = parseBoolean(merged.databaseSsl, false);
+  merged.safeBrowsingApiKey = normalizeString(merged.safeBrowsingApiKey);
 
   return merged;
 }

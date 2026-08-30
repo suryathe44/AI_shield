@@ -39,7 +39,10 @@ export function tokenize(value = "") {
 }
 
 export function extractUrls(value = "") {
-  return Array.from(new Set(value.match(URL_REGEX) ?? []));
+  const refanged = String(value)
+    .replace(/hxxps?:\/\//gi, (match) => (match.toLowerCase() === "hxxps://" ? "https://" : "http://"))
+    .replace(/\[(?:dot|\.)\]|\((?:dot|\.)\)/gi, ".");
+  return Array.from(new Set(refanged.match(URL_REGEX) ?? []));
 }
 
 export function extractDomain(url) {
@@ -61,7 +64,16 @@ export function stripSubdomain(domain) {
 
 export function findMatchedTerms(text, terms) {
   const normalized = normalizeText(text);
-  return terms.filter((term, index) => normalized.includes(term) && terms.indexOf(term) === index);
+  return terms.filter((term, index) => {
+    if (terms.indexOf(term) !== index) {
+      return false;
+    }
+    const normalizedTerm = normalizeText(term);
+    const escaped = normalizedTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const prefix = /^[a-z0-9]/.test(normalizedTerm) ? "(?:^|[^a-z0-9])" : "";
+    const suffix = /[a-z0-9]$/.test(normalizedTerm) ? "(?=$|[^a-z0-9])" : "";
+    return new RegExp(`${prefix}${escaped}${suffix}`, "i").test(normalized);
+  });
 }
 
 export function safePreview(text, maxLength = 180) {

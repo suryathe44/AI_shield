@@ -101,7 +101,17 @@ function renderAnalysis(target, analysis, originLabel) {
   target.dial.style.setProperty("--angle", angle);
   target.classification.textContent = analysis.classification;
   target.summary.textContent = analysis.summary;
-  target.meta.textContent = `${originLabel} | ML ${analysis.factors.machineLearning.riskScore}/100 | ${analysis.stats.wordCount} words`;
+  const reputation = analysis.factors.internetReputation;
+  const internetStatus = reputation
+    ? reputation.checked
+      ? ` | Internet URL check: ${reputation.matches.length ? "THREAT FOUND" : "no known threat"}`
+      : reputation.unavailable
+        ? " | Internet URL check unavailable"
+        : reputation.configured
+          ? " | No URL to check"
+          : " | Internet URL check not configured"
+    : "";
+  target.meta.textContent = `${originLabel} | ML ${analysis.factors.machineLearning.riskScore}/100 | Confidence ${analysis.confidence?.level ?? "N/A"} | ${analysis.stats.wordCount} words${internetStatus}`;
   target.card.classList.remove("is-empty");
   applyTone(target.card, analysis.classification);
 

@@ -127,4 +127,36 @@ export const TRAINING_CORPUS = [
     label: "scam",
     text: "We are from Amazon security. Because of suspicious purchases you must log in through this short link bit.ly/update-amz and confirm your card details.",
   },
+  {
+    label: "scam",
+    text: "SBI KYC update pending. Aaj hi hxxp://sbi-kyc[.]top open karke OTP aur card PIN enter karo warna account block ho jayega.",
+  },
+  {
+    label: "scam",
+    text: "Your electricity connection will be disconnected tonight. Pay the pending bill immediately by UPI and share the payment screenshot.",
+  },
+  {
+    label: "scam",
+    text: "Work from home job confirmed. Registration fee bhejo, QR scan karo aur daily 5000 guaranteed kamao.",
+  },
+  {
+    label: "scam",
+    text: "Police verification case hai. Kisi ko mat batana aur arrest avoid karne ke liye secure account mein transfer karo.",
+  },
+  {
+    label: "scam",
+    text: "Your parcel contains illegal items. Customs officer se case close karne ke liye processing fee aur Aadhaar details send karo.",
+  },
+  {
+    label: "suspicious",
+    text: "Guaranteed investment return of 30 percent every week. Join this private trading group and deposit funds today.",
+  },
+  {
+    label: "safe",
+    text: "Bank safety reminder: employees never ask you to share OTP, CVV, card PIN, password, or UPI PIN.",
+  },
+  {
+    label: "safe",
+    text: "The known issue is fixed now. No payment or account verification is required.",
+  },
 ];

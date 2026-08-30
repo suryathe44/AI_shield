@@ -30,3 +30,29 @@ test("AI Shield identifies gift-card impersonation as suspicious or worse", () =
   assert.ok(["SUSPICIOUS", "SCAM"].includes(analysis.classification));
   assert.ok(analysis.highlights.some((item) => item.label.toLowerCase().includes("gift card")));
 });
+
+test("AI Shield catches Hinglish KYC phishing with a defanged URL", () => {
+  const analysis = analyzeContent({
+    content: "SBI KYC update pending. Aaj hi hxxp://sbi-kyc[.]top open karke OTP aur card PIN enter karo warna account block ho jayega.",
+  });
+  assert.equal(analysis.classification, "SCAM");
+  assert.ok(analysis.riskScore >= 70);
+  assert.ok(analysis.stats.urlCount >= 1);
+  assert.equal(analysis.confidence.level, "HIGH");
+});
+
+test("word-boundary matching does not treat known as urgency term now", () => {
+  const analysis = analyzeContent({
+    content: "The known issue is fixed now. No payment or account verification is required.",
+  });
+  assert.equal(analysis.classification, "SAFE");
+  assert.equal(analysis.factors.behaviors.length, 0);
+});
+
+test("AI Shield catches advance-fee job scams", () => {
+  const analysis = analyzeContent({
+    content: "Work from home job confirmed. Registration fee bhejo, QR scan karo aur daily income guaranteed hai.",
+  });
+  assert.ok(["SUSPICIOUS", "SCAM"].includes(analysis.classification));
+  assert.ok(analysis.factors.rules.some((rule) => rule.id === "fraudulent_opportunity"));
+});
