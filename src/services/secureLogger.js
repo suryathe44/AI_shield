@@ -1,34 +1,43 @@
 import {
   createCipheriv,
   createDecipheriv,
-  createHash,
+  createHmac,
   randomBytes,
   randomUUID,
   scryptSync,
 } from "node:crypto";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { chmod, mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { normalizeText, safePreview } from "../../shared/textUtils.js";
 
-function encryptValue(value, key) {
+const ENVELOPE_VERSION = 2;
+
+function encryptValue(value, key, context = "secure-log-value") {
   const iv = randomBytes(12);
   const cipher = createCipheriv("aes-256-gcm", key, iv);
+  cipher.setAAD(Buffer.from(context, "utf8"));
   const encrypted = Buffer.concat([cipher.update(value, "utf8"), cipher.final()]);
   const tag = cipher.getAuthTag();
 
   return {
+    version: ENVELOPE_VERSION,
     iv: iv.toString("base64"),
     tag: tag.toString("base64"),
     ciphertext: encrypted.toString("base64"),
   };
 }
 
-function decryptValue(payload, key) {
+function decryptValue(payload, key, context = "secure-log-value") {
   const decipher = createDecipheriv(
     "aes-256-gcm",
     key,
     Buffer.from(payload.iv, "base64"),
   );
+  if (payload.version === ENVELOPE_VERSION) {
+    decipher.setAAD(Buffer.from(context, "utf8"));
+  } else if (payload.version !== undefined && payload.version !== 1) {
+    throw new Error("Unsupported encrypted log format.");
+  }
   decipher.setAuthTag(Buffer.from(payload.tag, "base64"));
   const decrypted = Buffer.concat([
     decipher.update(Buffer.from(payload.ciphertext, "base64")),
@@ -38,8 +47,8 @@ function decryptValue(payload, key) {
   return decrypted.toString("utf8");
 }
 
-function hashValue(value) {
-  return createHash("sha256").update(String(value ?? "")).digest("hex");
+function hashValue(value, key) {
+  return createHmac("sha256", key).update(String(value ?? "")).digest("hex");
 }
 
 export class SecureLogger {
@@ -48,6 +57,11 @@ export class SecureLogger {
     this.key = masterKey
       ? scryptSync(masterKey, "ai-shield-secure-log", 32)
       : randomBytes(32);
+    this.digestKey = scryptSync(
+      masterKey || this.key,
+      "ai-shield-secure-log-digests",
+      32,
+    );
     this.usesEphemeralKey = !masterKey;
     this.queue = Promise.resolve();
   }
@@ -82,14 +96,20 @@ export class SecureLogger {
     }
 
     const envelope = JSON.parse(raw);
-    const plaintext = decryptValue(envelope, this.key);
+    const plaintext = decryptValue(envelope, this.key, "ai-shield-log-file");
     return JSON.parse(plaintext);
   }
 
   async writeEntries(entries) {
     await mkdir(path.dirname(this.logFilePath), { recursive: true });
-    const envelope = encryptValue(JSON.stringify(entries), this.key);
-    await writeFile(this.logFilePath, JSON.stringify(envelope, null, 2), "utf8");
+    const envelope = encryptValue(JSON.stringify(entries), this.key, "ai-shield-log-file");
+    const temporaryPath = `${this.logFilePath}.${process.pid}.${randomBytes(8).toString("hex")}.tmp`;
+    await writeFile(temporaryPath, JSON.stringify(envelope, null, 2), {
+      encoding: "utf8",
+      mode: 0o600,
+    });
+    await rename(temporaryPath, this.logFilePath);
+    await chmod(this.logFilePath, 0o600);
   }
 
   async appendLog({ analysis, content, source, consent, actorHint, metadata = {} }) {
@@ -108,11 +128,11 @@ export class SecureLogger {
           .filter(Boolean)
           .slice(0, 6),
         explanation: analysis.explanation.slice(0, 4),
-        actorHash: hashValue(actorHint || metadata.sessionId || "anonymous"),
-        sessionHash: metadata.sessionId ? hashValue(metadata.sessionId) : null,
-        contentDigest: hashValue(normalizeText(content)),
+        actorHash: hashValue(actorHint || metadata.sessionId || "anonymous", this.digestKey),
+        sessionHash: metadata.sessionId ? hashValue(metadata.sessionId, this.digestKey) : null,
+        contentDigest: hashValue(normalizeText(content), this.digestKey),
         encryptedSnippet: consent.persistContentSnippet
-          ? encryptValue(safePreview(content), this.key)
+          ? encryptValue(safePreview(content), this.key, "ai-shield-log-snippet")
           : null,
       };
 
@@ -131,7 +151,9 @@ export class SecureLogger {
       const entries = await this.readEntries();
       return entries.map((entry) => ({
         ...entry,
-        snippet: entry.encryptedSnippet ? decryptValue(entry.encryptedSnippet, this.key) : null,
+        snippet: entry.encryptedSnippet
+          ? decryptValue(entry.encryptedSnippet, this.key, "ai-shield-log-snippet")
+          : null,
         encryptedSnippet: undefined,
       }));
     });

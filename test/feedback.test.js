@@ -163,3 +163,8 @@ test("15. PostgreSQL store persists feedback and reports durable Render storage"
   assert.deepEqual(adminView.storage, { durableOnRender: true, type: "postgresql" });
   assert.equal(queries.filter(({ sql }) => sql.includes("CREATE TABLE")).length, 1);
 });
+
+test("PostgreSQL TLS verifies certificates by default", () => {
+  const config = createAiShieldApp({ databaseSsl: true }).config;
+  assert.equal(config.databaseSslRejectUnauthorized, true);
+});

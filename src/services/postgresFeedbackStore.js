@@ -4,10 +4,10 @@ import { calculateFeedbackMetrics, createFeedbackId } from "./feedbackStore.js";
 const { Pool } = pg;
 
 export class PostgresFeedbackStore {
-  constructor({ connectionString, ssl = false, pool } = {}) {
+  constructor({ connectionString, ssl = false, sslRejectUnauthorized = true, pool } = {}) {
     const poolConfig = { connectionString };
     if (ssl) {
-      poolConfig.ssl = { rejectUnauthorized: false };
+      poolConfig.ssl = { rejectUnauthorized: sslRejectUnauthorized };
     }
     this.pool = pool ?? new Pool(poolConfig);
     this.ready = null;

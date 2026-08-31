@@ -1,5 +1,6 @@
 import { loadLocalEnvFile } from "./utils/loadEnv.js";
 import { createAiShieldApp } from "./app.js";
+import { getSecurityConfigWarnings } from "./utils/securityConfig.js";
 
 loadLocalEnvFile();
 
@@ -26,6 +27,10 @@ server.listen(PORT, HOST, () => {
     console.log(
       "AI Shield is using an ephemeral encryption key. Set AI_SHIELD_MASTER_KEY for production persistence."
     );
+  }
+
+  for (const warning of getSecurityConfigWarnings(config)) {
+    console.warn(`[AI Shield][security] ${warning}`);
   }
 });
 

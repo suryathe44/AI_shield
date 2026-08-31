@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import os from "node:os";
 import path from "node:path";
+import { createHmac } from "node:crypto";
 import { mkdtemp } from "node:fs/promises";
 import { createAiShieldApp } from "../src/app.js";
 import { AdminAuthService } from "../src/services/adminAuthService.js";
@@ -9,7 +10,17 @@ import {
   createPasswordHash,
   generateBase32Secret,
   generateTotpCode,
+  verifySignedToken,
 } from "../src/utils/adminSecurity.js";
+
+function signTokenParts(header, payload, secret) {
+  const encodedHeader = Buffer.from(JSON.stringify(header)).toString("base64url");
+  const encodedPayload = Buffer.from(JSON.stringify(payload)).toString("base64url");
+  const signature = createHmac("sha256", secret)
+    .update(`${encodedHeader}.${encodedPayload}`)
+    .digest("base64url");
+  return `${encodedHeader}.${encodedPayload}.${signature}`;
+}
 
 function buildAdminConfig(tempDir, overrides = {}) {
   const otpSecret = overrides.adminOtpSecret ?? generateBase32Secret();
@@ -159,6 +170,12 @@ test("invalid trusted-device tokens cannot replace TOTP", () => {
   const config = buildAdminConfig(os.tmpdir());
   const auth = new AdminAuthService(config);
   assert.throws(() => auth.login({ username: "admin", password: "StrongPass!234", otp: "", ipAddress: "203.0.113.1", fingerprint: "device", trustedDeviceToken: "invalid.token.value" }), (error) => error.code === "admin_invalid_credentials");
+});
+
+test("signed token validation rejects an unexpected algorithm header", () => {
+  const secret = Buffer.from("token-test-secret");
+  const token = signTokenParts({ alg: "none", typ: "JWT" }, { role: "admin" }, secret);
+  assert.throws(() => verifySignedToken(token, secret), /unsupported token header/i);
 });
 
 test("successful TOTP can issue an HttpOnly trusted-device cookie for later login", async (t) => {

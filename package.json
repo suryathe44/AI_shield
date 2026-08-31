@@ -9,7 +9,8 @@
     "dev": "node --watch src/server.js",
     "test": "node --test",
     "admin:hash": "node scripts/generate-admin-password-hash.js",
-    "admin:otp-secret": "node scripts/generate-admin-otp-secret.js"
+    "admin:otp-secret": "node scripts/generate-admin-otp-secret.js",
+    "security:master-key": "node scripts/generate-master-key.js"
   },
   "engines": {
     "node": ">=20"

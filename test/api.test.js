@@ -42,6 +42,26 @@ test("POST /api/analyze returns explainable scam analysis", async (t) => {
   assert.ok(["SUSPICIOUS", "SCAM"].includes(body.analysis.classification));
   assert.ok(body.analysis.explanation.length > 0);
   assert.equal(body.privacy.thirdPartySharing, false);
+  assert.equal(response.headers.get("cross-origin-opener-policy"), "same-origin");
+  assert.equal(response.headers.get("cross-origin-resource-policy"), "same-origin");
+  assert.equal(response.headers.get("strict-transport-security"), null);
+});
+
+test("HTTPS proxy requests receive HSTS without breaking local HTTP", async (t) => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "ai-shield-api-"));
+  const { server } = createAiShieldApp({
+    host: "127.0.0.1",
+    port: 0,
+    masterKey: "test-master-key",
+    logFilePath: path.join(tempDir, "logs.enc"),
+  });
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+
+  const response = await fetch(`http://127.0.0.1:${server.address().port}/api/health`, {
+    headers: { "X-Forwarded-Proto": "https" },
+  });
+  assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
 });
 
 test("POST /api/analyze/screen/capture uses the OCR service and returns extracted text", async (t) => {

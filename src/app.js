@@ -27,7 +27,11 @@ export function createAiShieldApp(overrides = {}) {
   const adminAuthService = overrides.adminAuthService ?? new AdminAuthService(config);
   const ocrService = overrides.ocrService ?? new WindowsOcrService();
   const feedbackStore = overrides.feedbackStore ?? (config.databaseUrl
-    ? new PostgresFeedbackStore({ connectionString: config.databaseUrl, ssl: config.databaseSsl })
+    ? new PostgresFeedbackStore({
+      connectionString: config.databaseUrl,
+      ssl: config.databaseSsl,
+      sslRejectUnauthorized: config.databaseSslRejectUnauthorized,
+    })
     : new FeedbackStore({ filePath: config.feedbackFilePath }));
   const urlReputationService = overrides.urlReputationService ?? new UrlReputationService({
     apiKey: config.safeBrowsingApiKey,

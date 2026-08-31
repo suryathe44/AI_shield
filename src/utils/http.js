@@ -25,17 +25,27 @@ export function sendJson(res, statusCode, payload) {
 
 export function setSecurityHeaders(req, res, config) {
   const origin = req.headers.origin;
+  const forwardedProtocol = String(req.headers["x-forwarded-proto"] ?? "")
+    .split(",")[0]
+    .trim();
+  const isHttps = forwardedProtocol === "https" || Boolean(req.socket.encrypted);
 
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("X-Frame-Options", "DENY");
   res.setHeader("Referrer-Policy", "no-referrer");
   res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+  res.setHeader("Cross-Origin-Resource-Policy", "same-origin");
   res.setHeader(
     "Content-Security-Policy",
     "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
   );
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, X-Device-Fingerprint");
+
+  if (isHttps) {
+    res.setHeader("Strict-Transport-Security", "max-age=31536000");
+  }
 
   if (origin && config.allowedOrigins.has(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);

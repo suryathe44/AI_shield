@@ -1,6 +1,7 @@
 import {
   createHash,
   createHmac,
+  hkdfSync,
   randomBytes,
   scryptSync,
   timingSafeEqual,
@@ -165,6 +166,9 @@ export function createPasswordHash(password, options = {}) {
   const parameters = {
     N: options.N ?? 16_384,
     r: options.r ?? 8,
+    // Keep the default compatible with Render's smallest instances. The hash
+    // format stores its work factors, so stronger values can be generated on
+    // larger deployments without breaking verification of existing hashes.
     p: options.p ?? 1,
     keyLength: options.keyLength ?? 64,
   };
@@ -198,7 +202,20 @@ export function verifyPasswordHash(password, storedHash) {
   const salt = Buffer.from(saltText, "base64");
   const expected = Buffer.from(hashText, "base64");
 
-  if (!Number.isInteger(N) || !Number.isInteger(r) || !Number.isInteger(p) || expected.length === 0) {
+  if (
+    !Number.isInteger(N)
+    || N < 2 ** 13
+    || N > 2 ** 20
+    || (N & (N - 1)) !== 0
+    || !Number.isInteger(r)
+    || r < 1
+    || r > 32
+    || !Number.isInteger(p)
+    || p < 1
+    || p > 16
+    || expected.length < 32
+    || expected.length > 128
+  ) {
     return false;
   }
 
@@ -265,6 +282,21 @@ export function createHmacHash(value, secret) {
   return createHmac("sha256", secret).update(String(value ?? "")).digest("hex");
 }
 
+export function deriveKey(masterKey, purpose, length = 32) {
+  const inputKey = toBuffer(masterKey);
+  if (inputKey.length === 0) {
+    throw new Error("A master key is required for key derivation.");
+  }
+
+  return Buffer.from(hkdfSync(
+    "sha256",
+    inputKey,
+    Buffer.from("ai-shield-v1", "utf8"),
+    Buffer.from(String(purpose), "utf8"),
+    length,
+  ));
+}
+
 export function createSignedToken(payload, secret) {
   const header = {
     alg: "HS256",
@@ -300,10 +332,17 @@ export function verifySignedToken(token, secret) {
     throw new Error("Invalid token signature.");
   }
 
-  return {
-    header: JSON.parse(base64UrlDecode(encodedHeader).toString("utf8")),
-    payload: JSON.parse(base64UrlDecode(encodedPayload).toString("utf8")),
-  };
+  const header = JSON.parse(base64UrlDecode(encodedHeader).toString("utf8"));
+  const payload = JSON.parse(base64UrlDecode(encodedPayload).toString("utf8"));
+
+  if (!header || header.alg !== "HS256" || header.typ !== "JWT") {
+    throw new Error("Unsupported token header.");
+  }
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    throw new Error("Invalid token payload.");
+  }
+
+  return { header, payload };
 }
 
 export function createFingerprintHash(fingerprint, secret) {

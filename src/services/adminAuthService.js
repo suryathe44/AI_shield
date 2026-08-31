@@ -3,6 +3,7 @@ import {
   createFingerprintHash,
   createIpHash,
   createSignedToken,
+  deriveKey,
   isIpAllowed,
   normalizeIp,
   safeTextEqual,
@@ -24,8 +25,9 @@ export class AdminAuthService {
     this.now = options.now ?? (() => Date.now());
     this.failedAttemptsByIp = new Map();
     this.sessions = new Map();
-    this.tokenSecret = Buffer.from(`${config.masterKey ?? ""}:admin-session`, "utf8");
-    this.trustedDeviceSecret = Buffer.from(`${config.masterKey ?? ""}:admin-trusted-device`, "utf8");
+    const masterKey = config.masterKey || randomBytes(32);
+    this.tokenSecret = deriveKey(masterKey, "admin-session-signing");
+    this.trustedDeviceSecret = deriveKey(masterKey, "admin-trusted-device-signing");
   }
 
   debug(event, details = {}) {
@@ -357,7 +359,7 @@ export class AdminAuthService {
     }
 
     const currentFingerprintHash = createFingerprintHash(normalizedFingerprint, this.tokenSecret);
-    if (currentFingerprintHash !== session.fingerprintHash) {
+    if (!safeTextEqual(currentFingerprintHash, session.fingerprintHash)) {
       this.debug("device-mismatch", { sessionId: payload.sid, ip: normalizedIp });
       throw makeError(
         "This device fingerprint does not match the active admin session.",
@@ -367,7 +369,7 @@ export class AdminAuthService {
     }
 
     const currentIpHash = createIpHash(normalizedIp, this.tokenSecret);
-    if (currentIpHash !== session.ipHash) {
+    if (!safeTextEqual(currentIpHash, session.ipHash)) {
       this.debug("session-ip-mismatch", { sessionId: payload.sid, ip: normalizedIp });
       throw makeError(
         "This IP does not match the active admin session.",
