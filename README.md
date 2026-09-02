@@ -42,7 +42,7 @@ AI Shield evaluates these signals through three independent detection layers, ex
 | Area | Implementation |
 | --- | --- |
 | Stack | Node.js, JavaScript, semantic HTML, and responsive CSS |
-| Detection | Local ML classification, security rules, and behavioral analysis |
+| Detection | Local ML classification, security rules, behavioral analysis, and evidence-based MITRE ATT&CK/F3 candidate mappings |
 | Output | Explainable 0–100 risk score with SAFE, SUSPICIOUS, or SCAM verdict |
 | Privacy | Scoped consent for processing, screen analysis, logging, and content previews |
 | Security | AES-256-GCM logs, scrypt key derivation, TOTP, IP controls, and rate limits |
@@ -113,6 +113,7 @@ The exact score can vary as the embedded corpus, rules, and weighting logic evol
 | Message Protection | Local inspection of email, SMS, chat, and other suspicious text |
 | Screen Analysis | Browser-local analysis of pasted screen text with optional capture and OCR workflow |
 | Explainable Scoring | Risk score, verdict, detected reasons, suspicious-pattern highlights, and recommendations |
+| Threat Framework Context | Candidate MITRE ATT&CK and MITRE Fight Fraud Framework (F3) mappings with supporting evidence |
 | Consent Controls | Separate controls for processing, screen scanning, log storage, and content-preview persistence |
 | Encrypted Audit Logs | Optional AES-256-GCM encrypted storage with hashed identifiers and deletion support |
 | Admin Security | Password hashing, TOTP verification, IP allowlisting, device-bound sessions, lockouts, and rate limits |
@@ -352,6 +353,15 @@ curl -X POST http://127.0.0.1:3000/api/analyze \
     "classification": "SCAM",
     "riskScore": 91,
     "summary": "This content shows multiple coordinated scam indicators and should be treated as hostile.",
+    "mitre_attack_id": "T1566.002",
+    "f3_technique": "T1660",
+    "frameworkMappings": {
+      "mappingType": "candidate-technique",
+      "mitreAttackVersion": "19.1",
+      "mitreF3Version": "1.1",
+      "mitreAttack": [],
+      "mitreF3": []
+    },
     "explanation": [],
     "highlights": [],
     "recommendations": []
@@ -365,6 +375,15 @@ curl -X POST http://127.0.0.1:3000/api/analyze \
   "logReceipt": null
 }
 ```
+
+### MITRE F3 identifier format
+
+MITRE F3 v1.1 contains two valid identifier families:
+
+- `F...` identifies fraud-specific F3 techniques, such as `F1032` (Impersonate Official).
+- `T...` identifies existing MITRE ATT&CK techniques reused directly by F3. Therefore `T1660` (Phishing) is a valid F3 technique ID; it must not be rewritten as an invented `F...` identifier.
+
+AI Shield marks each F3 mapping as `f3-native` or `attack-reused-by-f3`. These are evidence-based candidate mappings, not proof that fraud or compromise succeeded. Verify the catalog in the [official MITRE F3 matrix](https://ctid.mitre.org/fraud/#/matrix), the [official T1660 technique page](https://ctid.mitre.org/fraud/techniques/T1660), or the [MITRE CTID F3 STIX repository](https://github.com/center-for-threat-informed-defense/fight-fraud-framework/blob/main/public/f3-stix-v1.1.json).
 
 ## Testing
 

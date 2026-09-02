@@ -18,6 +18,7 @@ import {
   tokenize,
 } from "./textUtils.js";
 import { TRAINING_CORPUS } from "./trainingCorpus.js";
+import { attachFrameworkMappings } from "./frameworkMappings.js";
 
 const LABELS = ["safe", "suspicious", "scam"];
 const MODEL = trainModel(TRAINING_CORPUS);
@@ -344,7 +345,7 @@ export function analyzeContent({ content, source = "message" }) {
   const original = String(content ?? "").trim();
 
   if (!original) {
-    return {
+    return attachFrameworkMappings({
       source,
       classification: "SAFE",
       riskScore: 0,
@@ -360,7 +361,7 @@ export function analyzeContent({ content, source = "message" }) {
       },
       highlights: [],
       stats: { wordCount: 0, urlCount: 0 },
-    };
+    });
   }
 
   const ruleHits = detectRules(original);
@@ -441,7 +442,7 @@ export function analyzeContent({ content, source = "message" }) {
         ? "This content shows enough phishing or manipulation signals to warrant verification before any action."
         : "No dominant scam pattern was detected, though normal caution is still recommended.";
 
-  return {
+  return attachFrameworkMappings({
     source,
     classification,
     riskScore,
@@ -465,5 +466,5 @@ export function analyzeContent({ content, source = "message" }) {
       wordCount: original.split(/\s+/).filter(Boolean).length,
       urlCount: extractUrls(original).length,
     },
-  };
+  });
 }

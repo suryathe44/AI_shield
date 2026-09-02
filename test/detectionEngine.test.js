@@ -11,6 +11,11 @@ test("AI Shield flags obvious credential phishing as SCAM", () => {
   assert.equal(analysis.classification, "SCAM");
   assert.ok(analysis.riskScore >= 75);
   assert.ok(analysis.explanation.some((entry) => entry.includes("passwords") || entry.includes("OTP")));
+  assert.equal(analysis.mitre_attack_id, "T1566.002");
+  assert.equal(analysis.f3_technique, "T1660");
+  assert.equal(analysis.frameworkMappings.mitreF3[0].source, "attack-reused-by-f3");
+  assert.ok(analysis.frameworkMappings.mitreAttack.some((entry) => entry.id === "T1598"));
+  assert.ok(analysis.frameworkMappings.mitreF3.some((entry) => entry.id === "F1032"));
 });
 
 test("AI Shield keeps normal benign content in SAFE range", () => {
@@ -20,6 +25,10 @@ test("AI Shield keeps normal benign content in SAFE range", () => {
 
   assert.equal(analysis.classification, "SAFE");
   assert.ok(analysis.riskScore < 35);
+  assert.equal(analysis.mitre_attack_id, null);
+  assert.equal(analysis.f3_technique, null);
+  assert.deepEqual(analysis.frameworkMappings.mitreAttack, []);
+  assert.deepEqual(analysis.frameworkMappings.mitreF3, []);
 });
 
 test("AI Shield identifies gift-card impersonation as suspicious or worse", () => {
@@ -55,4 +64,29 @@ test("AI Shield catches advance-fee job scams", () => {
   });
   assert.ok(["SUSPICIOUS", "SCAM"].includes(analysis.classification));
   assert.ok(analysis.factors.rules.some((rule) => rule.id === "fraudulent_opportunity"));
+});
+
+test("AI Shield maps explicit wire-transfer fraud without claiming completed theft", () => {
+  const analysis = analyzeContent({
+    content: "CEO request: keep this confidential and make an urgent wire transfer immediately.",
+  });
+
+  assert.ok(["SUSPICIOUS", "SCAM"].includes(analysis.classification));
+  assert.ok(analysis.frameworkMappings.mitreF3.some((entry) => entry.id === "F1025.003"));
+  assert.equal(
+    analysis.frameworkMappings.mitreF3.find((entry) => entry.id === "F1025.003").source,
+    "f3-native",
+  );
+  assert.equal(analysis.frameworkMappings.mappingType, "candidate-technique");
+  assert.match(analysis.frameworkMappings.disclaimer, /do not prove/i);
+});
+
+test("a benign use of the word account does not receive framework mappings", () => {
+  const analysis = analyzeContent({
+    content: "The accounting team confirmed the monthly report is ready for review.",
+  });
+
+  assert.equal(analysis.classification, "SAFE");
+  assert.equal(analysis.mitre_attack_id, null);
+  assert.equal(analysis.f3_technique, null);
 });

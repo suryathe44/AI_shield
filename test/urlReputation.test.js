@@ -25,6 +25,8 @@ test("URL reputation sends only extracted URLs and upgrades known threats", asyn
   assert.equal(analysis.classification, "SCAM");
   assert.ok(analysis.riskScore >= 95);
   assert.equal(analysis.factors.internetReputation.checked, true);
+  assert.equal(analysis.mitre_attack_id, "T1566.002");
+  assert.ok(analysis.frameworkMappings.mitreF3.some((entry) => entry.id === "F1020.002"));
 });
 
 test("URL reputation fails open to local analysis when the provider is unavailable", async () => {

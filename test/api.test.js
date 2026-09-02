@@ -41,6 +41,10 @@ test("POST /api/analyze returns explainable scam analysis", async (t) => {
   const body = await response.json();
   assert.ok(["SUSPICIOUS", "SCAM"].includes(body.analysis.classification));
   assert.ok(body.analysis.explanation.length > 0);
+  assert.equal(typeof body.analysis.mitre_attack_id, "string");
+  assert.equal(typeof body.analysis.f3_technique, "string");
+  assert.ok(Array.isArray(body.analysis.frameworkMappings.mitreAttack));
+  assert.ok(Array.isArray(body.analysis.frameworkMappings.mitreF3));
   assert.equal(body.privacy.thirdPartySharing, false);
   assert.equal(response.headers.get("cross-origin-opener-policy"), "same-origin");
   assert.equal(response.headers.get("cross-origin-resource-policy"), "same-origin");

@@ -1,4 +1,5 @@
 import { extractUrls } from "../../shared/textUtils.js";
+import { attachFrameworkMappings } from "../../shared/frameworkMappings.js";
 
 export class UrlReputationService {
   constructor({ apiKey = "", timeoutMs = 2500, fetchImpl = globalThis.fetch } = {}) {
@@ -71,7 +72,7 @@ export function applyUrlReputation(analysis, reputation) {
   };
 
   if (!reputation?.matches?.length) {
-    return enriched;
+    return attachFrameworkMappings(enriched);
   }
 
   const threatNames = Array.from(new Set(reputation.matches.flatMap((match) => match.threatTypes)));
@@ -79,7 +80,7 @@ export function applyUrlReputation(analysis, reputation) {
     threatNames.length ? ` (${threatNames.join(", ")})` : ""
   }.`;
 
-  return {
+  return attachFrameworkMappings({
     ...enriched,
     classification: "SCAM",
     riskScore: Math.max(95, analysis.riskScore),
@@ -91,5 +92,5 @@ export function applyUrlReputation(analysis, reputation) {
       "Do not open the confirmed unsafe link; block and report the sender.",
       ...analysis.recommendations,
     ])).slice(0, 4),
-  };
+  });
 }
