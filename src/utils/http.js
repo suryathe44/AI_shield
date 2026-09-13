@@ -89,7 +89,14 @@ export async function readJsonBody(req, maxBytes) {
 
       try {
         const raw = Buffer.concat(chunks).toString("utf8");
-        resolve(raw ? JSON.parse(raw) : {});
+        const body = raw ? JSON.parse(raw) : {};
+        if (body === null || typeof body !== "object" || Array.isArray(body)) {
+          const shapeError = new Error("JSON payload must be an object");
+          shapeError.statusCode = 400;
+          reject(shapeError);
+          return;
+        }
+        resolve(body);
       } catch (error) {
         const parseError = new Error("Invalid JSON payload");
         parseError.statusCode = 400;
@@ -124,7 +131,7 @@ export async function serveStaticAsset(pathname, req, res) {
   }
 
   const absolutePath = path.resolve(baseDir, relativePath);
-  if (!absolutePath.startsWith(baseDir)) {
+  if (!absolutePath.startsWith(`${baseDir}${path.sep}`)) {
     return false;
   }
 
@@ -146,7 +153,7 @@ export async function serveStaticAsset(pathname, req, res) {
     res.end(file);
     return true;
   } catch (error) {
-    if (error.code === "ENOENT") {
+    if (error.code === "ENOENT" || error.code === "EISDIR" || error.code === "ENOTDIR") {
       return false;
     }
 
