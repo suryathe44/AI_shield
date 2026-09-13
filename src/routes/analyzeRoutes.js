@@ -4,6 +4,7 @@ import { readJsonBody, sendJson } from "../utils/http.js";
 import { applyUrlReputation } from "../services/urlReputationService.js";
 
 function normalizeConsent(rawConsent = {}) {
+  rawConsent = rawConsent ?? {};
   return {
     process: rawConsent.process === true,
     storeLog: rawConsent.storeLog === true,
@@ -69,13 +70,14 @@ async function runTextAnalysis(req, res, context, options) {
     return true;
   }
 
+  const source = normalizeSource(body.source, options.source);
   const localAnalysis = analyzeContent({
     content,
-    source: normalizeSource(body.source, options.source),
+    source,
   });
   const reputation = await context.urlReputationService.checkContent(content);
   const analysis = applyUrlReputation(localAnalysis, reputation);
-  const logReceipt = await appendAnalysisLog(context, body, consent, analysis, content, options.source);
+  const logReceipt = await appendAnalysisLog(context, body, consent, analysis, content, source);
 
   sendJson(res, 200, {
     analysis,
