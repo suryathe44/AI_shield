@@ -8,9 +8,8 @@ const { server, config, logger, feedbackStore } = createAiShieldApp();
 
 await logger.ensureReady();
 
-// 🔥 IMPORTANT FIX FOR RENDER
-const PORT = process.env.PORT || config.port || 10000;
-const HOST = "0.0.0.0"; // force public binding
+const PORT = config.port;
+const HOST = config.host;
 
 server.listen(PORT, HOST, () => {
   console.log(`AI Shield listening on http://${HOST}:${PORT}`);
