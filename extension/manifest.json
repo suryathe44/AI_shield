@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "AI Shield",
+  "version": "1.0.0",
+  "description": "Inspect messages, selected text and pages for scam signals locally.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI Shield \u2014 scan for scam signals",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src 'none'"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "homepage_url": "https://github.com/suryathe44/AI_shield"
+}
