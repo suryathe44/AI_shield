@@ -408,7 +408,7 @@ export function analyzeContent({ content, source = "message" }) {
   if (behaviorHits.length > 0) {
     explanation.push(...behaviorHits.slice(0, 2).map((hit) => hit.reason));
   }
-  if (mlResult.topIndicators.length > 0) {
+  if (classification !== "SAFE" && mlResult.topIndicators.length > 0) {
     explanation.push(
       `The local ML classifier associated this content with scam-related wording such as ${mlResult.topIndicators
         .slice(0, 3)
