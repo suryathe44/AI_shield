@@ -19,9 +19,35 @@ Privacy-first, explainable scam and phishing detection using local ML, security 
 
 ---
 
+## Chrome extension
+
+[Download Chrome extension ZIP](releases/ai-shield-chrome-1.0.0.zip) · [Extension privacy policy](docs/chrome-web-store/PRIVACY.md) · [Store listing preparation](docs/chrome-web-store/LISTING.md)
+
+Extract the ZIP, open `chrome://extensions`, enable Developer mode, and select the extracted folder with **Load unpacked**. Web Store publication is deferred; no store listing is live.
+
+Build the standalone extension (Node.js 20+):
+
+```bash
+npm run build:extension
+```
+
+1. Open `chrome://extensions` in Chrome.
+2. Enable **Developer mode**.
+3. Choose **Load unpacked** and select the `dist/chrome-extension` folder inside this repository.
+4. Pin AI Shield from Chrome's Extensions menu.
+5. Paste a message and choose **Analyze message**, or open a webpage and choose **Scan selected text** / **Scan current page**.
+
+Each scan button authorizes that local scan. The existing detection engine and corpus are bundled; no backend or internet connection is required for analysis. No scan history or message content is persisted, and the extension blocks outgoing connections. It requests only `activeTab` and `scripting`, following [Chrome's temporary active-tab access model](https://developer.chrome.com/docs/extensions/develop/concepts/activeTab).
+
+Page scanning includes the current URL and rendered main-frame body text, capped at 20,000 characters. It does not perform OCR, read cross-origin frames, inspect actual link destinations, query URL reputation services, or automatically block websites. Chrome internal pages and other restricted pages cannot be scanned; paste text instead. Results are heuristic guidance, not proof that a site is safe. Closing the popup clears its content and result.
+
+For a fresh downloadable ZIP after changing code, run `python3 scripts/package-extension.py` after the build (Python 3 required only for packaging). The versioned ZIP is saved in `releases/`.
+
+Source files live in `extension/`; rebuild after editing them or the shared engine, then click Reload on the extension in Chrome. The generated folder is ready for local installation; it has not been published to the Chrome Web Store.
+
 ## Overview
 
-AI Shield is a cybersecurity web application that helps users inspect suspicious emails, SMS messages, chats, prompts, and visible screen text before acting on them.
+AI Shield provides a web dashboard and a standalone Chrome extension. The web application helps users inspect suspicious emails, SMS messages, chats, prompts, and visible screen text before acting on them.
 
 It combines three detection layers to produce an explainable **0–100 risk score** and a verdict of **SAFE**, **SUSPICIOUS**, or **SCAM**:
 
@@ -195,6 +221,8 @@ Responsive Web Dashboard
 
 ```text
 AI_shield/
+├── extension/              # Chrome popup, text capture, manifest, and icons
+├── releases/               # Installable versioned extension ZIP
 ├── public/                 # Main dashboard and admin interface
 │   ├── index.html
 │   ├── app.js
@@ -435,7 +463,7 @@ Before production deployment:
 
 ### Near-term
 
-- Browser extension workflow
+- Chrome Web Store publication
 - Cross-platform OCR hardening
 - Hindi and English corpus expansion
 - Improved explainability and audit tooling

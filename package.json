@@ -10,7 +10,8 @@
     "test": "node --test",
     "admin:hash": "node scripts/generate-admin-password-hash.js",
     "admin:otp-secret": "node scripts/generate-admin-otp-secret.js",
-    "security:master-key": "node scripts/generate-master-key.js"
+    "security:master-key": "node scripts/generate-master-key.js",
+    "build:extension": "node scripts/build-extension.js"
   },
   "engines": {
     "node": ">=20"
