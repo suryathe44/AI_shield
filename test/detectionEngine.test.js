@@ -90,3 +90,10 @@ test("a benign use of the word account does not receive framework mappings", () 
   assert.equal(analysis.mitre_attack_id, null);
   assert.equal(analysis.f3_technique, null);
 });
+
+
+test("benign results do not describe routine words as scam evidence", () => {
+  const result = analyzeContent({ content: "Team lunch is scheduled for tomorrow at noon in the office cafeteria." });
+  assert.equal(result.classification, "SAFE");
+  assert.ok(result.explanation.every((reason) => !reason.includes("scam-related wording")));
+});

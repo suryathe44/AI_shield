@@ -5,6 +5,52 @@ import path from "node:path";
 import { mkdtemp } from "node:fs/promises";
 import { createAiShieldApp } from "../src/app.js";
 
+test("invalid JSON shapes and null consent return client errors", async (t) => {
+  const { server } = createAiShieldApp({ masterKey: "test-key", analyzePerMinute: 100 });
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  for (const route of ["/api/analyze", "/api/feedback", "/api/admin/auth/login"]) {
+    for (const value of [null, [], "text", 123, true]) {
+      const response = await fetch(`${base}${route}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(value),
+      });
+      assert.equal(response.status, 400, `${route}: ${JSON.stringify(value)}`);
+      assert.equal((await response.json()).error, "JSON payload must be an object");
+    }
+  }
+  for (const route of ["/api/analyze", "/api/analyze/screen", "/api/analyze/screen/capture"]) {
+    const response = await fetch(`${base}${route}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content: "hello", consent: null }),
+    });
+    assert.equal(response.status, 400);
+    assert.match((await response.json()).error, /consent/i);
+  }
+  const directoryResponse = await fetch(`${base}/shared/`);
+  assert.equal(directoryResponse.status, 404);
+});
+
+test("audit records preserve the normalized analysis source", async (t) => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "ai-shield-source-"));
+  const { server, logger } = createAiShieldApp({
+    masterKey: "test-key",
+    logFilePath: path.join(tempDir, "logs.enc"),
+  });
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const response = await fetch(`http://127.0.0.1:${server.address().port}/api/analyze`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content: "Hello there", source: " SMS ", consent: { process: true, storeLog: true } }),
+  });
+  assert.equal(response.status, 200);
+  assert.equal((await logger.readAllLogs())[0].source, "sms");
+});
+
 test("POST /api/analyze returns explainable scam analysis", async (t) => {
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "ai-shield-api-"));
   const { server } = createAiShieldApp({
