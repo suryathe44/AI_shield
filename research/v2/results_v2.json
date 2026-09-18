@@ -1,0 +1,197 @@
+{
+  "version": "2.0.0-research",
+  "decisionRule": "SAFE below 35; SUSPICIOUS 35-69; SCAM 70-100; binary metrics count SUSPICIOUS or SCAM as positive",
+  "metrics": {
+    "nazarioHeldOut": {
+      "n": 400,
+      "tp": 189,
+      "tn": 191,
+      "fp": 9,
+      "fn": 11,
+      "precision": 0.9545454545454546,
+      "recall": 0.945,
+      "specificity": 0.955,
+      "f1": 0.949748743718593,
+      "balancedAccuracy": 0.95,
+      "bootstrap95CI": {
+        "precision": [
+          0.9257142857142857,
+          0.9837837837837838
+        ],
+        "recall": [
+          0.9128205128205128,
+          0.9761904761904762
+        ],
+        "specificity": [
+          0.9267015706806283,
+          0.9835164835164835
+        ],
+        "f1": [
+          0.9280397022332506,
+          0.9706666666666668
+        ]
+      }
+    },
+    "syntheticHindiHinglishScams": {
+      "n": 200,
+      "tp": 200,
+      "tn": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": null,
+      "f1": 1.0,
+      "balancedAccuracy": null,
+      "bootstrap95CI": {
+        "precision": [
+          1.0,
+          1.0
+        ],
+        "recall": [
+          1.0,
+          1.0
+        ],
+        "specificity": null,
+        "f1": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "syntheticEnglishScams": {
+      "n": 200,
+      "tp": 200,
+      "tn": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": null,
+      "f1": 1.0,
+      "balancedAccuracy": null,
+      "bootstrap95CI": {
+        "precision": [
+          1.0,
+          1.0
+        ],
+        "recall": [
+          1.0,
+          1.0
+        ],
+        "specificity": null,
+        "f1": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "syntheticHindiHinglish": {
+      "n": 400,
+      "tp": 200,
+      "tn": 200,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "balancedAccuracy": 1.0,
+      "bootstrap95CI": {
+        "precision": [
+          1.0,
+          1.0
+        ],
+        "recall": [
+          1.0,
+          1.0
+        ],
+        "specificity": [
+          1.0,
+          1.0
+        ],
+        "f1": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "syntheticEnglish": {
+      "n": 400,
+      "tp": 200,
+      "tn": 200,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "balancedAccuracy": 1.0,
+      "bootstrap95CI": {
+        "precision": [
+          1.0,
+          1.0
+        ],
+        "recall": [
+          1.0,
+          1.0
+        ],
+        "specificity": [
+          1.0,
+          1.0
+        ],
+        "f1": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "syntheticCombined": {
+      "n": 800,
+      "tp": 400,
+      "tn": 400,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "balancedAccuracy": 1.0,
+      "bootstrap95CI": {
+        "precision": [
+          1.0,
+          1.0
+        ],
+        "recall": [
+          1.0,
+          1.0
+        ],
+        "specificity": [
+          1.0,
+          1.0
+        ],
+        "f1": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "latency": {
+    "nazarioMedianMs": 4.672328999999991,
+    "nazarioP95Ms": 19.620214999999916,
+    "syntheticMedianMs": 1.344188000000031,
+    "syntheticP95Ms": 3.078100000000177
+  },
+  "artifactsSha256": {
+    "Nazario_5.csv": "afef69828165619ced6661ca14a95444a1db82c7b25ae9c2619bbbb108844a44",
+    "SMSSpamCollection": "7d039a24a6083ed9ef0f806ebad56bbb976e3aeb8de05669173bfdc4996c239d",
+    "model.json": "3476e78c882d9d84e7e3cec3114902bb509fda1f95d182b492acd2c6a36d8b30",
+    "synthetic_scam_test.json": "92a47f0e690d702cee60073ce28747f34a0598eba6e275f1c43497dbdc07cd74"
+  },
+  "notes": [
+    "Nazario metrics use a deterministic, deduplicated, stratified held-out split.",
+    "No exact normalized Nazario/UCI overlaps were found; the old 40-message corpus is not used by v2.",
+    "Hindi/Hinglish and English scam tests are synthetic template-based robustness tests, not prevalence estimates."
+  ]
+}

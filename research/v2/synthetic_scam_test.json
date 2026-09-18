@@ -1,0 +1,4802 @@
+[
+  {
+    "id": "hi-scam-1",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help0@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1000"
+  },
+  {
+    "id": "hi-scam-2",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help1@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1001"
+  },
+  {
+    "id": "hi-scam-3",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help2@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1002"
+  },
+  {
+    "id": "hi-scam-4",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help3@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1003"
+  },
+  {
+    "id": "hi-scam-5",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help4@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1004"
+  },
+  {
+    "id": "hi-scam-6",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help5@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1005"
+  },
+  {
+    "id": "hi-scam-7",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help6@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1006"
+  },
+  {
+    "id": "hi-scam-8",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help7@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1007"
+  },
+  {
+    "id": "hi-scam-9",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help8@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1008"
+  },
+  {
+    "id": "hi-scam-10",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help9@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1009"
+  },
+  {
+    "id": "hi-scam-11",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help10@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1010"
+  },
+  {
+    "id": "hi-scam-12",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help11@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1011"
+  },
+  {
+    "id": "hi-scam-13",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help12@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1012"
+  },
+  {
+    "id": "hi-scam-14",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help13@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1013"
+  },
+  {
+    "id": "hi-scam-15",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help14@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1014"
+  },
+  {
+    "id": "hi-scam-16",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help15@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1015"
+  },
+  {
+    "id": "hi-scam-17",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help16@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1016"
+  },
+  {
+    "id": "hi-scam-18",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help17@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1017"
+  },
+  {
+    "id": "hi-scam-19",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help18@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1018"
+  },
+  {
+    "id": "hi-scam-20",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help19@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1019"
+  },
+  {
+    "id": "hi-scam-21",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help20@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1020"
+  },
+  {
+    "id": "hi-scam-22",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help21@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1021"
+  },
+  {
+    "id": "hi-scam-23",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help22@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1022"
+  },
+  {
+    "id": "hi-scam-24",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help23@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1023"
+  },
+  {
+    "id": "hi-scam-25",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help24@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1024"
+  },
+  {
+    "id": "hi-scam-26",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help25@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1025"
+  },
+  {
+    "id": "hi-scam-27",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help26@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1026"
+  },
+  {
+    "id": "hi-scam-28",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help27@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1027"
+  },
+  {
+    "id": "hi-scam-29",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help28@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1028"
+  },
+  {
+    "id": "hi-scam-30",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help29@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1029"
+  },
+  {
+    "id": "hi-scam-31",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help30@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1030"
+  },
+  {
+    "id": "hi-scam-32",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help31@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1031"
+  },
+  {
+    "id": "hi-scam-33",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help32@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1032"
+  },
+  {
+    "id": "hi-scam-34",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help33@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1033"
+  },
+  {
+    "id": "hi-scam-35",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help34@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1034"
+  },
+  {
+    "id": "hi-scam-36",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help35@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1035"
+  },
+  {
+    "id": "hi-scam-37",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help36@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1036"
+  },
+  {
+    "id": "hi-scam-38",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help37@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1037"
+  },
+  {
+    "id": "hi-scam-39",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help38@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1038"
+  },
+  {
+    "id": "hi-scam-40",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help39@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1039"
+  },
+  {
+    "id": "hi-scam-41",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help40@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1040"
+  },
+  {
+    "id": "hi-scam-42",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help41@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1041"
+  },
+  {
+    "id": "hi-scam-43",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help42@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1042"
+  },
+  {
+    "id": "hi-scam-44",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help43@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1043"
+  },
+  {
+    "id": "hi-scam-45",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help44@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1044"
+  },
+  {
+    "id": "hi-scam-46",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help45@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1045"
+  },
+  {
+    "id": "hi-scam-47",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help46@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1046"
+  },
+  {
+    "id": "hi-scam-48",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help47@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1047"
+  },
+  {
+    "id": "hi-scam-49",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help48@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1048"
+  },
+  {
+    "id": "hi-scam-50",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help49@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1049"
+  },
+  {
+    "id": "hi-scam-51",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help50@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1050"
+  },
+  {
+    "id": "hi-scam-52",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help51@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1051"
+  },
+  {
+    "id": "hi-scam-53",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help52@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1052"
+  },
+  {
+    "id": "hi-scam-54",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help53@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1053"
+  },
+  {
+    "id": "hi-scam-55",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help54@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1054"
+  },
+  {
+    "id": "hi-scam-56",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help55@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1055"
+  },
+  {
+    "id": "hi-scam-57",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help56@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1056"
+  },
+  {
+    "id": "hi-scam-58",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help57@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1057"
+  },
+  {
+    "id": "hi-scam-59",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help58@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1058"
+  },
+  {
+    "id": "hi-scam-60",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help59@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1059"
+  },
+  {
+    "id": "hi-scam-61",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help60@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1060"
+  },
+  {
+    "id": "hi-scam-62",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help61@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1061"
+  },
+  {
+    "id": "hi-scam-63",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help62@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1062"
+  },
+  {
+    "id": "hi-scam-64",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help63@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1063"
+  },
+  {
+    "id": "hi-scam-65",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help64@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1064"
+  },
+  {
+    "id": "hi-scam-66",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help65@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1065"
+  },
+  {
+    "id": "hi-scam-67",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help66@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1066"
+  },
+  {
+    "id": "hi-scam-68",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help67@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1067"
+  },
+  {
+    "id": "hi-scam-69",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help68@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1068"
+  },
+  {
+    "id": "hi-scam-70",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help69@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1069"
+  },
+  {
+    "id": "hi-scam-71",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help70@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1070"
+  },
+  {
+    "id": "hi-scam-72",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help71@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1071"
+  },
+  {
+    "id": "hi-scam-73",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help72@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1072"
+  },
+  {
+    "id": "hi-scam-74",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help73@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1073"
+  },
+  {
+    "id": "hi-scam-75",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help74@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1074"
+  },
+  {
+    "id": "hi-scam-76",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help75@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1075"
+  },
+  {
+    "id": "hi-scam-77",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help76@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1076"
+  },
+  {
+    "id": "hi-scam-78",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help77@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1077"
+  },
+  {
+    "id": "hi-scam-79",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help78@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1078"
+  },
+  {
+    "id": "hi-scam-80",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help79@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1079"
+  },
+  {
+    "id": "hi-scam-81",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help80@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1080"
+  },
+  {
+    "id": "hi-scam-82",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help81@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1081"
+  },
+  {
+    "id": "hi-scam-83",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help82@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1082"
+  },
+  {
+    "id": "hi-scam-84",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help83@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1083"
+  },
+  {
+    "id": "hi-scam-85",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help84@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1084"
+  },
+  {
+    "id": "hi-scam-86",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help85@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1085"
+  },
+  {
+    "id": "hi-scam-87",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help86@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1086"
+  },
+  {
+    "id": "hi-scam-88",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help87@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1087"
+  },
+  {
+    "id": "hi-scam-89",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help88@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1088"
+  },
+  {
+    "id": "hi-scam-90",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help89@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1089"
+  },
+  {
+    "id": "hi-scam-91",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help90@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1090"
+  },
+  {
+    "id": "hi-scam-92",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help91@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1091"
+  },
+  {
+    "id": "hi-scam-93",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help92@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1092"
+  },
+  {
+    "id": "hi-scam-94",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help93@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1093"
+  },
+  {
+    "id": "hi-scam-95",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help94@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1094"
+  },
+  {
+    "id": "hi-scam-96",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help95@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1095"
+  },
+  {
+    "id": "hi-scam-97",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help96@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1096"
+  },
+  {
+    "id": "hi-scam-98",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help97@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1097"
+  },
+  {
+    "id": "hi-scam-99",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help98@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1098"
+  },
+  {
+    "id": "hi-scam-100",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help99@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1099"
+  },
+  {
+    "id": "hi-scam-101",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help100@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1100"
+  },
+  {
+    "id": "hi-scam-102",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help101@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1101"
+  },
+  {
+    "id": "hi-scam-103",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help102@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1102"
+  },
+  {
+    "id": "hi-scam-104",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help103@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1103"
+  },
+  {
+    "id": "hi-scam-105",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help104@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1104"
+  },
+  {
+    "id": "hi-scam-106",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help105@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1105"
+  },
+  {
+    "id": "hi-scam-107",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help106@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1106"
+  },
+  {
+    "id": "hi-scam-108",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help107@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1107"
+  },
+  {
+    "id": "hi-scam-109",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help108@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1108"
+  },
+  {
+    "id": "hi-scam-110",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help109@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1109"
+  },
+  {
+    "id": "hi-scam-111",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help110@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1110"
+  },
+  {
+    "id": "hi-scam-112",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help111@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1111"
+  },
+  {
+    "id": "hi-scam-113",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help112@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1112"
+  },
+  {
+    "id": "hi-scam-114",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help113@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1113"
+  },
+  {
+    "id": "hi-scam-115",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help114@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1114"
+  },
+  {
+    "id": "hi-scam-116",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help115@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1115"
+  },
+  {
+    "id": "hi-scam-117",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help116@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1116"
+  },
+  {
+    "id": "hi-scam-118",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help117@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1117"
+  },
+  {
+    "id": "hi-scam-119",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help118@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1118"
+  },
+  {
+    "id": "hi-scam-120",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help119@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1119"
+  },
+  {
+    "id": "hi-scam-121",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help120@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1120"
+  },
+  {
+    "id": "hi-scam-122",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help121@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1121"
+  },
+  {
+    "id": "hi-scam-123",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help122@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1122"
+  },
+  {
+    "id": "hi-scam-124",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help123@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1123"
+  },
+  {
+    "id": "hi-scam-125",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help124@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1124"
+  },
+  {
+    "id": "hi-scam-126",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help125@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1125"
+  },
+  {
+    "id": "hi-scam-127",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help126@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1126"
+  },
+  {
+    "id": "hi-scam-128",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help127@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1127"
+  },
+  {
+    "id": "hi-scam-129",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help128@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1128"
+  },
+  {
+    "id": "hi-scam-130",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help129@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1129"
+  },
+  {
+    "id": "hi-scam-131",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help130@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1130"
+  },
+  {
+    "id": "hi-scam-132",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help131@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1131"
+  },
+  {
+    "id": "hi-scam-133",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help132@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1132"
+  },
+  {
+    "id": "hi-scam-134",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help133@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1133"
+  },
+  {
+    "id": "hi-scam-135",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help134@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1134"
+  },
+  {
+    "id": "hi-scam-136",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help135@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1135"
+  },
+  {
+    "id": "hi-scam-137",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help136@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1136"
+  },
+  {
+    "id": "hi-scam-138",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help137@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1137"
+  },
+  {
+    "id": "hi-scam-139",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help138@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1138"
+  },
+  {
+    "id": "hi-scam-140",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help139@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1139"
+  },
+  {
+    "id": "hi-scam-141",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help140@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1140"
+  },
+  {
+    "id": "hi-scam-142",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help141@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1141"
+  },
+  {
+    "id": "hi-scam-143",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help142@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1142"
+  },
+  {
+    "id": "hi-scam-144",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help143@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1143"
+  },
+  {
+    "id": "hi-scam-145",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help144@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1144"
+  },
+  {
+    "id": "hi-scam-146",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help145@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1145"
+  },
+  {
+    "id": "hi-scam-147",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help146@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1146"
+  },
+  {
+    "id": "hi-scam-148",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help147@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1147"
+  },
+  {
+    "id": "hi-scam-149",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help148@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1148"
+  },
+  {
+    "id": "hi-scam-150",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help149@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1149"
+  },
+  {
+    "id": "hi-scam-151",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help150@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1150"
+  },
+  {
+    "id": "hi-scam-152",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help151@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1151"
+  },
+  {
+    "id": "hi-scam-153",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help152@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1152"
+  },
+  {
+    "id": "hi-scam-154",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help153@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1153"
+  },
+  {
+    "id": "hi-scam-155",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help154@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1154"
+  },
+  {
+    "id": "hi-scam-156",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help155@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1155"
+  },
+  {
+    "id": "hi-scam-157",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help156@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1156"
+  },
+  {
+    "id": "hi-scam-158",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help157@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1157"
+  },
+  {
+    "id": "hi-scam-159",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help158@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1158"
+  },
+  {
+    "id": "hi-scam-160",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help159@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1159"
+  },
+  {
+    "id": "hi-scam-161",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help160@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1160"
+  },
+  {
+    "id": "hi-scam-162",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help161@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1161"
+  },
+  {
+    "id": "hi-scam-163",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help162@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1162"
+  },
+  {
+    "id": "hi-scam-164",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help163@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1163"
+  },
+  {
+    "id": "hi-scam-165",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help164@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1164"
+  },
+  {
+    "id": "hi-scam-166",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help165@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1165"
+  },
+  {
+    "id": "hi-scam-167",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help166@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1166"
+  },
+  {
+    "id": "hi-scam-168",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help167@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1167"
+  },
+  {
+    "id": "hi-scam-169",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help168@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1168"
+  },
+  {
+    "id": "hi-scam-170",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help169@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1169"
+  },
+  {
+    "id": "hi-scam-171",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help170@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1170"
+  },
+  {
+    "id": "hi-scam-172",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help171@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1171"
+  },
+  {
+    "id": "hi-scam-173",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help172@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1172"
+  },
+  {
+    "id": "hi-scam-174",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help173@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1173"
+  },
+  {
+    "id": "hi-scam-175",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help174@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1174"
+  },
+  {
+    "id": "hi-scam-176",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help175@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1175"
+  },
+  {
+    "id": "hi-scam-177",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help176@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1176"
+  },
+  {
+    "id": "hi-scam-178",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help177@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1177"
+  },
+  {
+    "id": "hi-scam-179",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help178@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1178"
+  },
+  {
+    "id": "hi-scam-180",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help179@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1179"
+  },
+  {
+    "id": "hi-scam-181",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help180@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1180"
+  },
+  {
+    "id": "hi-scam-182",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help181@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1181"
+  },
+  {
+    "id": "hi-scam-183",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help182@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1182"
+  },
+  {
+    "id": "hi-scam-184",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help183@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1183"
+  },
+  {
+    "id": "hi-scam-185",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help184@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1184"
+  },
+  {
+    "id": "hi-scam-186",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help185@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1185"
+  },
+  {
+    "id": "hi-scam-187",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help186@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1186"
+  },
+  {
+    "id": "hi-scam-188",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help187@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1187"
+  },
+  {
+    "id": "hi-scam-189",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help188@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1188"
+  },
+  {
+    "id": "hi-scam-190",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help189@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1189"
+  },
+  {
+    "id": "hi-scam-191",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help190@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1190"
+  },
+  {
+    "id": "hi-scam-192",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help191@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1191"
+  },
+  {
+    "id": "hi-scam-193",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help192@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1192"
+  },
+  {
+    "id": "hi-scam-194",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help193@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1193"
+  },
+  {
+    "id": "hi-scam-195",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help194@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1194"
+  },
+  {
+    "id": "hi-scam-196",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help195@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1195"
+  },
+  {
+    "id": "hi-scam-197",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: Paytm Support <help196@alerts-example.com>\nKYC blocked hai. UPI PIN share karo. http://paytm-kyc.top/verify Ref 1196"
+  },
+  {
+    "id": "hi-scam-198",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: SBI Support <help197@alerts-example.com>\naccount band ho jayega. lottery claim ke liye UPI payment karo. https://xn--paytm-9za.example/login Ref 1197"
+  },
+  {
+    "id": "hi-scam-199",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: HDFC Support <help198@alerts-example.com>\nखाता बंद होगा. QR scan karke processing fee bhejo. https://bit.ly/kyc-help Ref 1198"
+  },
+  {
+    "id": "hi-scam-200",
+    "language": "hi",
+    "label": "scam",
+    "text": "From: PhonePe Support <help199@alerts-example.com>\nअभी verify karo. OTP turant bhejo. http://198.51.100.42/pay Ref 1199"
+  },
+  {
+    "id": "hi-safe-1",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3000: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-2",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3001: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-3",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3002: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-4",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3003: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-5",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3004: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-6",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3005: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-7",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3006: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-8",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3007: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-9",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3008: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-10",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3009: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-11",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3010: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-12",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3011: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-13",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3012: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-14",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3013: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-15",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3014: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-16",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3015: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-17",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3016: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-18",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3017: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-19",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3018: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-20",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3019: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-21",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3020: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-22",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3021: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-23",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3022: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-24",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3023: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-25",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3024: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-26",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3025: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-27",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3026: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-28",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3027: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-29",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3028: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-30",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3029: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-31",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3030: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-32",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3031: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-33",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3032: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-34",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3033: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-35",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3034: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-36",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3035: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-37",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3036: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-38",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3037: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-39",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3038: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-40",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3039: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-41",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3040: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-42",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3041: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-43",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3042: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-44",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3043: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-45",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3044: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-46",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3045: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-47",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3046: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-48",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3047: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-49",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3048: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-50",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3049: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-51",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3050: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-52",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3051: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-53",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3052: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-54",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3053: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-55",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3054: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-56",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3055: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-57",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3056: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-58",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3057: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-59",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3058: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-60",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3059: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-61",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3060: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-62",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3061: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-63",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3062: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-64",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3063: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-65",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3064: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-66",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3065: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-67",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3066: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-68",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3067: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-69",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3068: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-70",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3069: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-71",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3070: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-72",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3071: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-73",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3072: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-74",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3073: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-75",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3074: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-76",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3075: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-77",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3076: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-78",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3077: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-79",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3078: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-80",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3079: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-81",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3080: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-82",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3081: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-83",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3082: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-84",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3083: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-85",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3084: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-86",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3085: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-87",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3086: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-88",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3087: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-89",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3088: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-90",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3089: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-91",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3090: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-92",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3091: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-93",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3092: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-94",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3093: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-95",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3094: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-96",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3095: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-97",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3096: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-98",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3097: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-99",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3098: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-100",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3099: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-101",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3100: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-102",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3101: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-103",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3102: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-104",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3103: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-105",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3104: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-106",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3105: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-107",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3106: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-108",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3107: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-109",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3108: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-110",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3109: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-111",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3110: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-112",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3111: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-113",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3112: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-114",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3113: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-115",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3114: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-116",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3115: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-117",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3116: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-118",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3117: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-119",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3118: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-120",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3119: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-121",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3120: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-122",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3121: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-123",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3122: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-124",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3123: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-125",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3124: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-126",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3125: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-127",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3126: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-128",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3127: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-129",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3128: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-130",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3129: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-131",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3130: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-132",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3131: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-133",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3132: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-134",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3133: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-135",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3134: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-136",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3135: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-137",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3136: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-138",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3137: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-139",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3138: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-140",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3139: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-141",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3140: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-142",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3141: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-143",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3142: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-144",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3143: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-145",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3144: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-146",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3145: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-147",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3146: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-148",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3147: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-149",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3148: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-150",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3149: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-151",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3150: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-152",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3151: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-153",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3152: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-154",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3153: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-155",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3154: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-156",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3155: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-157",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3156: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-158",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3157: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-159",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3158: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-160",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3159: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-161",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3160: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-162",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3161: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-163",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3162: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-164",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3163: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-165",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3164: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-166",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3165: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-167",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3166: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-168",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3167: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-169",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3168: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-170",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3169: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-171",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3170: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-172",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3171: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-173",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3172: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-174",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3173: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-175",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3174: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-176",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3175: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-177",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3176: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-178",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3177: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-179",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3178: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-180",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3179: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-181",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3180: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-182",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3181: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-183",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3182: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-184",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3183: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-185",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3184: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-186",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3185: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-187",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3186: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-188",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3187: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-189",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3188: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-190",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3189: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-191",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3190: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-192",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3191: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-193",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3192: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-194",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3193: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-195",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3194: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-196",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3195: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-197",
+    "language": "hi",
+    "label": "safe",
+    "text": "Paytm note 3196: Kal ki meeting 3 baje confirm hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-198",
+    "language": "hi",
+    "label": "safe",
+    "text": "SBI note 3197: Aapka monthly statement official app mein available hai. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-199",
+    "language": "hi",
+    "label": "safe",
+    "text": "HDFC note 3198: Maa ko call kar dena jab ghar pahucho. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "hi-safe-200",
+    "language": "hi",
+    "label": "safe",
+    "text": "PhonePe note 3199: UPI payment receipt mil gayi, dhanyavaad. Koi PIN ya OTP share mat karein."
+  },
+  {
+    "id": "en-scam-1",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case0@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2000"
+  },
+  {
+    "id": "en-scam-2",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case1@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2001"
+  },
+  {
+    "id": "en-scam-3",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case2@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2002"
+  },
+  {
+    "id": "en-scam-4",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case3@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2003"
+  },
+  {
+    "id": "en-scam-5",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case4@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2004"
+  },
+  {
+    "id": "en-scam-6",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case5@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2005"
+  },
+  {
+    "id": "en-scam-7",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case6@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2006"
+  },
+  {
+    "id": "en-scam-8",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case7@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2007"
+  },
+  {
+    "id": "en-scam-9",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case8@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2008"
+  },
+  {
+    "id": "en-scam-10",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case9@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2009"
+  },
+  {
+    "id": "en-scam-11",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case10@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2010"
+  },
+  {
+    "id": "en-scam-12",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case11@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2011"
+  },
+  {
+    "id": "en-scam-13",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case12@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2012"
+  },
+  {
+    "id": "en-scam-14",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case13@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2013"
+  },
+  {
+    "id": "en-scam-15",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case14@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2014"
+  },
+  {
+    "id": "en-scam-16",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case15@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2015"
+  },
+  {
+    "id": "en-scam-17",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case16@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2016"
+  },
+  {
+    "id": "en-scam-18",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case17@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2017"
+  },
+  {
+    "id": "en-scam-19",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case18@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2018"
+  },
+  {
+    "id": "en-scam-20",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case19@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2019"
+  },
+  {
+    "id": "en-scam-21",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case20@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2020"
+  },
+  {
+    "id": "en-scam-22",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case21@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2021"
+  },
+  {
+    "id": "en-scam-23",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case22@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2022"
+  },
+  {
+    "id": "en-scam-24",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case23@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2023"
+  },
+  {
+    "id": "en-scam-25",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case24@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2024"
+  },
+  {
+    "id": "en-scam-26",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case25@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2025"
+  },
+  {
+    "id": "en-scam-27",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case26@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2026"
+  },
+  {
+    "id": "en-scam-28",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case27@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2027"
+  },
+  {
+    "id": "en-scam-29",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case28@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2028"
+  },
+  {
+    "id": "en-scam-30",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case29@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2029"
+  },
+  {
+    "id": "en-scam-31",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case30@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2030"
+  },
+  {
+    "id": "en-scam-32",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case31@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2031"
+  },
+  {
+    "id": "en-scam-33",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case32@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2032"
+  },
+  {
+    "id": "en-scam-34",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case33@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2033"
+  },
+  {
+    "id": "en-scam-35",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case34@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2034"
+  },
+  {
+    "id": "en-scam-36",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case35@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2035"
+  },
+  {
+    "id": "en-scam-37",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case36@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2036"
+  },
+  {
+    "id": "en-scam-38",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case37@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2037"
+  },
+  {
+    "id": "en-scam-39",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case38@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2038"
+  },
+  {
+    "id": "en-scam-40",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case39@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2039"
+  },
+  {
+    "id": "en-scam-41",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case40@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2040"
+  },
+  {
+    "id": "en-scam-42",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case41@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2041"
+  },
+  {
+    "id": "en-scam-43",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case42@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2042"
+  },
+  {
+    "id": "en-scam-44",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case43@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2043"
+  },
+  {
+    "id": "en-scam-45",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case44@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2044"
+  },
+  {
+    "id": "en-scam-46",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case45@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2045"
+  },
+  {
+    "id": "en-scam-47",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case46@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2046"
+  },
+  {
+    "id": "en-scam-48",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case47@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2047"
+  },
+  {
+    "id": "en-scam-49",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case48@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2048"
+  },
+  {
+    "id": "en-scam-50",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case49@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2049"
+  },
+  {
+    "id": "en-scam-51",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case50@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2050"
+  },
+  {
+    "id": "en-scam-52",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case51@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2051"
+  },
+  {
+    "id": "en-scam-53",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case52@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2052"
+  },
+  {
+    "id": "en-scam-54",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case53@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2053"
+  },
+  {
+    "id": "en-scam-55",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case54@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2054"
+  },
+  {
+    "id": "en-scam-56",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case55@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2055"
+  },
+  {
+    "id": "en-scam-57",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case56@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2056"
+  },
+  {
+    "id": "en-scam-58",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case57@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2057"
+  },
+  {
+    "id": "en-scam-59",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case58@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2058"
+  },
+  {
+    "id": "en-scam-60",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case59@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2059"
+  },
+  {
+    "id": "en-scam-61",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case60@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2060"
+  },
+  {
+    "id": "en-scam-62",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case61@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2061"
+  },
+  {
+    "id": "en-scam-63",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case62@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2062"
+  },
+  {
+    "id": "en-scam-64",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case63@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2063"
+  },
+  {
+    "id": "en-scam-65",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case64@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2064"
+  },
+  {
+    "id": "en-scam-66",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case65@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2065"
+  },
+  {
+    "id": "en-scam-67",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case66@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2066"
+  },
+  {
+    "id": "en-scam-68",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case67@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2067"
+  },
+  {
+    "id": "en-scam-69",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case68@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2068"
+  },
+  {
+    "id": "en-scam-70",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case69@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2069"
+  },
+  {
+    "id": "en-scam-71",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case70@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2070"
+  },
+  {
+    "id": "en-scam-72",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case71@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2071"
+  },
+  {
+    "id": "en-scam-73",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case72@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2072"
+  },
+  {
+    "id": "en-scam-74",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case73@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2073"
+  },
+  {
+    "id": "en-scam-75",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case74@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2074"
+  },
+  {
+    "id": "en-scam-76",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case75@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2075"
+  },
+  {
+    "id": "en-scam-77",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case76@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2076"
+  },
+  {
+    "id": "en-scam-78",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case77@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2077"
+  },
+  {
+    "id": "en-scam-79",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case78@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2078"
+  },
+  {
+    "id": "en-scam-80",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case79@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2079"
+  },
+  {
+    "id": "en-scam-81",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case80@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2080"
+  },
+  {
+    "id": "en-scam-82",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case81@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2081"
+  },
+  {
+    "id": "en-scam-83",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case82@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2082"
+  },
+  {
+    "id": "en-scam-84",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case83@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2083"
+  },
+  {
+    "id": "en-scam-85",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case84@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2084"
+  },
+  {
+    "id": "en-scam-86",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case85@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2085"
+  },
+  {
+    "id": "en-scam-87",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case86@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2086"
+  },
+  {
+    "id": "en-scam-88",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case87@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2087"
+  },
+  {
+    "id": "en-scam-89",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case88@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2088"
+  },
+  {
+    "id": "en-scam-90",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case89@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2089"
+  },
+  {
+    "id": "en-scam-91",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case90@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2090"
+  },
+  {
+    "id": "en-scam-92",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case91@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2091"
+  },
+  {
+    "id": "en-scam-93",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case92@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2092"
+  },
+  {
+    "id": "en-scam-94",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case93@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2093"
+  },
+  {
+    "id": "en-scam-95",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case94@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2094"
+  },
+  {
+    "id": "en-scam-96",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case95@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2095"
+  },
+  {
+    "id": "en-scam-97",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case96@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2096"
+  },
+  {
+    "id": "en-scam-98",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case97@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2097"
+  },
+  {
+    "id": "en-scam-99",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case98@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2098"
+  },
+  {
+    "id": "en-scam-100",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case99@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2099"
+  },
+  {
+    "id": "en-scam-101",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case100@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2100"
+  },
+  {
+    "id": "en-scam-102",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case101@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2101"
+  },
+  {
+    "id": "en-scam-103",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case102@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2102"
+  },
+  {
+    "id": "en-scam-104",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case103@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2103"
+  },
+  {
+    "id": "en-scam-105",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case104@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2104"
+  },
+  {
+    "id": "en-scam-106",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case105@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2105"
+  },
+  {
+    "id": "en-scam-107",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case106@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2106"
+  },
+  {
+    "id": "en-scam-108",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case107@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2107"
+  },
+  {
+    "id": "en-scam-109",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case108@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2108"
+  },
+  {
+    "id": "en-scam-110",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case109@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2109"
+  },
+  {
+    "id": "en-scam-111",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case110@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2110"
+  },
+  {
+    "id": "en-scam-112",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case111@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2111"
+  },
+  {
+    "id": "en-scam-113",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case112@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2112"
+  },
+  {
+    "id": "en-scam-114",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case113@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2113"
+  },
+  {
+    "id": "en-scam-115",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case114@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2114"
+  },
+  {
+    "id": "en-scam-116",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case115@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2115"
+  },
+  {
+    "id": "en-scam-117",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case116@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2116"
+  },
+  {
+    "id": "en-scam-118",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case117@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2117"
+  },
+  {
+    "id": "en-scam-119",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case118@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2118"
+  },
+  {
+    "id": "en-scam-120",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case119@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2119"
+  },
+  {
+    "id": "en-scam-121",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case120@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2120"
+  },
+  {
+    "id": "en-scam-122",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case121@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2121"
+  },
+  {
+    "id": "en-scam-123",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case122@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2122"
+  },
+  {
+    "id": "en-scam-124",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case123@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2123"
+  },
+  {
+    "id": "en-scam-125",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case124@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2124"
+  },
+  {
+    "id": "en-scam-126",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case125@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2125"
+  },
+  {
+    "id": "en-scam-127",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case126@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2126"
+  },
+  {
+    "id": "en-scam-128",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case127@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2127"
+  },
+  {
+    "id": "en-scam-129",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case128@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2128"
+  },
+  {
+    "id": "en-scam-130",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case129@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2129"
+  },
+  {
+    "id": "en-scam-131",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case130@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2130"
+  },
+  {
+    "id": "en-scam-132",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case131@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2131"
+  },
+  {
+    "id": "en-scam-133",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case132@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2132"
+  },
+  {
+    "id": "en-scam-134",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case133@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2133"
+  },
+  {
+    "id": "en-scam-135",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case134@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2134"
+  },
+  {
+    "id": "en-scam-136",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case135@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2135"
+  },
+  {
+    "id": "en-scam-137",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case136@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2136"
+  },
+  {
+    "id": "en-scam-138",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case137@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2137"
+  },
+  {
+    "id": "en-scam-139",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case138@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2138"
+  },
+  {
+    "id": "en-scam-140",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case139@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2139"
+  },
+  {
+    "id": "en-scam-141",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case140@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2140"
+  },
+  {
+    "id": "en-scam-142",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case141@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2141"
+  },
+  {
+    "id": "en-scam-143",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case142@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2142"
+  },
+  {
+    "id": "en-scam-144",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case143@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2143"
+  },
+  {
+    "id": "en-scam-145",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case144@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2144"
+  },
+  {
+    "id": "en-scam-146",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case145@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2145"
+  },
+  {
+    "id": "en-scam-147",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case146@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2146"
+  },
+  {
+    "id": "en-scam-148",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case147@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2147"
+  },
+  {
+    "id": "en-scam-149",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case148@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2148"
+  },
+  {
+    "id": "en-scam-150",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case149@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2149"
+  },
+  {
+    "id": "en-scam-151",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case150@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2150"
+  },
+  {
+    "id": "en-scam-152",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case151@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2151"
+  },
+  {
+    "id": "en-scam-153",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case152@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2152"
+  },
+  {
+    "id": "en-scam-154",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case153@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2153"
+  },
+  {
+    "id": "en-scam-155",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case154@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2154"
+  },
+  {
+    "id": "en-scam-156",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case155@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2155"
+  },
+  {
+    "id": "en-scam-157",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case156@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2156"
+  },
+  {
+    "id": "en-scam-158",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case157@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2157"
+  },
+  {
+    "id": "en-scam-159",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case158@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2158"
+  },
+  {
+    "id": "en-scam-160",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case159@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2159"
+  },
+  {
+    "id": "en-scam-161",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case160@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2160"
+  },
+  {
+    "id": "en-scam-162",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case161@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2161"
+  },
+  {
+    "id": "en-scam-163",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case162@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2162"
+  },
+  {
+    "id": "en-scam-164",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case163@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2163"
+  },
+  {
+    "id": "en-scam-165",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case164@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2164"
+  },
+  {
+    "id": "en-scam-166",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case165@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2165"
+  },
+  {
+    "id": "en-scam-167",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case166@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2166"
+  },
+  {
+    "id": "en-scam-168",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case167@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2167"
+  },
+  {
+    "id": "en-scam-169",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case168@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2168"
+  },
+  {
+    "id": "en-scam-170",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case169@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2169"
+  },
+  {
+    "id": "en-scam-171",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case170@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2170"
+  },
+  {
+    "id": "en-scam-172",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case171@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2171"
+  },
+  {
+    "id": "en-scam-173",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case172@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2172"
+  },
+  {
+    "id": "en-scam-174",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case173@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2173"
+  },
+  {
+    "id": "en-scam-175",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case174@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2174"
+  },
+  {
+    "id": "en-scam-176",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case175@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2175"
+  },
+  {
+    "id": "en-scam-177",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case176@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2176"
+  },
+  {
+    "id": "en-scam-178",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case177@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2177"
+  },
+  {
+    "id": "en-scam-179",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case178@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2178"
+  },
+  {
+    "id": "en-scam-180",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case179@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2179"
+  },
+  {
+    "id": "en-scam-181",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case180@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2180"
+  },
+  {
+    "id": "en-scam-182",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case181@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2181"
+  },
+  {
+    "id": "en-scam-183",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case182@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2182"
+  },
+  {
+    "id": "en-scam-184",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case183@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2183"
+  },
+  {
+    "id": "en-scam-185",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case184@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2184"
+  },
+  {
+    "id": "en-scam-186",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case185@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2185"
+  },
+  {
+    "id": "en-scam-187",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case186@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2186"
+  },
+  {
+    "id": "en-scam-188",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case187@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2187"
+  },
+  {
+    "id": "en-scam-189",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case188@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2188"
+  },
+  {
+    "id": "en-scam-190",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case189@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2189"
+  },
+  {
+    "id": "en-scam-191",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case190@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2190"
+  },
+  {
+    "id": "en-scam-192",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case191@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2191"
+  },
+  {
+    "id": "en-scam-193",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case192@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2192"
+  },
+  {
+    "id": "en-scam-194",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case193@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2193"
+  },
+  {
+    "id": "en-scam-195",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case194@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2194"
+  },
+  {
+    "id": "en-scam-196",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case195@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2195"
+  },
+  {
+    "id": "en-scam-197",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Barclays Security <case196@notice-example.net>\nyour banking account is locked; send your OTP immediately at http://secure-bank.top/login. Case 2196"
+  },
+  {
+    "id": "en-scam-198",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Chase Security <case197@notice-example.net>\nunauthorized login detected; pay the urgent processing fee at https://xn--bank-9za.example/verify. Case 2197"
+  },
+  {
+    "id": "en-scam-199",
+    "language": "en",
+    "label": "scam",
+    "text": "From: HSBC Security <case198@notice-example.net>\nfunds will be frozen; open the attachment and enable macros at https://tinyurl.com/bank-check. Case 2198"
+  },
+  {
+    "id": "en-scam-200",
+    "language": "en",
+    "label": "scam",
+    "text": "From: Citibank Security <case199@notice-example.net>\nfinal security warning; confirm your password at http://203.0.113.17/auth. Case 2199"
+  },
+  {
+    "id": "en-safe-1",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4000: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-2",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4001: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-3",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4002: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-4",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4003: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-5",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4004: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-6",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4005: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-7",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4006: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-8",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4007: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-9",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4008: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-10",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4009: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-11",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4010: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-12",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4011: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-13",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4012: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-14",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4013: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-15",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4014: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-16",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4015: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-17",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4016: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-18",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4017: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-19",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4018: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-20",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4019: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-21",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4020: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-22",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4021: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-23",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4022: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-24",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4023: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-25",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4024: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-26",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4025: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-27",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4026: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-28",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4027: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-29",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4028: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-30",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4029: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-31",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4030: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-32",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4031: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-33",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4032: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-34",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4033: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-35",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4034: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-36",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4035: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-37",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4036: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-38",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4037: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-39",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4038: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-40",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4039: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-41",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4040: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-42",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4041: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-43",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4042: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-44",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4043: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-45",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4044: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-46",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4045: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-47",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4046: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-48",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4047: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-49",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4048: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-50",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4049: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-51",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4050: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-52",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4051: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-53",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4052: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-54",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4053: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-55",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4054: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-56",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4055: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-57",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4056: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-58",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4057: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-59",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4058: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-60",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4059: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-61",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4060: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-62",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4061: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-63",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4062: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-64",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4063: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-65",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4064: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-66",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4065: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-67",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4066: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-68",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4067: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-69",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4068: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-70",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4069: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-71",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4070: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-72",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4071: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-73",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4072: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-74",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4073: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-75",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4074: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-76",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4075: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-77",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4076: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-78",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4077: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-79",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4078: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-80",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4079: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-81",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4080: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-82",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4081: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-83",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4082: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-84",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4083: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-85",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4084: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-86",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4085: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-87",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4086: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-88",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4087: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-89",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4088: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-90",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4089: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-91",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4090: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-92",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4091: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-93",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4092: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-94",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4093: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-95",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4094: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-96",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4095: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-97",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4096: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-98",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4097: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-99",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4098: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-100",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4099: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-101",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4100: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-102",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4101: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-103",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4102: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-104",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4103: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-105",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4104: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-106",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4105: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-107",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4106: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-108",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4107: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-109",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4108: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-110",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4109: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-111",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4110: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-112",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4111: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-113",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4112: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-114",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4113: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-115",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4114: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-116",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4115: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-117",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4116: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-118",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4117: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-119",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4118: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-120",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4119: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-121",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4120: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-122",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4121: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-123",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4122: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-124",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4123: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-125",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4124: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-126",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4125: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-127",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4126: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-128",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4127: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-129",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4128: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-130",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4129: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-131",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4130: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-132",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4131: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-133",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4132: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-134",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4133: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-135",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4134: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-136",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4135: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-137",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4136: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-138",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4137: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-139",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4138: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-140",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4139: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-141",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4140: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-142",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4141: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-143",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4142: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-144",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4143: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-145",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4144: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-146",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4145: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-147",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4146: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-148",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4147: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-149",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4148: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-150",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4149: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-151",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4150: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-152",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4151: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-153",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4152: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-154",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4153: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-155",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4154: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-156",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4155: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-157",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4156: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-158",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4157: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-159",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4158: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-160",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4159: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-161",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4160: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-162",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4161: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-163",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4162: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-164",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4163: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-165",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4164: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-166",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4165: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-167",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4166: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-168",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4167: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-169",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4168: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-170",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4169: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-171",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4170: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-172",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4171: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-173",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4172: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-174",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4173: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-175",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4174: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-176",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4175: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-177",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4176: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-178",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4177: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-179",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4178: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-180",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4179: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-181",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4180: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-182",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4181: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-183",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4182: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-184",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4183: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-185",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4184: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-186",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4185: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-187",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4186: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-188",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4187: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-189",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4188: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-190",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4189: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-191",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4190: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-192",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4191: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-193",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4192: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-194",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4193: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-195",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4194: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-196",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4195: Security reminder: never share an OTP with anyone."
+  },
+  {
+    "id": "en-safe-197",
+    "language": "en",
+    "label": "safe",
+    "text": "Barclays notice 4196: Your monthly statement is available in the official banking app."
+  },
+  {
+    "id": "en-safe-198",
+    "language": "en",
+    "label": "safe",
+    "text": "Chase notice 4197: The branch appointment is confirmed for Tuesday."
+  },
+  {
+    "id": "en-safe-199",
+    "language": "en",
+    "label": "safe",
+    "text": "HSBC notice 4198: Thanks, the invoice was received and reconciled."
+  },
+  {
+    "id": "en-safe-200",
+    "language": "en",
+    "label": "safe",
+    "text": "Citibank notice 4199: Security reminder: never share an OTP with anyone."
+  }
+]
