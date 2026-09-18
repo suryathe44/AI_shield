@@ -21,7 +21,7 @@ Privacy-first, explainable scam and phishing detection using local ML, security 
 
 ## Chrome extension
 
-[Download Chrome extension ZIP](releases/ai-shield-chrome-1.0.0.zip) · [Extension privacy policy](docs/chrome-web-store/PRIVACY.md) · [Store listing preparation](docs/chrome-web-store/LISTING.md)
+[Download Chrome extension ZIP](releases/ai-shield-chrome-1.1.0.zip) · [Extension privacy policy](docs/chrome-web-store/PRIVACY.md) · [Store listing preparation](docs/chrome-web-store/LISTING.md)
 
 Extract the ZIP, open `chrome://extensions`, enable Developer mode, and select the extracted folder with **Load unpacked**. Web Store publication is deferred; no store listing is live.
 
@@ -37,7 +37,9 @@ npm run build:extension
 4. Pin AI Shield from Chrome's Extensions menu.
 5. Paste a message and choose **Analyze message**, or open a webpage and choose **Scan selected text** / **Scan current page**.
 
-Each scan button authorizes that local scan. The existing detection engine and corpus are bundled; no backend or internet connection is required for analysis. No scan history or message content is persisted, and the extension blocks outgoing connections. It requests only `activeTab` and `scripting`, following [Chrome's temporary active-tab access model](https://developer.chrome.com/docs/extensions/develop/concepts/activeTab).
+Each scan button authorizes that local scan. The versioned 130 KB detector model is bundled; no backend or internet connection is required for analysis. No scan history or message content is persisted, and the extension blocks outgoing connections. It requests only `activeTab` and `scripting`, following [Chrome's temporary active-tab access model](https://developer.chrome.com/docs/extensions/develop/concepts/activeTab).
+
+Version 1.1 adds UPI collect-request and receive-money scam warnings. A legitimate UPI receipt or a reminder not to share a PIN should not by itself trigger a scam verdict. This is still an advisory prototype: a SAFE result means no suspicious patterns were found in the scanned text, and users should verify sensitive requests through an official channel. See the [startup launch gates](docs/STARTUP-READINESS.md) before making a production claim.
 
 Page scanning includes the current URL and rendered main-frame body text, capped at 20,000 characters. It does not perform OCR, read cross-origin frames, inspect actual link destinations, query URL reputation services, or automatically block websites. Chrome internal pages and other restricted pages cannot be scanned; paste text instead. Results are heuristic guidance, not proof that a site is safe. Closing the popup clears its content and result.
 
@@ -51,7 +53,7 @@ AI Shield provides a web dashboard and a standalone Chrome extension. The web ap
 
 It combines three detection layers to produce an explainable **0–100 risk score** and a verdict of **SAFE**, **SUSPICIOUS**, or **SCAM**:
 
-1. **Local ML classification** — a Naive Bayes classifier trained from an embedded scam corpus.
+1. **Local ML classification** — a compact Naive Bayes classifier trained on a versioned phishing dataset.
 2. **Rule-based threat detection** — indicators for phishing links, credential theft, payment redirection, remote-access requests, and malware-style prompts.
 3. **Behavioral risk analysis** — patterns such as urgency, fear, fake authority, secrecy pressure, coercion, and reward bait.
 
