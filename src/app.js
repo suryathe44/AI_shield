@@ -160,6 +160,9 @@ export function createAiShieldApp(overrides = {}) {
     }
   });
 
+  // Dispose only the limiter owned by this app; injected limiters belong to callers.
+  if (!overrides.rateLimiter) server.once("close", () => rateLimiter.dispose());
+
   return {
     server,
     config,
