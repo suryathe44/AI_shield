@@ -1,7 +1,7 @@
 import { MAX_CONTENT_LENGTH } from "./constants.js";
 
 const CONTROL_CHARS = /[\u0000-\u001f\u007f]/g;
-const WORD_REGEX = /[a-z0-9]+/g;
+const WORD_REGEX = /[\p{L}\p{N}]+/gu;
 const URL_REGEX = /\b(?:https?:\/\/|www\.|[a-z0-9-]+\.[a-z]{2,})(?:[^\s<>"']*)/gi;
 
 export function sanitizeContent(value, maxLength = MAX_CONTENT_LENGTH) {

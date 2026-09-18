@@ -17,37 +17,20 @@ import {
   stripSubdomain,
   tokenize,
 } from "./textUtils.js";
-import { TRAINING_CORPUS } from "./trainingCorpus.js";
+import { MODEL_DATA } from "./modelData.js";
 import { attachFrameworkMappings } from "./frameworkMappings.js";
 
-const LABELS = ["safe", "suspicious", "scam"];
-const MODEL = trainModel(TRAINING_CORPUS);
-
-function trainModel(corpus) {
-  const docCounts = Object.fromEntries(LABELS.map((label) => [label, 0]));
-  const tokenCounts = Object.fromEntries(LABELS.map((label) => [label, new Map()]));
-  const totalTokens = Object.fromEntries(LABELS.map((label) => [label, 0]));
-  const vocabulary = new Set();
-
-  for (const sample of corpus) {
-    docCounts[sample.label] += 1;
-    const tokens = tokenize(sample.text);
-
-    for (const token of tokens) {
-      vocabulary.add(token);
-      tokenCounts[sample.label].set(token, (tokenCounts[sample.label].get(token) ?? 0) + 1);
-      totalTokens[sample.label] += 1;
-    }
-  }
-
-  return {
-    docCounts,
-    tokenCounts,
-    totalDocs: corpus.length,
-    totalTokens,
-    vocabulary: Array.from(vocabulary),
-  };
-}
+const LABELS = MODEL_DATA.labels;
+const MODEL = {
+  ...MODEL_DATA,
+  tokenCounts: Object.fromEntries(
+    MODEL_DATA.labels.map((label) => [label, new Map(Object.entries(MODEL_DATA.tokenCounts[label]))]),
+  ),
+  vocabulary: new Set([
+    ...Object.keys(MODEL_DATA.tokenCounts.safe),
+    ...Object.keys(MODEL_DATA.tokenCounts.scam),
+  ]),
+};
 
 function softmax(logScores) {
   const maxLog = Math.max(...Object.values(logScores));
@@ -60,21 +43,17 @@ function softmax(logScores) {
 }
 
 function summarizeMlSignals(tokens) {
-  const vocabularySize = MODEL.vocabulary.length || 1;
-  const uniqueTokens = Array.from(new Set(tokens));
+  const vocabularySize = MODEL.vocabularySize || 1;
+  const uniqueTokens = Array.from(new Set(tokens)).filter((token) => MODEL.vocabulary.has(token));
   const tokenSignals = uniqueTokens
     .map((token) => {
       const scamLikelihood =
         Math.log(((MODEL.tokenCounts.scam.get(token) ?? 0) + 1) / (MODEL.totalTokens.scam + vocabularySize)) -
         Math.log(((MODEL.tokenCounts.safe.get(token) ?? 0) + 1) / (MODEL.totalTokens.safe + vocabularySize));
 
-      const suspiciousLikelihood =
-        Math.log(((MODEL.tokenCounts.suspicious.get(token) ?? 0) + 1) / (MODEL.totalTokens.suspicious + vocabularySize)) -
-        Math.log(((MODEL.tokenCounts.safe.get(token) ?? 0) + 1) / (MODEL.totalTokens.safe + vocabularySize));
-
       return {
         token,
-        impact: Math.max(scamLikelihood, suspiciousLikelihood),
+        impact: scamLikelihood,
       };
     })
     .filter((entry) => entry.impact > 0.25)
@@ -85,7 +64,8 @@ function summarizeMlSignals(tokens) {
 
 function runMlClassifier(text) {
   const tokens = tokenize(text);
-  const vocabularySize = MODEL.vocabulary.length || 1;
+  const normalized = normalizeText(text);
+  const vocabularySize = MODEL.vocabularySize || 1;
   const logScores = {};
 
   for (const label of LABELS) {
@@ -93,6 +73,7 @@ function runMlClassifier(text) {
     let score = Math.log(prior);
 
     for (const token of tokens) {
+      if (!MODEL.vocabulary.has(token)) continue;
       const frequency = MODEL.tokenCounts[label].get(token) ?? 0;
       score += Math.log((frequency + 1) / (MODEL.totalTokens[label] + vocabularySize));
     }
@@ -101,12 +82,14 @@ function runMlClassifier(text) {
   }
 
   const probabilities = softmax(logScores);
-  const riskScore = Math.round(clamp(probabilities.scam * 100 + probabilities.suspicious * 55, 0, 100));
+  probabilities.suspicious = 0;
+  const riskScore = Math.round(clamp(probabilities.scam * 100, 0, 100));
 
   return {
     probabilities,
     riskScore,
     topIndicators: summarizeMlSignals(tokens),
+    negatedSafetyAdvice: /\b(?:no|never|do not|don't)\b.{0,45}\b(?:share|send|required|payment|otp|password|verification)\b/i.test(normalized),
   };
 }
 
@@ -117,10 +100,50 @@ function buildEvidence(text, terms) {
   }));
 }
 
-function detectRules(text) {
+function isSafetyReminder(text) {
+  const normalized = normalizeText(text);
+  const advisesAgainstSharing = /\b(?:never|do not|don't)\s+(?:enter|share|send|reveal)\b|\b(?:mat batana|mat bhejo|share mat|pin ya otp kisi ko mat|share na karein)\b|(?:कभी|किसी को)\s+(?:भी\s+)?(?:पिन|ओटीपी).{0,20}(?:न दें|मत बताएं|साझा न करें)/i.test(normalized);
+  if (!advisesAgainstSharing) return false;
+  const hasCoercion = /\b(?:urgent|immediately|kyc blocked|account band|verify now|click here|lekin|magar|however|but)\b|खाता बंद|तुरंत|[.!?]\s*(?:enter|send|share|approve|click|bhejo|batao)\b/i.test(normalized);
+  return !hasCoercion && extractUrls(text).length === 0;
+}
+
+const BRAND_DOMAINS = Object.freeze({
+  amazon: ["amazon.com", "amazon.in"],
+  google: ["google.com"],
+  hdfc: ["hdfcbank.com"],
+  icici: ["icicibank.com"],
+  microsoft: ["microsoft.com"],
+  paypal: ["paypal.com"],
+  paytm: ["paytm.com"],
+  sbi: ["sbi.co.in"],
+});
+
+function detectSenderMismatch(text) {
+  const header = String(text).split(/\r?\n/, 1)[0];
+  const match = header.match(/^(?:from:\s*)?["']?([^<"']+?)["']?\s*<[^@<>\s]+@([^<>\s]+)>/i);
+  if (!match) return null;
+  const displayName = normalizeText(match[1]);
+  const senderDomain = stripSubdomain(match[2].toLowerCase().replace(/[>,;].*$/, ""));
+  const brand = Object.keys(BRAND_DOMAINS).find((name) => displayName.includes(name));
+  if (!brand || BRAND_DOMAINS[brand].some((domain) => senderDomain === domain || senderDomain.endsWith(`.${domain}`))) {
+    return null;
+  }
+  return {
+    id: "sender_domain_mismatch",
+    label: "Sender identity mismatch",
+    weight: 24,
+    reason: `The display name claims ${brand}, but the sender domain is ${senderDomain}.`,
+    evidence: [{ label: `${match[1].trim()} <…@${senderDomain}>`, snippet: safePreview(header, 120) }],
+  };
+}
+
+function detectRules(text, safetyReminder = false) {
   const normalized = normalizeText(text);
   const urls = extractUrls(text);
   const hits = [];
+  const senderMismatch = detectSenderMismatch(text);
+  if (senderMismatch) hits.push(senderMismatch);
 
   if (urls.length > 0) {
     const issues = [];
@@ -164,7 +187,7 @@ function detectRules(text) {
   }
 
   const credentialTerms = findMatchedTerms(normalized, KEYWORD_GROUPS.credentials);
-  if (credentialTerms.length > 0) {
+  if (credentialTerms.length > 0 && !safetyReminder) {
     hits.push({
       id: "credential_request",
       label: "Credential request",
@@ -175,13 +198,25 @@ function detectRules(text) {
   }
 
   const paymentTerms = findMatchedTerms(normalized, KEYWORD_GROUPS.payments);
-  if (paymentTerms.length > 0) {
+  if (paymentTerms.length > 0 && !safetyReminder) {
     hits.push({
       id: "payment_redirection",
       label: "High-risk payment request",
       weight: 20,
       reason: "The sender requests payment through channels that are commonly abused in scams.",
       evidence: buildEvidence(text, paymentTerms),
+    });
+  }
+
+  const receiveClaim = /\b(?:receive|refund|lottery|prize|cashback|paise milenge|paisa milega)\b|पैसे मिलेंगे|इनाम/i.test(normalized);
+  const collectAction = /\b(?:upi pin|approve (?:the |this )?collect request|scan (?:the |this )?qr|qr scan)\b|यूपीआई पिन|कलेक्ट रिक्वेस्ट/i.test(normalized);
+  if (receiveClaim && collectAction && !safetyReminder) {
+    hits.push({
+      id: "upi_collect_deception",
+      label: "UPI receive-money deception",
+      weight: 30,
+      reason: "The message links receiving money or a prize to a UPI PIN, collect approval, or QR scan. Verify independently before acting.",
+      evidence: [{ label: "UPI receive-money request", snippet: safePreview(text, 120) }],
     });
   }
 
@@ -247,8 +282,9 @@ function detectRules(text) {
   return hits;
 }
 
-function detectBehaviorSignals(text) {
+function detectBehaviorSignals(text, safetyReminder = false) {
   return BEHAVIOR_SIGNALS.flatMap((signal) => {
+    if (safetyReminder && ["credential_harvest", "payment_pressure"].includes(signal.id)) return [];
     const matches = findMatchedTerms(text, signal.phrases);
     if (matches.length === 0) {
       return [];
@@ -267,6 +303,10 @@ function detectBehaviorSignals(text) {
 function buildRecommendations(classification, ruleHits) {
   const recommendations = [];
 
+  if (ruleHits.some((hit) => hit.id === "upi_collect_deception")) {
+    recommendations.push("Do not enter a UPI PIN or approve a collect request to receive money. Check the transaction in your own UPI app.");
+  }
+
   if (classification === "SCAM") {
     recommendations.push("Do not click links, open attachments, reply, or send money.");
     recommendations.push("Verify the request using a trusted channel you already know.");
@@ -275,7 +315,7 @@ function buildRecommendations(classification, ruleHits) {
     recommendations.push("Pause before acting and verify the sender independently.");
     recommendations.push("Avoid sharing passwords, OTPs, payment details, or confidential data.");
   } else {
-    recommendations.push("No major scam indicators were found, but continue normal verification habits.");
+    recommendations.push("Verify via an official channel before sharing sensitive information or making payments.");
   }
 
   if (ruleHits.some((hit) => hit.id === "credential_request")) {
@@ -303,6 +343,7 @@ function classifyRisk(riskScore, ruleHits, behaviorHits, mlResult) {
   const advanceFeeOpportunity =
     ruleHits.some((hit) => hit.id === "fraudulent_opportunity") &&
     ruleHits.some((hit) => hit.id === "payment_redirection");
+  const upiReceiveDeception = ruleHits.some((hit) => hit.id === "upi_collect_deception");
 
   if (
     riskScore >= CLASSIFICATION_THRESHOLDS.scam ||
@@ -310,14 +351,15 @@ function classifyRisk(riskScore, ruleHits, behaviorHits, mlResult) {
     paymentAndUrgency ||
     credentialPressure ||
     advanceFeeOpportunity ||
-    (mlResult.probabilities.scam > 0.8 && ruleHits.length > 0)
+    upiReceiveDeception ||
+    (mlResult.probabilities.scam > 0.8 && ruleHits.length > 0 && !mlResult.negatedSafetyAdvice && !mlResult.suppressed)
   ) {
     return "SCAM";
   }
 
   if (
     riskScore >= CLASSIFICATION_THRESHOLDS.suspicious ||
-    mlResult.probabilities.scam > 0.45 ||
+    (mlResult.probabilities.scam > 0.45 && !mlResult.negatedSafetyAdvice && !mlResult.suppressed) ||
     ruleHits.length >= 2
   ) {
     return "SUSPICIOUS";
@@ -364,9 +406,21 @@ export function analyzeContent({ content, source = "message" }) {
     });
   }
 
-  const ruleHits = detectRules(original);
-  const behaviorHits = detectBehaviorSignals(original);
+  const safetyReminder = isSafetyReminder(original);
+  const ruleHits = detectRules(original, safetyReminder);
+  const behaviorHits = detectBehaviorSignals(original, safetyReminder);
   const mlResult = runMlClassifier(original);
+  if (safetyReminder) {
+    mlResult.riskScore = 0;
+    mlResult.topIndicators = [];
+    mlResult.suppressed = true;
+  } else if (ruleHits.length === 0 && behaviorHits.length === 0 && tokenize(original).length <= 60) {
+    // Short, evidence-free text is outside the email-trained model's reliable
+    // domain; do not turn a bare transaction receipt into a fraud warning.
+    mlResult.riskScore = Math.min(mlResult.riskScore, 34);
+    mlResult.topIndicators = [];
+    mlResult.suppressed = true;
+  }
   const ruleScore = clamp(ruleHits.reduce((sum, hit) => sum + hit.weight, 0), 0, 100);
   const behaviorScore = clamp(behaviorHits.reduce((sum, hit) => sum + hit.weight, 0), 0, 100);
 
@@ -440,7 +494,7 @@ export function analyzeContent({ content, source = "message" }) {
       ? "This content shows multiple coordinated scam indicators and should be treated as hostile."
       : classification === "SUSPICIOUS"
         ? "This content shows enough phishing or manipulation signals to warrant verification before any action."
-        : "No dominant scam pattern was detected, though normal caution is still recommended.";
+        : "No suspicious patterns found, but verify via official channel.";
 
   return attachFrameworkMappings({
     source,

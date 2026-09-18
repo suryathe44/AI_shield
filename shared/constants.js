@@ -46,6 +46,8 @@ export const KEYWORD_GROUPS = Object.freeze({
     "abhi karo",
     "turant",
     "jaldi",
+    "तुरंत",
+    "अभी",
   ],
   fear: [
     "suspended",
@@ -60,6 +62,9 @@ export const KEYWORD_GROUPS = Object.freeze({
     "terminated",
     "unauthorized login",
     "kyc blocked",
+    "kyc band",
+    "account band",
+    "खाता बंद",
     "sim will be blocked",
   ],
   authority: [
@@ -114,6 +119,8 @@ export const KEYWORD_GROUPS = Object.freeze({
     "card pin",
     "cvv number",
     "upi pin",
+    "यूपीआई पिन",
+    "ओटीपी",
   ],
   payments: [
     "gift card",
@@ -126,8 +133,9 @@ export const KEYWORD_GROUPS = Object.freeze({
     "prepaid card",
     "send payment",
     "invoice overdue",
-    "upi payment",
     "scan qr",
+    "qr scan",
+    "पैसे भेजो",
     "processing fee",
     "registration fee",
     "investment return",
