@@ -2,7 +2,7 @@
 
 Effective date: September 13, 2026
 
-This policy applies to the AI Shield Chrome extension, version 1.0.0. The separate AI Shield website and API have different workflows and are not used by this extension.
+This policy applies to the AI Shield Chrome extension, version 1.1.0. The separate AI Shield website and API have different workflows and are not used by this extension.
 
 ## Content processed locally
 

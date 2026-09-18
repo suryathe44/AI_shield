@@ -1,15 +1,15 @@
-# Chrome Web Store listing — AI Shield 1.0.0
+# Chrome Web Store listing — AI Shield 1.1.0
 
 ## Name
 AI Shield
 
 ## Summary
-Inspect messages, selected text and pages for scam signals locally.
+Check UPI, banking and message scam signals locally before you act.
 
 ## Description
 Pause before you click, reply, or share sensitive information. AI Shield helps you inspect suspicious messages and webpage text for scam and phishing signals, directly in your browser.
 
-• Paste an email, SMS, chat, or suspicious URL and analyze it.
+• Paste a UPI, banking, email, SMS, chat, or suspicious URL message and analyze it.
 • Select text on a webpage and scan your selection.
 • Scan the current page's URL and rendered text with one click.
 • Review a 0–100 risk score, SAFE / SUSPICIOUS / SCAM verdict, explanations, and practical next steps.
@@ -48,7 +48,7 @@ No login, payment, API key, or server setup is needed to use the extension.
 6. Empty selection should explain how to retry. Internal Chrome pages should offer paste as a fallback.
 
 ## Files
-Upload releases/ai-shield-chrome-1.0.0.zip. Icons are inside the package.
+Upload releases/ai-shield-chrome-1.1.0.zip when you decide to publish. Icons are inside the package.
 Use promo-440x280.png as the small promotional tile.
 A real UI screenshot at 1280×800 or 640×400 must also be supplied.
 
