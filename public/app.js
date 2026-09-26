@@ -28,6 +28,7 @@ const storeLogConsent = document.getElementById("storeLogConsent");
 const snippetConsent = document.getElementById("snippetConsent");
 const serverAnalyzeButton = document.getElementById("serverAnalyzeButton");
 const messageStatus = document.getElementById("messageStatus");
+const demoMessageButton = document.getElementById("demoMessageButton");
 
 const screenInput = document.getElementById("screenInput");
 const screenConsent = document.getElementById("screenConsent");
@@ -460,6 +461,14 @@ sourceSelect.addEventListener("change", analyzeMessageLocally);
 processConsent.addEventListener("change", analyzeMessageLocally);
 storeLogConsent.addEventListener("change", syncConsentControls);
 serverAnalyzeButton.addEventListener("click", verifyMessageWithApi);
+demoMessageButton.addEventListener("click", () => {
+  messageInput.value = "₹5,000 refund paane ke liye UPI PIN enter karo aur collect request approve karo.";
+  sourceSelect.value = "sms";
+  processConsent.checked = true;
+  analyzeMessageLocally();
+  messageInput.scrollIntoView({ behavior: "smooth", block: "center" });
+  messageInput.focus();
+});
 
 screenInput.addEventListener("input", debouncedScreenAnalysis);
 screenConsent.addEventListener("change", analyzeScreenLocally);
